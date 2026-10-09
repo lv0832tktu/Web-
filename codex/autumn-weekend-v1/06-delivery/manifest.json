@@ -1,0 +1,76 @@
+{
+  "delivery": [
+    {
+      "file": "06-delivery/B01.png",
+      "bytes": 407050
+    },
+    {
+      "file": "06-delivery/B01.svg",
+      "bytes": 6236699
+    },
+    {
+      "file": "06-delivery/P01.png",
+      "bytes": 1065881
+    },
+    {
+      "file": "06-delivery/P01.svg",
+      "bytes": 15444729
+    },
+    {
+      "file": "06-delivery/P02.png",
+      "bytes": 510254
+    },
+    {
+      "file": "06-delivery/P02.svg",
+      "bytes": 9734060
+    },
+    {
+      "file": "06-delivery/P03.png",
+      "bytes": 1302844
+    },
+    {
+      "file": "06-delivery/P03.svg",
+      "bytes": 8814403
+    },
+    {
+      "file": "06-delivery/P04.png",
+      "bytes": 860920
+    },
+    {
+      "file": "06-delivery/P04.svg",
+      "bytes": 6236748
+    },
+    {
+      "file": "06-delivery/P05.png",
+      "bytes": 1127923
+    },
+    {
+      "file": "06-delivery/P05.svg",
+      "bytes": 6961962
+    },
+    {
+      "file": "06-delivery/P06.png",
+      "bytes": 102217
+    },
+    {
+      "file": "06-delivery/P06.svg",
+      "bytes": 3248102
+    },
+    {
+      "file": "06-delivery/asset-ledger.json",
+      "bytes": 12757
+    },
+    {
+      "file": "06-delivery/copy-and-alt.json",
+      "bytes": 4499
+    }
+  ],
+  "support": [
+    "README.md",
+    "fonts/",
+    "assets/",
+    "evidence/",
+    "05-qa/"
+  ],
+  "status": "HUMAN_REVIEW_NOT_RELEASED"
+}

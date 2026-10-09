@@ -1,0 +1,96 @@
+{
+  "artwork": [
+    {
+      "id": "P01",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    },
+    {
+      "id": "P02",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    },
+    {
+      "id": "P03",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    },
+    {
+      "id": "P04",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    },
+    {
+      "id": "P05",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    },
+    {
+      "id": "P06",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    },
+    {
+      "id": "B01",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "copy": "PASS",
+      "reexportBytes": "PASS",
+      "mode": "RGB"
+    }
+  ],
+  "contrastOnSurface": {
+    "ink": 11.944995209087239,
+    "accent": 4.876852342745901,
+    "forest": 6.986326162273259
+  },
+  "safeArea": "PASS",
+  "sha256": {
+    "06-delivery/B01.png": "d6f3744fc39b24b3c948b2f53493ce893fcaea7dedc3be64472d308f691106d7",
+    "06-delivery/B01.svg": "33c4924e46140729c494adaf438ddec6903d0d5ae350225c0efda1c690010d3a",
+    "06-delivery/P01.png": "bd851481ff32c2c1fe84f2749d24acd4c488d86694ed8c54e0fd1c3e4c028115",
+    "06-delivery/P01.svg": "409c525ea41d085d4b8d3184cb7134f1262671fcb6f3fd1af3dfb3fd25e1c4e1",
+    "06-delivery/P02.png": "83d78f03dd99a1faaffb1f8478112080bd2ff09e5984d8b973d2bec0dd1abcdb",
+    "06-delivery/P02.svg": "80f12d3198fae1a5ecf239539f8c0c6092843d400d6a8e351fff26366f356d10",
+    "06-delivery/P03.png": "3d6500a29dd98b610e17164a08c8bd04b943d4967ca9a99d38637cf25d151517",
+    "06-delivery/P03.svg": "c9ebaee7f70302f5a44a619d869c100c2dc803ceecfe76269c7f262f9e2a1584",
+    "06-delivery/P04.png": "e59d2846d92af6813013e4eefdcb3ec0e82f02f0b809a9cb3858b2dfae093a0e",
+    "06-delivery/P04.svg": "3dd1d92a0a5121ee3921f69c007554fbba461ec76d27cc0af8be77a4870ade26",
+    "06-delivery/P05.png": "01a6fb944cb389d498b5399b770c2ab9d408adf65868d2ca8e715fd254275a3a",
+    "06-delivery/P05.svg": "04d41bb2b0606076dc582319affa4da181ff7f894e6314da3bf597e931320317",
+    "06-delivery/P06.png": "e914926db3a06dd2a551c3fd99b56e7ae1d0fdab6b3531c499c1004f3a1ece1a",
+    "06-delivery/P06.svg": "44b5f33489a81bac8f3848cce8dc54393b821cf54a0e2e84f9c4ed4eacb840a8"
+  }
+}

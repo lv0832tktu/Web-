@@ -1,0 +1,63 @@
+
+> ai-web-design-production-system@0.1.0 test:e2e
+> playwright test --output=/tmp/autumn-e2e-final
+
+[WebServer] (node:7453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:7466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 33 tests using 2 workers
+
+(node:7484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › e2e/mock-workflow.spec.ts:5:1 › mock project illustrations, layout, FAQ and accessibility (2.2s)
+  ✓   3 [desktop] › e2e/mock-workflow.spec.ts:21:1 › mock navigation keyboard and outside closing, CTA (908ms)
+  ✓   4 [desktop] › e2e/mock-workflow.spec.ts:39:1 › mock invalid input rejected; valid fictional memo downloaded locally (725ms)
+  ✓   5 [desktop] › e2e/mock-workflow.spec.ts:66:1 › mock reduced motion and doubled text retain readable layout (472ms)
+  ✓   6 [desktop] › e2e/mock-workflow.spec.ts:78:1 › mock without JavaScript retains content, navigation and fallback (388ms)
+(node:8042) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop] › e2e/site.spec.ts:4:1 › landmarks, sections and complete screenshots (5.6s)
+  ✓   8 [desktop] › e2e/site.spec.ts:23:1 › no horizontal overflow or clipped headings (876ms)
+  ✓   9 [desktop] › e2e/site.spec.ts:34:1 › reduced motion keeps all content visible (578ms)
+  ✓  10 [desktop] › e2e/site.spec.ts:40:1 › navigation supports keyboard, Escape and section focus (591ms)
+  ✓   7 [tablet] › e2e/mock-workflow.spec.ts:5:1 › mock project illustrations, layout, FAQ and accessibility (2.3s)
+  ✓  11 [desktop] › e2e/site.spec.ts:70:1 › skip link moves keyboard focus to main content (542ms)
+  ✓  13 [desktop] › e2e/site.spec.ts:78:1 › content and navigation work without JavaScript (655ms)
+(node:8415) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [tablet] › e2e/mock-workflow.spec.ts:21:1 › mock navigation keyboard and outside closing, CTA (1.2s)
+  ✓  14 [tablet] › e2e/mock-workflow.spec.ts:39:1 › mock invalid input rejected; valid fictional memo downloaded locally (839ms)
+  ✓  16 [tablet] › e2e/mock-workflow.spec.ts:66:1 › mock reduced motion and doubled text retain readable layout (719ms)
+  ✓  17 [tablet] › e2e/mock-workflow.spec.ts:78:1 › mock without JavaScript retains content, navigation and fallback (417ms)
+(node:8647) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [mobile] › e2e/mock-workflow.spec.ts:5:1 › mock project illustrations, layout, FAQ and accessibility (2.6s)
+  ✓  15 [tablet] › e2e/site.spec.ts:4:1 › landmarks, sections and complete screenshots (5.3s)
+  ✓  20 [tablet] › e2e/site.spec.ts:23:1 › no horizontal overflow or clipped headings (794ms)
+  ✓  21 [tablet] › e2e/site.spec.ts:34:1 › reduced motion keeps all content visible (629ms)
+  ✓  19 [mobile] › e2e/mock-workflow.spec.ts:21:1 › mock navigation keyboard and outside closing, CTA (1.9s)
+  ✓  22 [tablet] › e2e/site.spec.ts:40:1 › navigation supports keyboard, Escape and section focus (1.2s)
+  ✓  23 [mobile] › e2e/mock-workflow.spec.ts:39:1 › mock invalid input rejected; valid fictional memo downloaded locally (1.2s)
+  ✓  24 [tablet] › e2e/site.spec.ts:70:1 › skip link moves keyboard focus to main content (819ms)
+  ✓  25 [mobile] › e2e/mock-workflow.spec.ts:66:1 › mock reduced motion and doubled text retain readable layout (887ms)
+  ✓  26 [tablet] › e2e/site.spec.ts:78:1 › content and navigation work without JavaScript (746ms)
+  ✓  27 [mobile] › e2e/mock-workflow.spec.ts:78:1 › mock without JavaScript retains content, navigation and fallback (837ms)
+(node:9257) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  28 [mobile] › e2e/site.spec.ts:4:1 › landmarks, sections and complete screenshots (7.7s)
+  ✓  29 [mobile] › e2e/site.spec.ts:23:1 › no horizontal overflow or clipped headings (530ms)
+  ✓  30 [mobile] › e2e/site.spec.ts:34:1 › reduced motion keeps all content visible (382ms)
+  ✓  31 [mobile] › e2e/site.spec.ts:40:1 › navigation supports keyboard, Escape and section focus (572ms)
+  ✓  32 [mobile] › e2e/site.spec.ts:70:1 › skip link moves keyboard focus to main content (389ms)
+  ✓  33 [mobile] › e2e/site.spec.ts:78:1 › content and navigation work without JavaScript (329ms)
+
+  33 passed (32.5s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

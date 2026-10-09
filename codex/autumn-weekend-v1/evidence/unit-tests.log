@@ -1,0 +1,29 @@
+
+> ai-web-design-production-system@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ valid handoff produces deterministic ten-role task plan (21.349061ms)
+✔ malformed JSON and missing documents fail (6.13261ms)
+✔ unlinked requirements, unknown crossrefs, placeholders and unsafe slugs fail (18.37708ms)
+✔ changed markdown or edited plan invalidates manifest (18.028095ms)
+✔ no overwrite and no symlink traversal (7.62512ms)
+✔ package copies static output only and retains pending review (22.741934ms)
+✔ facet filtering combines dimensions with AND and values with OR (3.31738ms)
+✔ ranking explains keyword field contributions and resolves ties deterministically (1.034295ms)
+✔ parser keeps positional keywords and supports inline flags (0.194867ms)
+✔ invalid and ambiguous CLI options fail explicitly (33.081465ms)
+✔ CLI emits compatible JSON fields and explicit fictional provenance (43.577233ms)
+✔ reference IDs unique (0.612633ms)
+✔ reference metadata complete (0.20352ms)
+✔ Git receipt receives an immutable snapshot and detects source/file conflicts (347.256247ms)
+✔ handoff validates the supplied demo (32.858542ms)
+✔ handoff rejects missing and whitespace-only artifacts (72.228427ms)
+✔ reference search handles matching and unmatched queries (60.25376ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 447.296892

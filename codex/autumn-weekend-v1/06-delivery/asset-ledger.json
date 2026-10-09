@@ -1,0 +1,251 @@
+{
+  "assets": [
+    {
+      "assetId": "IMG01",
+      "contentId": "IMG01",
+      "sceneId": "IMG01",
+      "personId": null,
+      "tool": "image_gen.imagegen",
+      "generatedAt": "2026-10-09T19:17:25.353058+09:00",
+      "prompt": "Create ONE high resolution natural editorial photograph for fictional self initiated lifestyle brand 秋じかん. ブラウンのニット・バッグ・秋服の平置き. 縦4:5。自然光の室内、無地の衣服、木の机、生成文字・ロゴ・人物なし。布の繊維感を残し過剰なぼけなし。上部に余白. Portrait 4:5 composition. No text, letters, logos, watermarks or branded items. Realistic soft daylight, natural materials and contact shadows, muted warm brown, cream and forest green. No exaggerated HDR, plastic texture or excessive blur. Not a contact sheet. ",
+      "source": "AI-generated fictional scene, no customer or competitor media",
+      "originalPath": "assets/IMG01.png",
+      "sha256": "8cd5535ba089d2724b3634825c7f9a08a5ddaf909615170d0c5d91682edf782d",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "placement": [
+        "P01 teaser",
+        "P02 clothing"
+      ],
+      "edits": "Original pixels unchanged; SVG rounded viewport and center crop only",
+      "reuseReason": "Cover previews same ideas. B01 uses IMG04 recrop as explicitly specified. Independent theme hero photos differ.",
+      "licenseStatus": "UNVERIFIED",
+      "humanRightsReview": "NOT_RUN",
+      "termsReviewDate": null,
+      "reviewer": null,
+      "visualReview": "independent QA report"
+    },
+    {
+      "assetId": "IMG02",
+      "contentId": "IMG02",
+      "sceneId": "IMG02",
+      "personId": "fictional-adult-hand-01",
+      "tool": "image_gen.imagegen",
+      "generatedAt": "2026-10-09T19:17:50.884771+09:00",
+      "prompt": "Create ONE high resolution natural editorial photograph for fictional self initiated lifestyle brand 秋じかん. 控えめなブラウンネイルの手元. 縦4:5。成人の手が無地のカップを持つ、短い爪、無地背景、指の本数と関節が自然。文字・ロゴなし。手の破綻は再生成. Portrait 4:5 composition. No text, letters, logos, watermarks or branded items. Realistic soft daylight, natural materials and contact shadows, muted warm brown, cream and forest green. No exaggerated HDR, plastic texture or excessive blur. Not a contact sheet. A single adult hand, anatomically correct five fingers and natural joints; nails short and painted understated brown.",
+      "source": "AI-generated fictional scene, no customer or competitor media",
+      "originalPath": "assets/IMG02.png",
+      "sha256": "f3b947e944ee6ba0b42b4b060407e6f66a000ae0fc3180cc09782a8b7e45ad59",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "placement": [
+        "P02 nail"
+      ],
+      "edits": "Original pixels unchanged; SVG rounded viewport and center crop only",
+      "reuseReason": "Cover previews same ideas. B01 uses IMG04 recrop as explicitly specified. Independent theme hero photos differ.",
+      "licenseStatus": "UNVERIFIED",
+      "humanRightsReview": "NOT_RUN",
+      "termsReviewDate": null,
+      "reviewer": null,
+      "visualReview": "independent QA report"
+    },
+    {
+      "assetId": "IMG03",
+      "contentId": "IMG03",
+      "sceneId": "IMG03",
+      "personId": null,
+      "tool": "image_gen.imagegen",
+      "generatedAt": "2026-10-09T19:18:17.684472+09:00",
+      "prompt": "Create ONE high resolution natural editorial photograph for fictional self initiated lifestyle brand 秋じかん. いちょうと紅葉がある秋の散歩道. 横3:2。架空の公園、自然な遠近、黄色と赤の木々、歩道、日中、人物はなし。実在スポット名は付けない. Landscape 3:2 composition. No text, letters, logos, watermarks or branded items. Realistic soft daylight, natural materials and contact shadows, muted warm brown, cream and forest green. No exaggerated HDR, plastic texture or excessive blur. Not a contact sheet. ",
+      "source": "AI-generated fictional scene, no customer or competitor media",
+      "originalPath": "assets/IMG03.png",
+      "sha256": "13f73dc7f5fc29d18f22e415f617c5569992444f893fe1a0616f7425a0282b5a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "placement": [
+        "P01 teaser",
+        "P03 walk"
+      ],
+      "edits": "Original pixels unchanged; SVG rounded viewport and center crop only",
+      "reuseReason": "Cover previews same ideas. B01 uses IMG04 recrop as explicitly specified. Independent theme hero photos differ.",
+      "licenseStatus": "UNVERIFIED",
+      "humanRightsReview": "NOT_RUN",
+      "termsReviewDate": null,
+      "reviewer": null,
+      "visualReview": "independent QA report"
+    },
+    {
+      "assetId": "IMG04",
+      "contentId": "IMG04",
+      "sceneId": "IMG04",
+      "personId": null,
+      "tool": "image_gen.imagegen",
+      "generatedAt": "2026-10-09T19:18:40.128221+09:00",
+      "prompt": "Create ONE high resolution natural editorial photograph for fictional self initiated lifestyle brand 秋じかん. 栗とさつまいもとかぼちゃを使った架空の秋菓子. 横3:2。木のテーブル、白い皿の小さな菓子、無地カップ、自然な窓光、人工的な光沢を避ける。実在店や販売実績を示さない. Landscape 3:2 composition. No text, letters, logos, watermarks or branded items. Realistic soft daylight, natural materials and contact shadows, muted warm brown, cream and forest green. No exaggerated HDR, plastic texture or excessive blur. Not a contact sheet. ",
+      "source": "AI-generated fictional scene, no customer or competitor media",
+      "originalPath": "assets/IMG04.png",
+      "sha256": "a98562b1cfe17a601170ccbc1aee016615a9bfc4d89e4d7a3b436a0b563d569f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "placement": [
+        "P01 teaser",
+        "P04 sweets",
+        "B01 recrop"
+      ],
+      "edits": "Original pixels unchanged; SVG rounded viewport and center crop only",
+      "reuseReason": "Cover previews same ideas. B01 uses IMG04 recrop as explicitly specified. Independent theme hero photos differ.",
+      "licenseStatus": "UNVERIFIED",
+      "humanRightsReview": "NOT_RUN",
+      "termsReviewDate": null,
+      "reviewer": null,
+      "visualReview": "independent QA report"
+    },
+    {
+      "assetId": "IMG05",
+      "contentId": "IMG05",
+      "sceneId": "IMG05",
+      "personId": null,
+      "tool": "image_gen.imagegen",
+      "generatedAt": "2026-10-09T19:19:14.543837+09:00",
+      "prompt": "Create ONE high resolution natural editorial photograph for fictional self initiated lifestyle brand 秋じかん. 秋の公園の小さなピクニック. 横3:2。無地の布、閉じた本、無地の水筒、落ち葉、昼の自然光。ブランド・文字・人なし. Landscape 3:2 composition. No text, letters, logos, watermarks or branded items. Realistic soft daylight, natural materials and contact shadows, muted warm brown, cream and forest green. No exaggerated HDR, plastic texture or excessive blur. Not a contact sheet. ",
+      "source": "AI-generated fictional scene, no customer or competitor media",
+      "originalPath": "assets/IMG05.png",
+      "sha256": "81ffe3c0ff534514fbe3ab696ee518e19bf583423dcece13c7bee61ffa302654",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "placement": [
+        "P05 picnic"
+      ],
+      "edits": "Original pixels unchanged; SVG rounded viewport and center crop only",
+      "reuseReason": "Cover previews same ideas. B01 uses IMG04 recrop as explicitly specified. Independent theme hero photos differ.",
+      "licenseStatus": "UNVERIFIED",
+      "humanRightsReview": "NOT_RUN",
+      "termsReviewDate": null,
+      "reviewer": null,
+      "visualReview": "independent QA report"
+    },
+    {
+      "assetId": "OFL-serif.txt",
+      "source": "@fontsource/noto-sans-jp@5.3.0 or @fontsource/noto-serif-jp@5.3.0 via registry.npmjs.org",
+      "originalPath": "fonts/OFL-serif.txt",
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "licenseStatus": "VERIFIED_OFL_1_1",
+      "licenseFiles": [
+        "fonts/OFL-sans.txt",
+        "fonts/OFL-serif.txt"
+      ],
+      "termsReviewDate": "2026-10-09",
+      "reviewer": "Codex; downloaded package LICENSE read",
+      "edits": "unchanged"
+    },
+    {
+      "assetId": "OFL-sans.txt",
+      "source": "@fontsource/noto-sans-jp@5.3.0 or @fontsource/noto-serif-jp@5.3.0 via registry.npmjs.org",
+      "originalPath": "fonts/OFL-sans.txt",
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "licenseStatus": "VERIFIED_OFL_1_1",
+      "licenseFiles": [
+        "fonts/OFL-sans.txt",
+        "fonts/OFL-serif.txt"
+      ],
+      "termsReviewDate": "2026-10-09",
+      "reviewer": "Codex; downloaded package LICENSE read",
+      "edits": "unchanged"
+    },
+    {
+      "assetId": "noto-sans-jp-japanese-500-normal.woff2",
+      "source": "@fontsource/noto-sans-jp@5.3.0 or @fontsource/noto-serif-jp@5.3.0 via registry.npmjs.org",
+      "originalPath": "fonts/noto-sans-jp-japanese-500-normal.woff2",
+      "sha256": "116eacf750caa59db9d404d43d2daf0f02ae01c439825716972da8dcc97ce024",
+      "licenseStatus": "VERIFIED_OFL_1_1",
+      "licenseFiles": [
+        "fonts/OFL-sans.txt",
+        "fonts/OFL-serif.txt"
+      ],
+      "termsReviewDate": "2026-10-09",
+      "reviewer": "Codex; downloaded package LICENSE read",
+      "edits": "unchanged"
+    },
+    {
+      "assetId": "noto-sans-jp-japanese-500-normal.ttf",
+      "source": "@fontsource/noto-sans-jp@5.3.0 or @fontsource/noto-serif-jp@5.3.0 via registry.npmjs.org",
+      "originalPath": "fonts/noto-sans-jp-japanese-500-normal.ttf",
+      "sha256": "93822f79631a1ed514423f4a797f367ed41874b62f3c9d68f240fb515d69a3e2",
+      "licenseStatus": "VERIFIED_OFL_1_1",
+      "licenseFiles": [
+        "fonts/OFL-sans.txt",
+        "fonts/OFL-serif.txt"
+      ],
+      "termsReviewDate": "2026-10-09",
+      "reviewer": "Codex; downloaded package LICENSE read",
+      "edits": "TTF lossless container conversion from published WOFF; WOFF2 unchanged"
+    },
+    {
+      "assetId": "noto-serif-jp-japanese-700-normal.woff2",
+      "source": "@fontsource/noto-sans-jp@5.3.0 or @fontsource/noto-serif-jp@5.3.0 via registry.npmjs.org",
+      "originalPath": "fonts/noto-serif-jp-japanese-700-normal.woff2",
+      "sha256": "13eb905b92a6886d6cbd5ec947743dc6201207758c3468bf6ece489ee1b0029b",
+      "licenseStatus": "VERIFIED_OFL_1_1",
+      "licenseFiles": [
+        "fonts/OFL-sans.txt",
+        "fonts/OFL-serif.txt"
+      ],
+      "termsReviewDate": "2026-10-09",
+      "reviewer": "Codex; downloaded package LICENSE read",
+      "edits": "unchanged"
+    },
+    {
+      "assetId": "noto-serif-jp-japanese-700-normal.ttf",
+      "source": "@fontsource/noto-sans-jp@5.3.0 or @fontsource/noto-serif-jp@5.3.0 via registry.npmjs.org",
+      "originalPath": "fonts/noto-serif-jp-japanese-700-normal.ttf",
+      "sha256": "083bd062683da8f38908b9a42ec4f7eb9e4b930b1df512ee058d33372f70f1ad",
+      "licenseStatus": "VERIFIED_OFL_1_1",
+      "licenseFiles": [
+        "fonts/OFL-sans.txt",
+        "fonts/OFL-serif.txt"
+      ],
+      "termsReviewDate": "2026-10-09",
+      "reviewer": "Codex; downloaded package LICENSE read",
+      "edits": "TTF lossless container conversion from published WOFF; WOFF2 unchanged"
+    },
+    {
+      "assetId": "leaf",
+      "source": "Original SVG paths in compose.py by Codex",
+      "generatedAt": "2026-10-09",
+      "prompt": "Leaf for autumn mood; empty check outline for noninteractive choice list",
+      "originalPath": "compose.py",
+      "sha256": "3e89b3ccb21ce2aba212963e42c6b4b1d1a4b62c843342454b903626bdd6e5e8",
+      "licenseStatus": "ORIGINAL_PROJECT_GRAPHIC",
+      "humanRightsReview": "NOT_RUN",
+      "reviewer": "Codex"
+    },
+    {
+      "assetId": "check-outline",
+      "source": "Original SVG paths in compose.py by Codex",
+      "generatedAt": "2026-10-09",
+      "prompt": "Leaf for autumn mood; empty check outline for noninteractive choice list",
+      "originalPath": "compose.py",
+      "sha256": "3e89b3ccb21ce2aba212963e42c6b4b1d1a4b62c843342454b903626bdd6e5e8",
+      "licenseStatus": "ORIGINAL_PROJECT_GRAPHIC",
+      "humanRightsReview": "NOT_RUN",
+      "reviewer": "Codex"
+    }
+  ],
+  "rejectedAttempt": {
+    "source": "contact sheet generated with image_gen",
+    "prompt": "Five-photo contact sheet, natural autumn scenes",
+    "reason": "Each cell approximately 400px wide; native resolution QA failed; replaced by five independent full resolution originals",
+    "includedInDelivery": false
+  },
+  "humanReleaseApproval": "PENDING"
+}

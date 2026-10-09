@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "selection": {
+    "industry": "lifestyle",
+    "colors": [
+      "cream",
+      "forest-green",
+      "terracotta"
+    ],
+    "layout": [
+      "editorial-grid",
+      "split-hero"
+    ],
+    "animation": [
+      "reveal",
+      "micro-interaction"
+    ]
+  },
+  "sources": [
+    {
+      "id": "demo-editorial-01",
+      "url": null,
+      "license": "内部架空コンセプトのみ。外部画像なし",
+      "verified": false,
+      "fictional": true,
+      "insights": [
+        "ライフスタイル業界一致。creamとforest-green、editorial-gridを採用候補。split-heroは表紙の写真とタイトルへ翻案",
+        "ticker/revealは静止画では不採用。実サイトではない"
+      ]
+    },
+    {
+      "id": "demo-cafe-05",
+      "url": null,
+      "license": "内部架空コンセプトのみ。外部画像なし",
+      "verified": false,
+      "fictional": true,
+      "insights": [
+        "業界はcafeで完全一致なし。cream/terracotta/forest-greenとeditorial-gridが候補",
+        "menu-gridを2アイデアの分類に翻案。実サイト調査の代わりにはしない"
+      ]
+    },
+    {
+      "id": "cotrip-public",
+      "url": "https://co-trip.jp/",
+      "license": "閲覧参考のみ。転載・画像再利用の許可は未確認",
+      "verified": true,
+      "fictional": false,
+      "insights": [
+        "2026-10-09 JSTに本文を検索・閲覧。観測：季節の景色、カフェ、地域を切り口にした記事と『したいこと』分類がある",
+        "推測：読者が休日にしたい行動から選ぶ構成を本件にも応用できる。投稿成果は未検証"
+      ]
+    },
+    {
+      "id": "hanako-public",
+      "url": "https://hanako.tokyo/book/450036/",
+      "license": "閲覧参考のみ。転載・画像再利用の許可は未確認",
+      "verified": true,
+      "fictional": false,
+      "insights": [
+        "2026-10-09 JSTに本文を検索・閲覧。観測：京都散歩をエリアで整理し、喫茶・食の体験を紹介する雑誌特集",
+        "推測：散歩と飲食を並べて週末の選択肢を作れる。デザインの細部・Instagram反応は未検証"
+      ]
+    }
+  ],
+  "research": {
+    "status": "PARTIAL",
+    "retrievedAt": "2026-10-09",
+    "timezone": "Asia/Tokyo",
+    "method": "検索と公式公開ページ本文の閲覧",
+    "limitations": [
+      "関連メディアの内容上の比較であり同一案件の競合とは断定しない",
+      "Instagram本体・保存率・エンゲージメント・広告実績・画像視覚分析はNOT_RUN",
+      "verified=trueはURLと本文の実在確認のみ。素材許諾・成果・デザイン検証を意味しない"
+    ],
+    "catalogSource": "references/catalog.json@feat/ai-web-design-production",
+    "selectionMethod": "カタログ記述に基づく手動比較。CLIランキング未実行"
+  },
+  "requirementAcceptanceMap": [
+    {
+      "requirementId": "R01",
+      "acceptanceId": "A01"
+    },
+    {
+      "requirementId": "R02",
+      "acceptanceId": "A02"
+    },
+    {
+      "requirementId": "R03",
+      "acceptanceId": "A03"
+    },
+    {
+      "requirementId": "R04",
+      "acceptanceId": "A04"
+    },
+    {
+      "requirementId": "R05",
+      "acceptanceId": "A05"
+    },
+    {
+      "requirementId": "R06",
+      "acceptanceId": "A06"
+    }
+  ]
+}
