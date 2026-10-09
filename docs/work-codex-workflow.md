@@ -5,12 +5,12 @@
 WorkとCodexのライブメモリは共有されない。GitHubのレビュー済みコミットを共有契約とする。Workでの案件分析と文章生成はAI実行、構造検証・タスク化・変更検出・参考検索・納品ファイル整理はローカルCLIによる自動処理、実装・修正はCodexの実行担当が行う。CLI単独でサイトやAIエージェントを生成・起動するものではない。
 
 1. 案件文をWorkへ渡す。`docs/work-intake-prompt.md` と4ファイルのv1例を読み込み、要件分析・不足質問・競合調査・参考選定・仕様を作る。調査できない情報は未確認として記録する。
-2. Work担当は専用 `work/<slug>-v1` ブランチに `projects/<slug>/handoff/` の4ファイルのみ追加し、仕様PRを作る。WorkのGitHub書込機能が未接続なら、ファイルをダウンロードし人がこのブランチにcommit/pushしてPRを作る。
+2. Work担当は専用 `work-handoff/<slug>-v1` ブランチに `projects/<slug>/handoff/` の4ファイルのみ追加し、仕様PRを作る。WorkのGitHub書込機能が未接続なら、ファイルをダウンロードし人がこのブランチにcommit/pushしてPRを作る。
 3. 人が仕様PRの差分・素材権利・契約範囲をレビューする。GitHubの保護ルールで承認、CI、CODEOWNERSを必須にする設定はリポジトリ管理者の作業。CLIは承認を証明しない。
-4. Codexは既存チェックアウトで `git status --short` を確認し、`git fetch origin work/<slug>-v1`。承認したSHAを確認して受信する。
+4. Codexは既存チェックアウトで `git status --short` を確認し、`git fetch origin work-handoff/<slug>-v1`。承認したSHAを確認して受信する。
 
 ```sh
-npm run work:receive -- origin/work/<slug>-v1 <slug> /tmp/<slug>-input-v1
+npm run work:receive -- origin/work-handoff/<slug>-v1 <slug> /tmp/<slug>-input-v1
 npm run production -- validate /tmp/<slug>-input-v1
 npm run production -- plan /tmp/<slug>-input-v1 projects/<slug>/production-v1
 npm run work:check -- /tmp/<slug>-input-v1
@@ -22,7 +22,7 @@ npm run work:check -- /tmp/<slug>-input-v1
 6. 制作中も検証前・納品前に以下を実行する。
 
 ```sh
-git fetch origin work/<slug>-v1
+git fetch origin work-handoff/<slug>-v1
 npm run work:check -- /tmp/<slug>-input-v1
 npm run production -- verify /tmp/<slug>-input-v1 projects/<slug>/production-v1/plan.json
 npm run typecheck
@@ -34,7 +34,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e
 
 `work:check` が比較するのは現在のローカルref。直前のfetchがなければ遠隔の新しい変更は検出できない。`production verify` は入力と不変計画の整合性を確認する。状態変更や完了証跡は別のexecution.jsonに記録し、plan.jsonを編集しない。
 
-7. 仕様変更があればWorkが `work/<slug>-v2` と新しいPRを作る。Codexは制作を止めて差分を確認し、新しい入力・計画ディレクトリへ受信/再生成する。旧仕様や既存成果物は上書きしない。Workはsite/を、Codexはhandoff/を同時に編集しない。必要な仕様訂正はWork側のPRへ提案する。競合は人または担当者がGitの差分を見て解決し、force-pushしない。
+7. 仕様変更があればWorkが `work-handoff/<slug>-v2` と新しいPRを作る。Codexは制作を止めて差分を確認し、新しい入力・計画ディレクトリへ受信/再生成する。旧仕様や既存成果物は上書きしない。Workはsite/を、Codexはhandoff/を同時に編集しない。必要な仕様訂正はWork側のPRへ提案する。競合は人または担当者がGitの差分を見て解決し、force-pushしない。
 8. ビルド済みサイトを指定し、納品準備を行う。
 
 ```sh
@@ -83,3 +83,5 @@ npm run production -- package projects/mock-suminiwa/handoff /tmp/suminiwa-plan-
 ```
 
 出力先は未使用の名前を選ぶ。模擬案件は実在するクラウドワークス募集でも、Workが実行した結果でもない。ローカルViteで `/projects/mock-suminiwa/site/` を開くと模擬LPを動かせる。相談メモは端末保存だけで、問い合わせ送信/API接続は未実装。
+
+仕様ブランチには `work-handoff/` を使う。Codex環境の既存 `work` ブランチがある場合、Gitは `work/<slug>` を作成できないため、この名前は避ける。既存ブランチを削除して解決しない。

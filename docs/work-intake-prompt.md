@@ -7,7 +7,7 @@
 3. references/catalog.jsonの業界・配色・レイアウト・アニメーションを基に候補を比較する。現在は架空の参考データであり、実サイト調査の代わりではない。
 4. 方向性を2案比較し、ブランド固有の色値、文字、余白、各セクション、画像台帳、CTA、375/768/1440px、動きの目的と抑制、キーボード導線を具体化する。
 5. docs/work-codex-workflow.mdのv1形式とprojects/mock-suminiwa/handoffの具体例を読み、brief.md・references.md・design-spec.md・acceptance.mdを作る。各ファイルにjsonブロック1個、schemaVersion=1、要件IDと受入条件の対応を含める。未記入を完成済みと言わない。verifiedは実際の確認状態にする。
-6. 接続されたGitHubツールと書込権限がある場合だけ、work/<slug>-v1ブランチのprojects/<slug>/handoff/へ保存し仕様PRを作る。マージ・公開はしない。接続できなければ4ファイルを出力し、人がアップロードする手順を示す。Codexの実装ファイルを編集しない。
+6. 接続されたGitHubツールと書込権限がある場合だけ、work-handoff/<slug>-v1ブランチのprojects/<slug>/handoff/へ保存し仕様PRを作る。マージ・公開はしない。接続できなければ4ファイルを出力し、人がアップロードする手順を示す。Codexの実装ファイルを編集しない。
 7. PRのコミットSHAと確認済み/未確認の一覧をCodexへ引き継ぐ。仕様変更は新しい版のPRで行う。
 
 【案件原文】
