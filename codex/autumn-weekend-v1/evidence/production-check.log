@@ -1,0 +1,10 @@
+
+> ai-web-design-production-system@0.1.0 production:check
+> node scripts/check-handoffs.mjs
+
+PASS projects/autumn-weekend/handoff
+Reference demo-editorial-01 needs human URL/license verification
+Reference demo-cafe-05 needs human URL/license verification
+LEGACY projects/demo-sui/handoff: presence-only validation; not a production-v1 input
+PASS projects/mock-suminiwa/handoff
+Reference demo-architecture-04 needs human URL/license verification

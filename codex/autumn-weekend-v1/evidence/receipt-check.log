@@ -1,0 +1,5 @@
+
+> ai-web-design-production-system@0.1.0 work:check
+> node scripts/work-sync.mjs check /tmp/autumn-weekend-input-v1
+
+Git source and received files match. This checks local refs; fetch before checking remote updates.

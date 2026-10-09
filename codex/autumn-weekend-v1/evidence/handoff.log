@@ -1,0 +1,8 @@
+
+> ai-web-design-production-system@0.1.0 handoff
+> node scripts/validate-handoff.mjs
+
+OK projects/demo-sui/handoff/brief.md
+OK projects/demo-sui/handoff/references.md
+OK projects/demo-sui/handoff/design-spec.md
+OK projects/demo-sui/handoff/acceptance.md

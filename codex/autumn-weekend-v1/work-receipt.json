@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "slug": "autumn-weekend",
+  "sourceRef": "5046c0ddc5fd5ae253dc862e8eb965594bd1789c",
+  "sourceCommit": "5046c0ddc5fd5ae253dc862e8eb965594bd1789c",
+  "files": {
+    "brief.md": "f2f4204ea45576007749c04306da2b3b42772c436f554abbda4e4dd8aedea559",
+    "references.md": "09c3b4ba6f942d0e9f1f59b7fcfcb5bd605f2b36bce295d576870d8224968e3e",
+    "design-spec.md": "d290c83340853bbcbac6d4a6a3e5b9e7381a7b13d8b04d195167ee94405c1670",
+    "acceptance.md": "c6b39befb29e7a633bada8c0a0dd507eebfc5f2a7592758db9b06b09ac316f36"
+  },
+  "approvalStatus": "not-verified-by-tool"
+}
