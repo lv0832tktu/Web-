@@ -8,12 +8,13 @@
       "render.mjs",
       "validate.py"
     ],
-    "qa": "05-qa"
+    "qa": "05-qa",
+    "implementationPR": "https://github.com/lv0832tktu/Web-/pull/3",
+    "branch": "codex/autumn-weekend-v1"
   },
   "unresolved": [
     "AI image usage terms and human rights review",
-    "human final artwork approval",
-    "GitHub API network 403; implementation PR creation pending"
+    "human final artwork approval"
   ],
   "human_approval": {
     "specSha": "5046c0ddc5fd5ae253dc862e8eb965594bd1789c",
@@ -62,6 +63,11 @@
       "status": "human_review",
       "date": "2026-10-09",
       "evidence": "05-qa/validation-report.md"
+    },
+    {
+      "status": "human_review",
+      "date": "2026-10-09",
+      "evidence": "Draft implementation PR #3 created; branch pushed; no merge or publication"
     }
   ]
 }

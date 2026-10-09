@@ -33,4 +33,4 @@ PNGはChromiumの `--force-color-profile=srgb` で描画。原寸1080px、本文
 
 生成写真の利用条件の確認と人による素材権利レビュー、最終画像承認は未完了です。素材台帳で `UNVERIFIED/NOT_RUN` としており、納品完成・公開可とは扱いません。Instagram上での実表示・保存率・エンゲージメントは未検証。マージ・投稿・公開・顧客送信はしていません。
 
-GitHub APIはネットワーク403。実装PRを作るには環境設定の `api.github.com` 許可ドラフトを保存・Publishする必要があります。通常ページで仕様PR本文は確認できました。PR本文案は `PR-BODY.md` に保存しています。
+実装ドラフトPR: https://github.com/lv0832tktu/Web-/pull/3 。ブランチ `codex/autumn-weekend-v1` をpush済み。APIは当初ネットワーク403でしたが、最終のPR作成は成功しました。権利と最終画像の確認待ちのためdraftです。PR本文案は `PR-BODY.md` に保存しています。
