@@ -1,0 +1,37 @@
+{
+  "name": "ai-web-design-production-system",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "references": "node scripts/find-references.mjs",
+    "handoff": "node scripts/validate-handoff.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:e2e": "playwright test",
+    "production": "node scripts/production.mjs",
+    "work:receive": "node scripts/work-sync.mjs receive",
+    "work:check": "node scripts/work-sync.mjs check",
+    "production:check": "node scripts/check-handoffs.mjs",
+    "build:mock": "vite build projects/mock-suminiwa/site --outDir ../../../dist/mock-suminiwa --emptyOutDir --base ./"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^26.6.4",
+    "eslint": "^9.39.0",
+    "globals": "^17.13.0",
+    "lighthouse": "^13.5.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.11"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0"
+  }
+}
