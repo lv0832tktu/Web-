@@ -1,0 +1,54 @@
+[
+  {
+    "id": "demo-editorial-01",
+    "title": "架空のエディトリアルLP",
+    "fictional": true,
+    "industry": "lifestyle",
+    "genre": "landing-page",
+    "colors": [
+      "cream",
+      "forest-green"
+    ],
+    "layout": [
+      "split-hero",
+      "editorial-grid"
+    ],
+    "typography": [
+      "oversized-heading",
+      "sans-serif"
+    ],
+    "animation": [
+      "reveal",
+      "ticker"
+    ],
+    "referenceUrl": null,
+    "usage": "internal-inspiration-only",
+    "screenshot": null,
+    "notes": "架空の特徴データ。実在作品の画像ではない。"
+  },
+  {
+    "id": "demo-service-02",
+    "title": "架空のB2Bサービスサイト",
+    "fictional": true,
+    "industry": "saas",
+    "genre": "corporate",
+    "colors": [
+      "navy",
+      "white"
+    ],
+    "layout": [
+      "product-hero",
+      "feature-grid"
+    ],
+    "typography": [
+      "compact-heading"
+    ],
+    "animation": [
+      "micro-interaction"
+    ],
+    "referenceUrl": null,
+    "usage": "internal-inspiration-only",
+    "screenshot": null,
+    "notes": "架空データ。"
+  }
+]
