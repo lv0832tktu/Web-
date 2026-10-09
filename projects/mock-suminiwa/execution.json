@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "simulation": true,
+  "workExecution": "NOT_RUN: Workツールは未接続。4ファイルは模擬出力。",
+  "inputManifest": {
+    "brief.md": "470861b4ce1e579871da43f1efb782df8e881c05b17fb8bed905d21371de4798",
+    "references.md": "a8df7546e2707c71812036a493269a28275bbbcd9ab641639d2cffc41637f127",
+    "design-spec.md": "7a2bc3cf72662a4b1e4a4eca5daac11df668eeff90be95d155f778d5f39d327f",
+    "acceptance.md": "f85639b191ad50b0f84c63d94b49557ae82fa8f1fb4811187502d6928f2db2c0"
+  },
+  "roles": [
+    {
+      "role": "director",
+      "owner": "root",
+      "status": "PASS",
+      "artifact": "request.md, requirements.json"
+    },
+    {
+      "role": "researcher",
+      "owner": "reference_search + root",
+      "status": "PARTIAL",
+      "artifact": "research.md, references.md",
+      "limitation": "内部参考選定のみ。外部競合調査NOT_RUN"
+    },
+    {
+      "role": "ux",
+      "owner": "root + mock_site",
+      "status": "PASS",
+      "artifact": "design-spec.md, site/index.html"
+    },
+    {
+      "role": "art-director",
+      "owner": "root + mock_site",
+      "status": "PASS",
+      "artifact": "research.md, site/styles.css, original SVG"
+    },
+    {
+      "role": "copy-seo",
+      "owner": "mock_site",
+      "status": "PASS",
+      "artifact": "site/index.html title/meta/headings; fictional labels"
+    },
+    {
+      "role": "frontend",
+      "owner": "mock_site + handoff_engine",
+      "status": "PASS",
+      "artifact": "site/, production-v1/"
+    },
+    {
+      "role": "motion",
+      "owner": "mock_site",
+      "status": "PASS",
+      "artifact": "site/styles.css, reduced-motion E2E"
+    },
+    {
+      "role": "responsive",
+      "owner": "mock_site + independent_qa",
+      "status": "PASS",
+      "artifact": "e2e/mock-workflow.spec.ts; 375/768/1440 images"
+    },
+    {
+      "role": "qa",
+      "owner": "independent_qa",
+      "status": "PASS",
+      "artifact": "qa-review.md; e2e/mock-workflow.spec.ts"
+    },
+    {
+      "role": "delivery",
+      "owner": "root",
+      "status": "PREPARED",
+      "artifact": "production package + manifest + report",
+      "limitation": "顧客納品・マージ・公開は未実施"
+    }
+  ],
+  "actualSubagents": [
+    "handoff_engine",
+    "reference_search",
+    "mock_site",
+    "independent_qa"
+  ],
+  "humanApproval": null
+}

@@ -12,7 +12,12 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "production": "node scripts/production.mjs",
+    "work:receive": "node scripts/work-sync.mjs receive",
+    "work:check": "node scripts/work-sync.mjs check",
+    "production:check": "node scripts/check-handoffs.mjs",
+    "build:mock": "vite build projects/mock-suminiwa/site --outDir ../../../dist/mock-suminiwa --emptyOutDir --base ./"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

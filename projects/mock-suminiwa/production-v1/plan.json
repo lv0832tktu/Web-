@@ -1,0 +1,748 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "slug": "mock-suminiwa",
+    "title": "澄庭 SUMINIWA 模擬制作",
+    "industry": "architecture"
+  },
+  "approvalStatus": "pending-human-review",
+  "inputManifest": {
+    "brief.md": "470861b4ce1e579871da43f1efb782df8e881c05b17fb8bed905d21371de4798",
+    "references.md": "a8df7546e2707c71812036a493269a28275bbbcd9ab641639d2cffc41637f127",
+    "design-spec.md": "7a2bc3cf72662a4b1e4a4eca5daac11df668eeff90be95d155f778d5f39d327f",
+    "acceptance.md": "f85639b191ad50b0f84c63d94b49557ae82fa8f1fb4811187502d6928f2db2c0"
+  },
+  "warnings": [
+    "Reference demo-architecture-04 needs human URL/license verification"
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "role": "director",
+      "action": "Confirm scope: 日本語レスポンシブLP; 編集可能なHTML CSS JS SVG; ローカル保存できる相談メモ; 検証結果と素材ライセンス",
+      "dependsOn": [],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-2",
+      "role": "researcher",
+      "action": "Verify reference URLs/licenses and record evidence; do not copy protected assets",
+      "dependsOn": [
+        "task-1"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-3",
+      "role": "ux",
+      "action": "Define navigation and CTA journey for 戸建ての中庭・庭の設計を検討する30〜50代; sections: ブランドとナビ; 建築図面風hero; コンセプト; 3つの提案例; 相談の流れ; FAQ; 相談メモフォーム",
+      "dependsOn": [
+        "task-2"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-4",
+      "role": "art-director",
+      "action": "Apply unique direction: 静かな建築編集誌。余白、細い罫線、俯瞰した独自の庭図。SUIの植物球体表現を流用しない。; typography: 日本語の明朝系見出しとゴシック本文。本文16px以上、行高1.8、短い英字ラベル。OSフォールバック。",
+      "dependsOn": [
+        "task-3"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-5",
+      "role": "copy-seo",
+      "action": "Write factual headings, metadata, alt text for objectives: 提案の方向性を伝え相談内容の整理を支援する",
+      "dependsOn": [
+        "task-4"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-6",
+      "role": "frontend",
+      "action": "Implement semantic components: responsive navigation; original courtyard SVG hero; three concept project illustrations; consultation process; FAQ disclosure; FAQ disclosure; validated consultation memo form and text download",
+      "dependsOn": [
+        "task-5"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-7",
+      "role": "motion",
+      "action": "Implement 線とボタンの150〜250ms応答、控えめな入場。文字はJSなしでも表示。スクロールを妨げない。; reduced motion: 移動と入場アニメーションを停止し、本文と操作を即時表示する",
+      "dependsOn": [
+        "task-6"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-8",
+      "role": "responsive",
+      "action": "Capture and inspect widths 375, 768, 1440; check overflow and touch targets",
+      "dependsOn": [
+        "task-7"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-9",
+      "role": "qa",
+      "action": "Run typecheck, ESLint, unit tests, build, Playwright and accessibility; retain logs and failure reasons",
+      "dependsOn": [
+        "task-8"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "task-10",
+      "role": "delivery",
+      "action": "Review asset licenses and links; package verified static output; request human PR review",
+      "dependsOn": [
+        "task-9"
+      ],
+      "requirements": [
+        {
+          "id": "R01",
+          "description": "日本語のブランド固有LPと3つの独自イラスト",
+          "acceptance": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "R02",
+          "description": "メニューと相談CTAのキーボード導線",
+          "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "R03",
+          "description": "入力検証と相談メモのローカル保存",
+          "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "R04",
+          "description": "レスポンシブと動きの抑制",
+          "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "R05",
+          "description": "素材権利と納品準備",
+          "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "A01",
+          "requirementId": "R01",
+          "description": "h1、concept、3件の提案例が存在する",
+          "verification": "Playwright heading and project cards; visual review"
+        },
+        {
+          "id": "A02",
+          "requirementId": "R02",
+          "description": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+          "verification": "Playwright keyboard and CTA"
+        },
+        {
+          "id": "A03",
+          "requirementId": "R03",
+          "description": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+          "verification": "Playwright invalid and valid form download; no network submission"
+        },
+        {
+          "id": "A04",
+          "requirementId": "R04",
+          "description": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+          "verification": "Playwright widths and reduced motion; axe and visual"
+        },
+        {
+          "id": "A05",
+          "requirementId": "R05",
+          "description": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+          "verification": "production verify/package, file manifest, human review"
+        }
+      ],
+      "status": "pending"
+    }
+  ]
+}

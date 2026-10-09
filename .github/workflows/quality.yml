@@ -2,7 +2,7 @@ name: Production quality
 on:
   pull_request:
   push:
-    branches: [main, feat/ai-web-design-production]
+    branches: [main, feat/ai-web-design-production, feat/work-codex-workflow]
 permissions:
   contents: read
 jobs:
@@ -20,6 +20,8 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - run: npm run build:mock
+      - run: npm run production:check
       - run: npm run handoff
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

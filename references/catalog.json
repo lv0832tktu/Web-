@@ -24,7 +24,12 @@
     "referenceUrl": null,
     "usage": "internal-inspiration-only",
     "screenshot": null,
-    "notes": "架空の特徴データ。実在作品の画像ではない。"
+    "notes": "架空の特徴データ。実在作品の画像ではない。",
+    "sourceVerification": "fictional-internal-no-external-source",
+    "license": {
+      "status": "internal-concept-only",
+      "assetReuse": "No external assets provided; verify each asset separately before reuse."
+    }
   },
   {
     "id": "demo-service-02",
@@ -49,6 +54,113 @@
     "referenceUrl": null,
     "usage": "internal-inspiration-only",
     "screenshot": null,
-    "notes": "架空データ。"
+    "notes": "架空データ。",
+    "sourceVerification": "fictional-internal-no-external-source",
+    "license": {
+      "status": "internal-concept-only",
+      "assetReuse": "No external assets provided; verify each asset separately before reuse."
+    }
+  },
+  {
+    "id": "demo-dental-03",
+    "title": "架空の歯科クリニック予約LP",
+    "fictional": true,
+    "industry": "dental",
+    "genre": "landing-page",
+    "colors": [
+      "white",
+      "sky-blue",
+      "teal"
+    ],
+    "layout": [
+      "split-hero",
+      "service-grid",
+      "booking-cta"
+    ],
+    "typography": [
+      "sans-serif",
+      "oversized-heading"
+    ],
+    "animation": [
+      "micro-interaction",
+      "reveal"
+    ],
+    "referenceUrl": null,
+    "usage": "internal-inspiration-only",
+    "screenshot": null,
+    "notes": "医療広告の実績や患者の声を捏造せず、診療案内と予約導線を中心とする架空コンセプト。",
+    "sourceVerification": "fictional-internal-no-external-source",
+    "license": {
+      "status": "internal-concept-only",
+      "assetReuse": "No external assets provided; verify each asset separately before reuse."
+    }
+  },
+  {
+    "id": "demo-architecture-04",
+    "title": "架空の建築設計事務所ポートフォリオ",
+    "fictional": true,
+    "industry": "architecture",
+    "genre": "landing-page",
+    "colors": [
+      "charcoal",
+      "ivory",
+      "copper"
+    ],
+    "layout": [
+      "full-bleed-hero",
+      "asymmetric-grid",
+      "project-gallery"
+    ],
+    "typography": [
+      "sans-serif",
+      "oversized-heading"
+    ],
+    "animation": [
+      "reveal",
+      "crossfade"
+    ],
+    "referenceUrl": null,
+    "usage": "internal-inspiration-only",
+    "screenshot": null,
+    "notes": "余白と非対称グリッドで案件写真を見せる架空コンセプト。写真素材は含まない。",
+    "sourceVerification": "fictional-internal-no-external-source",
+    "license": {
+      "status": "internal-concept-only",
+      "assetReuse": "No external assets provided; verify each asset separately before reuse."
+    }
+  },
+  {
+    "id": "demo-cafe-05",
+    "title": "架空の街角カフェ案内サイト",
+    "fictional": true,
+    "industry": "cafe",
+    "genre": "landing-page",
+    "colors": [
+      "cream",
+      "terracotta",
+      "forest-green"
+    ],
+    "layout": [
+      "split-hero",
+      "editorial-grid",
+      "menu-grid"
+    ],
+    "typography": [
+      "sans-serif",
+      "oversized-heading"
+    ],
+    "animation": [
+      "reveal",
+      "micro-interaction"
+    ],
+    "referenceUrl": null,
+    "usage": "internal-inspiration-only",
+    "screenshot": null,
+    "notes": "メニューと来店案内を優先する架空コンセプト。実在店舗や作品を参照したものではない。",
+    "sourceVerification": "fictional-internal-no-external-source",
+    "license": {
+      "status": "internal-concept-only",
+      "assetReuse": "No external assets provided; verify each asset separately before reuse."
+    }
   }
 ]

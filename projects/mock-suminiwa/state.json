@@ -1,0 +1,27 @@
+{
+  "status": "human_review",
+  "team": "TEAM 02 / LP, 10 logical production roles",
+  "outputs": {
+    "brief": "handoff/brief.md",
+    "research": "research.md",
+    "prompt": "handoff/design-spec.md",
+    "production": "site/",
+    "plan": "production-v1/plan.json",
+    "qa": "qa-review.md"
+  },
+  "unresolved": [
+    "Workの実行と外部競合調査は未接続",
+    "実案件の素材・送信先・公開先・顧客承認が必要"
+  ],
+  "human_approval": null,
+  "history": [
+    "intake: request.md 保存",
+    "brief: 要件IDと4ファイル作成",
+    "research: 内部参考選定、外部調査未実施を明記",
+    "prompt: 固有デザイン仕様を具体化",
+    "production: 独自SVGと静的LP実装",
+    "qa: 独立担当が検査",
+    "revision: FAQ追加・本文16px以上・タブレットの見出し改善",
+    "human_review: 納品準備と制約を報告"
+  ]
+}

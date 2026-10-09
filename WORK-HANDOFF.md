@@ -1,2 +1,5 @@
 # ChatGPT Work → Codex 引き継ぎ仕様
 Work produces four UTF-8 files under `projects/<slug>/handoff/`: `brief.md` (audience, objectives, deliverables, assets, constraints), `references.md` (verified links, permission and insights), `design-spec.md` (tokens, typography, components, responsive and motion), `acceptance.md` (testable criteria). Codex runs `npm run handoff -- projects/<slug>/handoff` to verify presence (not semantic correctness), then creates an implementation task list and records unresolved questions. Commit via project branch → PR; pull/rebase latest before modifications, compare SHAs and resolve conflicts manually. Work and Codex do not share live memory or automatically synchronize through this repository. Human review approves merges and deployments. Do not store secrets or client-confidential assets without permission.
+
+## 自動検証・タスク化 v1
+新しい構造化入力、immutable SHA受信、変更検出、10役割計画、納品準備を実装した。完全な手順・フォーマットと手動操作範囲は [docs/work-codex-workflow.md](docs/work-codex-workflow.md)、Work入力用指示は [docs/work-intake-prompt.md](docs/work-intake-prompt.md)。旧文章形式の存在検査と既存成果物は維持する。

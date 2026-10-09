@@ -18,3 +18,6 @@ Not included: autonomous agents, background execution, automatic deployment, CMS
 - フォーム、CMS、決済、計測、納品形式は案件ごとに契約範囲を決めて実装・検証する。現状のSUIは商品の販売や問い合わせ受付を行わないデモ。
 - DM Sansは `@fontsource/dm-sans` からローカル配信（SIL Open Font License 1.1）。日本語は端末のフォントを使用するため、納品対象のOSで見た目を確認する。
 - `.github/workflows/quality.yml` はPRで品質検証を実行する。Lighthouseと目視レビューは別途実施する。
+
+## WorkとCodexの制作パイプライン
+構造化4ファイルの検証、Gitコミットからの受信、10役割の制作計画、変更検出、納品準備を追加した。使い方は `docs/work-codex-workflow.md`。`npm run production:check` で構造化案件を一括検査。模擬LPは `npm run build:mock` でビルド。Work自体の呼出し・自動GitHub同期・外部競合収集は未実装なので、Work用プロンプトと仕様PRの手動経路を使う。

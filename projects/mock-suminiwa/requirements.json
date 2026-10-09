@@ -1,0 +1,56 @@
+{
+  "simulation": true,
+  "requirements": [
+    {
+      "id": "R01",
+      "description": "日本語のブランド固有LPと3つの独自イラスト",
+      "acceptance": "h1、concept、3件の提案例が存在する",
+      "verification": "Playwright heading and project cards; visual review",
+      "status": "known",
+      "source": "request.md（模擬案件）",
+      "evidence": "案件文の明示要件"
+    },
+    {
+      "id": "R02",
+      "description": "メニューと相談CTAのキーボード導線",
+      "acceptance": "Escapeで閉じてフォーカス復帰、CTAで相談欄へ移動",
+      "verification": "Playwright keyboard and CTA",
+      "status": "known",
+      "source": "request.md（模擬案件）",
+      "evidence": "案件文の明示要件"
+    },
+    {
+      "id": "R03",
+      "description": "入力検証と相談メモのローカル保存",
+      "acceptance": "必須・メール不正を拒否、入力内容のテキストを保存、外部送信なし",
+      "verification": "Playwright invalid and valid form download; no network submission",
+      "status": "known",
+      "source": "request.md（模擬案件）",
+      "evidence": "案件文の明示要件"
+    },
+    {
+      "id": "R04",
+      "description": "レスポンシブと動きの抑制",
+      "acceptance": "375/768/1440pxで横溢れなし、reduced-motionで読める",
+      "verification": "Playwright widths and reduced motion; axe and visual",
+      "status": "known",
+      "source": "request.md（模擬案件）",
+      "evidence": "案件文の明示要件"
+    },
+    {
+      "id": "R05",
+      "description": "素材権利と納品準備",
+      "acceptance": "独自SVGとライセンス、動く静的サイト、検証報告をまとめる",
+      "verification": "production verify/package, file manifest, human review",
+      "status": "known",
+      "source": "request.md（模擬案件）",
+      "evidence": "案件文の明示要件"
+    }
+  ],
+  "inferred": [
+    "色と余白の実数は模擬仕様に基づく制作判断"
+  ],
+  "missing": [
+    "実案件の競合資料・実素材・送信先・公開先・顧客承認"
+  ]
+}

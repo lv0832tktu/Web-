@@ -7,5 +7,5 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   { files: ['**/*.mjs', 'playwright.config.ts'], languageOptions: { globals: globals.node } },
-  { files: ['src/**/*.ts'], languageOptions: { globals: globals.browser } },
+  { files: ['src/**/*.ts', 'projects/**/site/**/*.js'], languageOptions: { globals: globals.browser } },
 );
