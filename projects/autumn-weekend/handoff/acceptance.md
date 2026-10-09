@@ -1,0 +1,106 @@
+# 受入条件とCodex引継ぎ
+
+仕様作成時点で画像QA・権利確認は未実施。要件と受入条件を一対一で対応付ける。JSON構造確認だけで完成や承認とはしない。正確な仕様head SHAとPR URLはPR本文に記載し、承認されたSHAだけを受信する。
+
+```json
+{
+  "schemaVersion": 1,
+  "criteria": [
+    {
+      "id": "A01",
+      "requirementId": "R01",
+      "description": "表紙・4つのテーマ・保存CTAの6枚で、原文の8アイデアをすべて収録。架空ブランドと自主制作を明記",
+      "verification": "copy review; 8-item coverage"
+    },
+    {
+      "id": "A02",
+      "requirementId": "R02",
+      "description": "カルーセル1080×1350px PNGが6枚、バナー1080×1080px PNGが1枚、同名SVG編集元7枚、コピー・代替テキスト・画像台帳・検証報告を同梱",
+      "verification": "dimensions/file count; reopen SVG; export comparison"
+    },
+    {
+      "id": "A03",
+      "requirementId": "R03",
+      "description": "指定トークン・座標に沿い本文最小42px、写真5点をテーマ別に配置し主役写真の使い回しなし。375px相当で全文章判読可能",
+      "verification": "visual review at native/375/768/1440; contrast calculation"
+    },
+    {
+      "id": "A04",
+      "requirementId": "R04",
+      "description": "すべての素材に出典/生成日時/プロンプト/権利確認状態を記載。競合の画像・ロゴ・本文は再利用しない。未確認素材を納品完成扱いにしない",
+      "verification": "asset ledger and human rights review"
+    },
+    {
+      "id": "A05",
+      "requirementId": "R05",
+      "description": "6枚目とバナーに保存CTA、各画像に独立した代替テキスト。確認用プレビューを作る場合のみTab・Enter・Escape操作とフォーカス復帰を検証",
+      "verification": "copy/alt review; conditional keyboard test"
+    },
+    {
+      "id": "A06",
+      "requirementId": "R06",
+      "description": "GIF/動画を納品に含めず画像に動きなし。報告に構造検証・画像QA・権利確認・未実行を区別し仕様変更はv2 PR",
+      "verification": "delivery audit; reduced motion conditional test"
+    }
+  ],
+  "status": "SPECIFICATION_ONLY",
+  "verified": false,
+  "checks": [
+    {
+      "name": "v1資料と4例の閲覧",
+      "state": "VERIFIED"
+    },
+    {
+      "name": "カタログ5件が架空であること",
+      "state": "VERIFIED"
+    },
+    {
+      "name": "GitHub書込権限",
+      "state": "VERIFIED"
+    },
+    {
+      "name": "関連公開ページ2件の本文閲覧",
+      "state": "VERIFIED_LIMITED"
+    },
+    {
+      "name": "Instagram反応/保存率分析",
+      "state": "NOT_RUN"
+    },
+    {
+      "name": "画像生成・書出し・見た目QA",
+      "state": "NOT_RUN"
+    },
+    {
+      "name": "素材とフォントの利用条件",
+      "state": "UNVERIFIED"
+    },
+    {
+      "name": "CLI production validate",
+      "state": "NOT_RUN"
+    },
+    {
+      "name": "仕様PRの人によるレビュー",
+      "state": "PENDING"
+    }
+  ],
+  "handoff": {
+    "repository": "lv0832tktu/Web-",
+    "baseBranch": "feat/ai-web-design-production",
+    "specBranch": "work-handoff/autumn-weekend-v1",
+    "path": "projects/autumn-weekend/handoff",
+    "commitSha": "仕様PRのhead SHAをPR本文の引継ぎ欄で取得。自己参照SHAはファイル内に埋め込まない",
+    "reviewRequired": true,
+    "implementationScope": "静止画制作。Webの10役割計画は素材/画像制作へ読み替える。既存CLIはWeb向けでありPNG書出しや画像QAを代替しない。",
+    "instructions": [
+      "既存チェックアウトのgit statusを確認。仕様PRを人がレビューした後、PR本文の承認対象SHAと一致するcommitを受信する",
+      "git fetch origin work-handoff/autumn-weekend-v1",
+      "npm run work:receive -- <approved-full-commit-sha> autumn-weekend /tmp/autumn-weekend-input-v1",
+      "npm run production -- validate /tmp/autumn-weekend-input-v1",
+      "生成写真5点と静止画7枚は未制作。画像生成ツールがない場合は代替の独自SVG案を仕様v2で提案し写真完成と偽らない",
+      "HTMLプレビューは任意。サイト用build/typecheck/lint/testを画像の視覚品質確認として扱わない。画像寸法・全コピー・各幅の見た目・権利を別に検証する",
+      "成果物はhandoff外のcodex/autumn-weekend-v1で作成し、既存ファイルを削除せず実装PRを提出",
+      "変更はwork-handoff/autumn-weekend-v2の新PR。マージ・外部公開・Instagram投稿・顧客送信は本指示に含めない"
+    ]
+  }
+}
+```
