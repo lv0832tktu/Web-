@@ -1,0 +1,600 @@
+{
+  "primary": {
+    "id": "LP-00620",
+    "genre": "lp",
+    "title": "カフェ・ベーカリー｜LINE友だち追加LP（ナチュラル・オーガニック・全面写真＋中央キャッチ）",
+    "industry": "カフェ・ベーカリー",
+    "target": "20〜40代",
+    "goal": "LINE友だち追加",
+    "kpi": "友だち追加数",
+    "style": "ナチュラル・オーガニック",
+    "style_id": "natural",
+    "concept": "20〜40代の悩みをQUESTフォーミュラで解きほぐし、LINE友だち追加へ導く。FVは「全面写真＋中央キャッチ」で、「自然・優しい」が伝わる第一印象を作る。",
+    "framework": "QUESTフォーミュラ",
+    "first_view": {
+      "pattern": "全面写真＋中央キャッチ",
+      "motion": "ken-burns＋blur-in",
+      "copy_formula": "【権威】が認めた【商品カテゴリ】"
+    },
+    "sections": [
+      "fv:ファーストビュー",
+      "problem:お悩み提起",
+      "empathy:共感・原因",
+      "solution:解決策の提示",
+      "benefit:ベネフィット",
+      "feature:特徴・選ばれる理由",
+      "voice:お客様の声",
+      "price:料金プラン",
+      "flow:ご利用の流れ",
+      "faq:よくある質問",
+      "cta:クロージングCTA"
+    ],
+    "palette": {
+      "name": "Sage",
+      "bg": "#F6F4EE",
+      "surface": "#E7E9DD",
+      "text": "#2F3A2F",
+      "primary": "#6B8F71",
+      "accent": "#D99A6C",
+      "on_primary": "#111111",
+      "contrast": 10.8
+    },
+    "fonts": {
+      "head": "Kiwi Maru",
+      "body": "Noto Sans JP",
+      "en": "Nunito"
+    },
+    "copy": {
+      "brand": "Atlas & Co.",
+      "headline": "カフェ選びで、もう迷わない。",
+      "cta": "LINEでクーポンを受け取る",
+      "microcopy": "予約もLINEで完結",
+      "cta_pattern": "シャインが定期的に走る"
+    },
+    "interactions": [
+      "診断チャート（3問で最適プラン）",
+      "フォーム入力の進捗バー"
+    ],
+    "motion": [
+      "blob-morph",
+      "fade-up",
+      "wave",
+      "parallax",
+      "float",
+      "counter-up"
+    ],
+    "sfx": [
+      "bubble",
+      "soft-bell"
+    ],
+    "gfx_background": "waves",
+    "graphics": [
+      "クラフト紙テクスチャ",
+      "有機的なブロブ形状",
+      "葉っぱのシルエット"
+    ],
+    "responsive": {
+      "breakpoints": "375 / 768 / 1280",
+      "sp_first": true,
+      "sticky_cta": false
+    },
+    "level": "プロ（演出多め）",
+    "originality": "クライアントのロゴ形状から1つのモチーフを抽出し、背景パターン・区切り線・アイコンに展開する",
+    "quality_check": [
+      "情報の優先順位",
+      "視線誘導",
+      "揃え",
+      "FV3秒テスト",
+      "CTA出現頻度",
+      "Lighthouse 85+"
+    ],
+    "tags": [
+      "カフェ・ベーカリー",
+      "ナチュラル・オーガニック",
+      "LINE友だち追加",
+      "QUESTフォーミュラ",
+      "全面写真＋中央キャッチ",
+      "自然",
+      "優しい",
+      "ベージュ"
+    ],
+    "reference_works": [
+      "REF-LP-004",
+      "REF-LP-008"
+    ]
+  },
+  "alternatives": [
+    {
+      "id": "LP-00796",
+      "genre": "lp",
+      "title": "カフェ・ベーカリー｜リード獲得（資料請求・問い合わせ）LP（ナチュラル・オーガニック・スクロールで商品が回転/分解）",
+      "industry": "カフェ・ベーカリー",
+      "target": "20〜40代",
+      "goal": "リード獲得（資料請求・問い合わせ）",
+      "kpi": "CVR 2〜5%",
+      "style": "ナチュラル・オーガニック",
+      "style_id": "natural",
+      "concept": "20〜40代の悩みをPASTORフォーミュラで解きほぐし、リード獲得（資料請求・問い合わせ）へ導く。FVは「スクロールで商品が回転/分解」で、「自然・優しい」が伝わる第一印象を作る。",
+      "framework": "PASTORフォーミュラ",
+      "first_view": {
+        "pattern": "スクロールで商品が回転/分解",
+        "motion": "sticky-scrub（--p で transform）",
+        "copy_formula": "【悩み】、もう終わりにしませんか？"
+      },
+      "sections": [
+        "fv:ファーストビュー",
+        "problem:お悩み提起",
+        "empathy:共感・原因",
+        "solution:解決策の提示",
+        "benefit:ベネフィット",
+        "feature:特徴・選ばれる理由",
+        "voice:お客様の声",
+        "price:料金プラン",
+        "flow:ご利用の流れ",
+        "faq:よくある質問",
+        "cta:クロージングCTA"
+      ],
+      "palette": {
+        "name": "Linen",
+        "bg": "#FBF8F3",
+        "surface": "#F0E8DC",
+        "text": "#3B3127",
+        "primary": "#A47551",
+        "accent": "#7C9473",
+        "on_primary": "#111111",
+        "contrast": 12
+      },
+      "fonts": {
+        "head": "Klee One",
+        "body": "Zen Kaku Gothic New",
+        "en": "Lora"
+      },
+      "copy": {
+        "brand": "Akari & Co.",
+        "headline": "累計1万人のカフェ。",
+        "cta": "30秒で問い合わせ",
+        "microcopy": "＼30秒で完了／",
+        "cta_pattern": "2択CTA（資料DL / 無料相談）"
+      },
+      "interactions": [
+        "フォーム入力の進捗バー",
+        "FAQアコーディオン＋開閉音"
+      ],
+      "motion": [
+        "parallax",
+        "wave",
+        "blob-morph",
+        "fade-up"
+      ],
+      "sfx": [
+        "drop",
+        "bubble",
+        "soft-bell"
+      ],
+      "gfx_background": "waves",
+      "graphics": [
+        "有機的なブロブ形状",
+        "手書き風の線画",
+        "葉っぱのシルエット"
+      ],
+      "responsive": {
+        "breakpoints": "375 / 768 / 1280",
+        "sp_first": true,
+        "sticky_cta": false
+      },
+      "level": "プロ（演出多め）",
+      "originality": "クライアントの手書き文字やサインをスキャンしてアクセントに使う",
+      "quality_check": [
+        "視線誘導",
+        "情報の優先順位",
+        "フォント",
+        "FV3秒テスト",
+        "CTA出現頻度",
+        "Lighthouse 85+"
+      ],
+      "tags": [
+        "カフェ・ベーカリー",
+        "ナチュラル・オーガニック",
+        "リード獲得（資料請求・問い合わせ）",
+        "PASTORフォーミュラ",
+        "スクロールで商品が回転/分解",
+        "自然",
+        "優しい",
+        "ベージュ"
+      ],
+      "reference_works": [
+        "REF-LP-004",
+        "REF-LP-008"
+      ]
+    },
+    {
+      "id": "LP-01152",
+      "genre": "lp",
+      "title": "カフェ・ベーカリー｜リード獲得（資料請求・問い合わせ）LP（ナチュラル・オーガニック・左テキスト×右商品/人物）",
+      "industry": "カフェ・ベーカリー",
+      "target": "20〜40代",
+      "goal": "リード獲得（資料請求・問い合わせ）",
+      "kpi": "CVR 2〜5%",
+      "style": "ナチュラル・オーガニック",
+      "style_id": "natural",
+      "concept": "20〜40代の悩みをStoryBrand（顧客が主人公）で解きほぐし、リード獲得（資料請求・問い合わせ）へ導く。FVは「左テキスト×右商品/人物」で、「自然・優しい」が伝わる第一印象を作る。",
+      "framework": "StoryBrand（顧客が主人公）",
+      "first_view": {
+        "pattern": "左テキスト×右商品/人物",
+        "motion": "見出しsplit-text＋画像clip-up",
+        "copy_formula": "【期間】で【成果】を。"
+      },
+      "sections": [
+        "fv:ファーストビュー",
+        "numbers:実績・数字",
+        "benefit:ベネフィット",
+        "feature:特徴・選ばれる理由",
+        "beforeafter:ビフォーアフター",
+        "voice:お客様の声",
+        "price:料金プラン",
+        "guarantee:保証・安心",
+        "faq:よくある質問",
+        "cta:クロージングCTA",
+        "sticky:追従CTA（スマホ下部固定）"
+      ],
+      "palette": {
+        "name": "Sage",
+        "bg": "#F6F4EE",
+        "surface": "#E7E9DD",
+        "text": "#2F3A2F",
+        "primary": "#6B8F71",
+        "accent": "#D99A6C",
+        "on_primary": "#111111",
+        "contrast": 10.8
+      },
+      "fonts": {
+        "head": "Kiwi Maru",
+        "body": "Noto Sans JP",
+        "en": "Nunito"
+      },
+      "copy": {
+        "brand": "Pulse Studio",
+        "headline": "地域No.1のカフェ。",
+        "cta": "無料で資料をもらう",
+        "microcopy": "＼30秒で完了／",
+        "cta_pattern": "パルスする波紋で注目"
+      },
+      "interactions": [
+        "スクロール追従の目次",
+        "ビフォーアフタースライダー",
+        "診断チャート（3問で最適プラン）"
+      ],
+      "motion": [
+        "parallax",
+        "line-draw",
+        "wave",
+        "fade-up",
+        "counter-up"
+      ],
+      "sfx": [
+        "bubble",
+        "soft-bell",
+        "drop"
+      ],
+      "gfx_background": "waves",
+      "graphics": [
+        "丸みのある角",
+        "葉っぱのシルエット",
+        "手書き風の線画"
+      ],
+      "responsive": {
+        "breakpoints": "375 / 768 / 1280",
+        "sp_first": true,
+        "sticky_cta": true
+      },
+      "level": "プロ（演出多め）",
+      "originality": "アクセントカラーは全体の5%以内に制限し、CTAと最重要数字だけに使う",
+      "quality_check": [
+        "動き",
+        "視線誘導",
+        "揃え",
+        "FV3秒テスト",
+        "CTA出現頻度",
+        "Lighthouse 85+"
+      ],
+      "tags": [
+        "カフェ・ベーカリー",
+        "ナチュラル・オーガニック",
+        "リード獲得（資料請求・問い合わせ）",
+        "StoryBrand（顧客が主人公）",
+        "左テキスト×右商品/人物",
+        "自然",
+        "優しい",
+        "ベージュ"
+      ],
+      "reference_works": [
+        "REF-LP-004",
+        "REF-LP-008"
+      ]
+    },
+    {
+      "id": "LP-01326",
+      "genre": "lp",
+      "title": "カフェ・ベーカリー｜LINE友だち追加LP（ナチュラル・オーガニック・スクロールで商品が回転/分解）",
+      "industry": "カフェ・ベーカリー",
+      "target": "20〜40代",
+      "goal": "LINE友だち追加",
+      "kpi": "友だち追加数",
+      "style": "ナチュラル・オーガニック",
+      "style_id": "natural",
+      "concept": "20〜40代の悩みをQUESTフォーミュラで解きほぐし、LINE友だち追加へ導く。FVは「スクロールで商品が回転/分解」で、「自然・優しい」が伝わる第一印象を作る。",
+      "framework": "QUESTフォーミュラ",
+      "first_view": {
+        "pattern": "スクロールで商品が回転/分解",
+        "motion": "sticky-scrub（--p で transform）",
+        "copy_formula": "【悩み】、もう終わりにしませんか？"
+      },
+      "sections": [
+        "fv:ファーストビュー",
+        "media:メディア掲載・導入企業ロゴ",
+        "problem:お悩み提起",
+        "solution:解決策の提示",
+        "feature:特徴・選ばれる理由",
+        "numbers:実績・数字",
+        "voice:お客様の声",
+        "compare:比較表",
+        "offer:特典・オファー",
+        "faq:よくある質問",
+        "cta:クロージングCTA",
+        "sticky:追従CTA（スマホ下部固定）"
+      ],
+      "palette": {
+        "name": "Sage",
+        "bg": "#F6F4EE",
+        "surface": "#E7E9DD",
+        "text": "#2F3A2F",
+        "primary": "#6B8F71",
+        "accent": "#D99A6C",
+        "on_primary": "#111111",
+        "contrast": 10.8
+      },
+      "fonts": {
+        "head": "Kiwi Maru",
+        "body": "Noto Sans JP",
+        "en": "Nunito"
+      },
+      "copy": {
+        "brand": "Bloom Works",
+        "headline": "20〜40代に選ばれ続ける理由があります。",
+        "cta": "LINEでクーポンを受け取る",
+        "microcopy": "友だち追加でクーポン",
+        "cta_pattern": "シャインが定期的に走る"
+      },
+      "interactions": [
+        "フォーム入力の進捗バー",
+        "カウントダウンタイマー"
+      ],
+      "motion": [
+        "blob-morph",
+        "line-draw",
+        "fade-up",
+        "counter-up"
+      ],
+      "sfx": [
+        "drop",
+        "soft-bell",
+        "bubble"
+      ],
+      "gfx_background": "waves",
+      "graphics": [
+        "有機的なブロブ形状",
+        "クラフト紙テクスチャ",
+        "丸みのある角"
+      ],
+      "responsive": {
+        "breakpoints": "375 / 768 / 1280",
+        "sp_first": true,
+        "sticky_cta": true
+      },
+      "level": "プロ（演出多め）",
+      "originality": "季節・時間帯で背景グラフィックを切り替える仕組みを入れる",
+      "quality_check": [
+        "動き",
+        "視線誘導",
+        "色数",
+        "FV3秒テスト",
+        "CTA出現頻度",
+        "Lighthouse 85+"
+      ],
+      "tags": [
+        "カフェ・ベーカリー",
+        "ナチュラル・オーガニック",
+        "LINE友だち追加",
+        "QUESTフォーミュラ",
+        "スクロールで商品が回転/分解",
+        "自然",
+        "優しい",
+        "ベージュ"
+      ],
+      "reference_works": [
+        "REF-LP-004",
+        "REF-LP-008"
+      ]
+    },
+    {
+      "id": "LP-01421",
+      "genre": "lp",
+      "title": "カフェ・ベーカリー｜リード獲得（資料請求・問い合わせ）LP（ナチュラル・オーガニック・背景動画ループ＋オーバーレイ）",
+      "industry": "カフェ・ベーカリー",
+      "target": "20〜40代",
+      "goal": "リード獲得（資料請求・問い合わせ）",
+      "kpi": "CVR 2〜5%",
+      "style": "ナチュラル・オーガニック",
+      "style_id": "natural",
+      "concept": "20〜40代の悩みをAIDMAで解きほぐし、リード獲得（資料請求・問い合わせ）へ導く。FVは「背景動画ループ＋オーバーレイ」で、「自然・優しい」が伝わる第一印象を作る。",
+      "framework": "AIDMA",
+      "first_view": {
+        "pattern": "背景動画ループ＋オーバーレイ",
+        "motion": "letterbox-open＋split-text",
+        "copy_formula": "【権威】が認めた【商品カテゴリ】"
+      },
+      "sections": [
+        "fv:ファーストビュー",
+        "story:開発ストーリー / 代表メッセージ",
+        "feature:特徴・選ばれる理由",
+        "beforeafter:ビフォーアフター",
+        "voice:お客様の声",
+        "offer:特典・オファー",
+        "guarantee:保証・安心",
+        "cta:クロージングCTA",
+        "sticky:追従CTA（スマホ下部固定）"
+      ],
+      "palette": {
+        "name": "Linen",
+        "bg": "#FBF8F3",
+        "surface": "#F0E8DC",
+        "text": "#3B3127",
+        "primary": "#A47551",
+        "accent": "#7C9473",
+        "on_primary": "#111111",
+        "contrast": 12
+      },
+      "fonts": {
+        "head": "Kiwi Maru",
+        "body": "Noto Sans JP",
+        "en": "Nunito"
+      },
+      "copy": {
+        "brand": "Hikari Lab",
+        "headline": "地域No.1のカフェ。",
+        "cta": "無料で資料をもらう",
+        "microcopy": "＼30秒で完了／",
+        "cta_pattern": "2択CTA（資料DL / 無料相談）"
+      },
+      "interactions": [
+        "スクロール追従の目次",
+        "料金シミュレーター（スライダーで月額計算）",
+        "送信完了で紙吹雪＋成功音"
+      ],
+      "motion": [
+        "wave",
+        "blob-morph",
+        "parallax",
+        "fade-up",
+        "counter-up"
+      ],
+      "sfx": [
+        "soft-bell",
+        "drop",
+        "bubble"
+      ],
+      "gfx_background": "sakura",
+      "graphics": [
+        "有機的なブロブ形状",
+        "丸みのある角",
+        "クラフト紙テクスチャ"
+      ],
+      "responsive": {
+        "breakpoints": "375 / 768 / 1280",
+        "sp_first": true,
+        "sticky_cta": true
+      },
+      "level": "プロ（演出多め）",
+      "originality": "余白を通常の1.5倍とり、要素数を減らして「格」を上げる",
+      "quality_check": [
+        "フォント",
+        "視線誘導",
+        "情報の優先順位",
+        "FV3秒テスト",
+        "CTA出現頻度",
+        "Lighthouse 85+"
+      ],
+      "tags": [
+        "カフェ・ベーカリー",
+        "ナチュラル・オーガニック",
+        "リード獲得（資料請求・問い合わせ）",
+        "AIDMA",
+        "背景動画ループ＋オーバーレイ",
+        "自然",
+        "優しい",
+        "ベージュ"
+      ],
+      "reference_works": [
+        "REF-LP-004",
+        "REF-LP-008"
+      ]
+    }
+  ],
+  "reference_works": [
+    {
+      "id": "REF-LP-004",
+      "genre": "lp",
+      "title": "美容・健康食品・サプリの「悩み解決型」LP群",
+      "by": "国内各社（LPアーカイブ掲載：美容2,823件・サプリ1,518件）",
+      "url": "https://rdlp.jp/lp-archive/search?sa=%E3%82%B5%E3%83%97%E3%83%AA",
+      "recognition": "国内最大級のLPギャラリーに多数掲載されている定番ジャンル",
+      "sources": [
+        "https://note.com/ynp0419/n/n174c2988e6bd",
+        "https://x-buzz.co.jp/lp/blog-lp/5273/",
+        "https://rdlp.jp/lp-archive/search?sa=%E7%BE%8E%E5%AE%B9"
+      ],
+      "verified": "confirmed",
+      "facts": [
+        "2025年の傾向：悩み解決型の商材には「広告に見えない（ノン広告風）」デザインが合う",
+        "PCでは縦長1カラムから3カラム配置への移行も見られる",
+        "サプリLPの例（キリン）：FVに数値や「世界初」などの文言を置いて訴求"
+      ],
+      "takeaways": [
+        "広告っぽい派手さを抑え、記事・雑誌のような見た目で信頼を得る（エディトリアル風LP）",
+        "FVの数字は最大の武器。ただし根拠（調査・期間）を必ず注記"
+      ],
+      "kit": {
+        "motion": [
+          "fade-up",
+          "counter-up",
+          "clip-up"
+        ],
+        "sfx": [
+          "soft-bell",
+          "success"
+        ],
+        "gfx": null,
+        "template": "lp-standard"
+      },
+      "styles": [
+        "editorial",
+        "natural",
+        "minimal"
+      ],
+      "apply": "スタイル「エディトリアル」のレシピを選び、FVを記事風（日付・著者・見出し）にする。数値は data-counter で強調し、近くに※注記。薬機法表現に注意（knowledge/copywriting.md）。"
+    },
+    {
+      "id": "REF-LP-008",
+      "genre": "lp",
+      "title": "教育ローンLP（利用シーンのFVで申込116%）",
+      "by": "Kaizen Platform 事例",
+      "url": "https://kaizenplatform.com/contents/first-view",
+      "recognition": "ABテストでの改善事例",
+      "sources": [
+        "https://kaizenplatform.com/contents/first-view"
+      ],
+      "verified": "confirmed",
+      "facts": [
+        "FVに「利用シーンが分かるビジュアル」を置いたところ、LPからの申込数が116%に増加"
+      ],
+      "takeaways": [
+        "金融・手続き系は商品説明より「使っている自分」を想像させるビジュアルが効く"
+      ],
+      "kit": {
+        "motion": [
+          "clip-up",
+          "fade-up"
+        ],
+        "sfx": [],
+        "gfx": null,
+        "template": "lp-standard"
+      },
+      "styles": [
+        "trust",
+        "natural",
+        "nordic"
+      ],
+      "apply": "保険・ローン・士業など形のない商品は、FV写真を「サービスを受けた後の生活シーン」にする。"
+    }
+  ]
+}
