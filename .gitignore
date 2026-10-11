@@ -5,3 +5,5 @@ dist/
 !.env.example
 .DS_Store
 Thumbs.db
+# render.mjs の既定出力（必要なものは designs/ や delivery/ に移す）
+**/export/

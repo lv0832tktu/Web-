@@ -1,0 +1,12 @@
+/* デザイントークン（tools/new-project.mjs がDBのレシピから自動生成して上書き） */
+:root {
+  --c-bg: #F3F1EC;
+  --c-surface: #E4E0D7;
+  --c-text: #1E1D1A;
+  --c-primary: #8C6A43;
+  --c-accent: #C8553D;
+  --c-on-primary: #FFFFFF;
+  --font-head: "Zen Kaku Gothic New", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+  --font-en: "Inter Tight", sans-serif;
+}
