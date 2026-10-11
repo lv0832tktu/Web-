@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UMINARI COFFEE 海鳴り珈琲｜沖縄・西海岸 夕日が正面のサンセットテラス席予約</title>
+<meta name="description" content="沖縄本島・西海岸の海辺カフェ「海鳴り珈琲」。砂浜まで徒歩0分、全12席が西向きのテラスで、東シナ海に沈む夕日を正面に。日の入り前後のサンセット枠はWeb予約制で待ち時間なし。">
+<meta property="og:title" content="UMINARI COFFEE 海鳴り珈琲｜サンセットテラス席のご予約">
+<meta property="og:description" content="夕日が、いちばん近い席へ。沖縄・西海岸の海辺カフェ。">
+<meta property="og:image" content="images/ogp.png">
+<meta name="theme-color" content="#0E7C7B">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;display=swap">
+<link rel="stylesheet" href="shared/css/base.css">
+<link rel="stylesheet" href="shared/css/motion.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div data-scroll-progress></div>
+
+<!-- ミンサー織「五つと四つ」の絣柄（区切り線・アイコン共通） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="minsa" width="88" height="12" patternUnits="userSpaceOnUse">
+      <g class="minsa-dot"><rect x="0" y="3" width="6" height="6"/><rect x="8" y="3" width="6" height="6"/><rect x="16" y="3" width="6" height="6"/><rect x="24" y="3" width="6" height="6"/><rect x="32" y="3" width="6" height="6"/></g>
+      <rect class="minsa-line" x="42" y="0" width="2" height="12"/>
+      <g class="minsa-dot"><rect x="48" y="3" width="6" height="6"/><rect x="56" y="3" width="6" height="6"/><rect x="64" y="3" width="6" height="6"/><rect x="72" y="3" width="6" height="6"/></g>
+      <rect class="minsa-line" x="82" y="0" width="2" height="12"/>
+    </pattern>
+  </defs>
+</svg>
+
+<header class="hd">
+  <a class="hd__logo" href="#top" aria-label="UMINARI COFFEE トップへ"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="en">UMINARI</span><small>海鳴り珈琲</small></a>
+  <nav class="hd__nav" aria-label="ページ内リンク">
+    <a href="#concept" data-sfx-hover="tick">コンセプト</a><a href="#sunset" data-sfx-hover="tick">今日の夕日</a><a href="#menu" data-sfx-hover="tick">メニュー</a><a href="#access" data-sfx-hover="tick">アクセス</a>
+  </nav>
+  <a class="btn btn--accent hd__cta" href="#reserve" data-sfx="bubble">テラス席を予約</a>
+</header>
+
+<main id="top">
+  <!-- ========== FV：全面ビジュアル＋中央キャッチ ========== -->
+  <section class="fv" aria-labelledby="fv-title">
+    <div class="fv__scene" aria-hidden="true">
+      <div class="fv__sky m-kenburns"></div>
+      <div class="fv__sun"></div>
+      <div class="fv__sea">
+        <svg viewBox="0 0 1440 400" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="st-sea1"/><stop offset=".55" class="st-sea2"/><stop offset="1" class="st-sea3"/></linearGradient>
+            <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="st-glow1"/><stop offset="1" class="st-glow2"/></linearGradient>
+          </defs>
+          <rect width="1440" height="400" fill="url(#sea)"/>
+          <g class="sun-road" fill="url(#glow)">
+            <rect x="640" y="4" width="160" height="4" rx="2"/><rect x="600" y="16" width="240" height="5" rx="2"/><rect x="660" y="30" width="120" height="4" rx="2"/>
+            <rect x="560" y="46" width="320" height="6" rx="3"/><rect x="630" y="66" width="180" height="5" rx="2"/><rect x="520" y="88" width="400" height="7" rx="3"/>
+            <rect x="610" y="116" width="220" height="6" rx="3"/><rect x="480" y="148" width="480" height="8" rx="4"/><rect x="590" y="188" width="260" height="7" rx="3"/>
+          </g>
+        </svg>
+        <canvas class="fv__waves" data-sea-waves></canvas>
+      </div>
+      <svg class="fv__leaf" viewBox="0 0 400 360" data-parallax="-0.08">
+        <path class="leaf" d="M400 0 C330 40 270 60 190 70 C260 90 330 80 400 60Z"/>
+        <path class="leaf" d="M400 40 C320 110 260 150 170 190 C260 190 340 150 400 110Z"/>
+        <path class="leaf" d="M400 110 C350 190 300 250 230 320 C310 290 370 230 400 180Z"/>
+        <path class="leaf" d="M400 0 C360 20 330 10 300 0Z"/>
+      </svg>
+      <svg class="fv__deck" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMax slice">
+        <path class="deck" d="M0 150 H1440 V240 H0Z"/>
+        <path class="deck-rail" d="M0 96 H1440 V106 H0Z M0 132 H1440 V138 H0Z"/>
+        <g class="deck-post"><rect x="60" y="96" width="10" height="60"/><rect x="340" y="96" width="10" height="60"/><rect x="1090" y="96" width="10" height="60"/><rect x="1370" y="96" width="10" height="60"/></g>
+        <!-- 二脚の椅子と小さなテーブル：夕日に向かって座る -->
+        <g class="deck-chair">
+          <path d="M560 70 l-12 82 h10 l6 -38 h56 l6 38 h10 l-10 -82 h-10 l4 34 h-52 l2 -34Z"/>
+          <path d="M836 70 l-12 82 h10 l6 -38 h56 l6 38 h10 l-10 -82 h-10 l4 34 h-52 l2 -34Z"/>
+          <path d="M686 112 h96 v8 h-44 v32 h-8 v-32 h-44Z"/>
+          <path d="M706 100 h16 v12 h-16Z M746 98 h16 v14 h-16Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="fv__inner container">
+      <p class="fv__eyebrow" data-reveal="fade-up"><span class="pill">沖縄本島・西海岸の海辺カフェ</span></p>
+      <h1 class="fv__title" id="fv-title">
+        <span class="line" data-split="chars" data-split-style="blur">夕日が、いちばん</span>
+        <span class="line" data-split="chars" data-split-style="blur" style="--split-delay:350ms">近い席へ。</span>
+      </h1>
+      <p class="fv__lead" data-reveal="fade-up" data-delay="900">砂浜まで、徒歩0分。全12席が西を向くテラスで、<br class="pc">東シナ海に沈む夕日を、正面から。</p>
+      <div class="fv__cta" data-reveal="fade-up" data-delay="1100">
+        <p class="sunset-chip"><span>今日の日の入り</span><b class="en" data-sunset-today>18:06</b><small>（目安）</small></p>
+        <a class="btn btn--accent btn--xl m-shine" href="#reserve" data-magnetic data-sfx="bubble">サンセット席を予約する<span class="arrow" aria-hidden="true">→</span></a>
+        <p class="micro">予約は30秒・前日21時まで変更無料</p>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#yukui" aria-label="下へスクロール"><span></span></a>
+  </section>
+
+  <!-- ========== お悩み（QUEST：Qualify） ========== -->
+  <section class="sec yukui" id="yukui">
+    <div class="container narrow">
+      <p class="sec__en en" data-reveal="fade-up">Yukui — ひと休み</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">旅の予定、<br class="sp">詰め込みすぎて<br class="sp">いませんか。</h2>
+      <ul class="checks" data-stagger="90">
+        <li>夕日の時間に<b>どこにいるか</b>、まだ決めていない</li>
+        <li>人気のカフェは<b>行列</b>で、結局あきらめた</li>
+        <li>観光より、海を見ながら<b>ただぼーっと</b>したい</li>
+      </ul>
+      <p class="yukui__answer" data-reveal="fade-up">この島の一日は、<em>夕日で終わる</em>。<br>その時間だけは、席を決めておきませんか。</p>
+    </div>
+    <svg class="minsa-rule" aria-hidden="true"><rect width="100%" height="100%" fill="url(#minsa)"/></svg>
+  </section>
+
+  <!-- ========== コンセプト（Understand / Educate） ========== -->
+  <section class="sec concept" id="concept">
+    <div class="container concept__grid">
+      <figure class="art art--tall" data-reveal="clip-up">
+        <svg viewBox="0 0 480 640" role="img" aria-label="イラスト：赤瓦の軒先から見える、夕暮れの海とテラス席">
+          <rect class="a-sky" width="480" height="640"/>
+          <circle class="a-sun" cx="240" cy="372" r="62"/>
+          <rect class="a-sea" y="372" width="480" height="268"/>
+          <g class="a-glint"><rect x="190" y="392" width="100" height="4" rx="2"/><rect x="160" y="416" width="160" height="5" rx="2"/><rect x="200" y="446" width="80" height="4" rx="2"/></g>
+          <path class="a-roof" d="M0 0 H480 V96 C440 112 400 96 360 112 C320 96 280 112 240 96 C200 112 160 96 120 112 C80 96 40 112 0 96Z"/>
+          <path class="a-roof2" d="M0 96 C40 112 80 96 120 112 C160 96 200 112 240 96 C280 112 320 96 360 112 C400 96 440 112 480 96 V124 C440 140 400 124 360 140 C320 124 280 140 240 124 C200 140 160 124 120 140 C80 124 40 140 0 124Z"/>
+          <rect class="a-post" x="28" y="124" width="18" height="516"/><rect class="a-post" x="434" y="124" width="18" height="516"/>
+          <path class="a-deck" d="M0 540 H480 V640 H0Z"/>
+          <path class="a-chair" d="M150 470 l-10 72 h9 l5 -32 h46 l5 32 h9 l-9 -72 h-9 l3 28 h-42 l2 -28Z M282 470 l-10 72 h9 l5 -32 h46 l5 32 h9 l-9 -72 h-9 l3 28 h-42 l2 -28Z"/>
+        </svg>
+      </figure>
+      <div class="concept__txt">
+        <p class="sec__en en left" data-reveal="fade-up">Concept</p>
+        <h2 class="sec__ttl left" data-reveal="fade-up">波の音を、<br><span class="marker">いちばんの音楽</span>に。</h2>
+        <p data-reveal="fade-up">「海鳴り（うみなり）」は、遠くの波が鳴らす低い音のこと。<br>店内にBGMは流していません。聞こえるのは、波と、カップを置く音と、となりの人の声だけ。</p>
+        <p data-reveal="fade-up">赤瓦の軒の下、サンゴ砂の浜に向かって並ぶテラスで、島の素材でつくる一杯と、ゆっくり沈んでいく夕日を。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 選ばれる理由（Solution） ========== -->
+  <section class="sec reason" id="reason">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">Why Uminari</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">海鳴り珈琲の<span class="num en">3</span>つのこと</h2>
+
+      <article class="zig">
+        <figure class="art" data-reveal="clip-left">
+          <svg viewBox="0 0 640 480" role="img" aria-label="イラスト：砂浜に面した西向きのテラスに12脚の椅子が並ぶ様子">
+            <rect class="a-sky" width="640" height="480"/>
+            <circle class="a-sun" cx="320" cy="250" r="54"/>
+            <rect class="a-sea" y="250" width="640" height="110"/>
+            <path class="a-sand" d="M0 330 C160 310 480 350 640 320 V480 H0Z"/>
+            <g class="a-chair-row">
+              <defs><path id="chairB" d="M0 0 h32 a4 4 0 0 1 4 4 v20 h-4 v14 h-4 v-14 h-20 v14 h-4 v-14 h-4 v-20 a4 4 0 0 1 4 -4Z"/></defs>
+              <use href="#chairB" x="70" y="384"/><use href="#chairB" x="118" y="384"/><use href="#chairB" x="166" y="384"/><use href="#chairB" x="214" y="384"/><use href="#chairB" x="262" y="384"/><use href="#chairB" x="310" y="384"/><use href="#chairB" x="358" y="384"/><use href="#chairB" x="406" y="384"/><use href="#chairB" x="454" y="384"/><use href="#chairB" x="502" y="384"/><use href="#chairB" x="550" y="384"/><use href="#chairB" x="598" y="384"/>
+            </g>
+            <text class="a-label en" x="320" y="462" text-anchor="middle">12 seats · facing west</text>
+          </svg>
+        </figure>
+        <div class="zig__txt" data-reveal="fade-left">
+          <p class="zig__no en">01</p>
+          <h3>全12席が西向き。<br>夕日は、いつも正面に。</h3>
+          <p>テラスの椅子はすべて海に向けて一列に。どの席からも、水平線に沈む夕日をさえぎるものなく眺められます。砂浜までは段差を降りてすぐ、徒歩0分です。</p>
+        </div>
+      </article>
+
+      <article class="zig zig--rev">
+        <figure class="art" data-reveal="clip-left">
+          <svg viewBox="0 0 640 480" role="img" aria-label="イラスト：コーヒー豆、黒糖、シークヮーサー、紅芋など沖縄の素材">
+            <rect class="a-surface" width="640" height="480"/>
+            <g class="minsa-bg"><rect width="640" height="12" fill="url(#minsa)"/><rect y="468" width="640" height="12" fill="url(#minsa)"/></g>
+            <g transform="translate(118 180)"><text class="a-ing" y="84" text-anchor="middle">コーヒー豆</text><ellipse class="a-bean" cx="0" cy="0" rx="34" ry="46" transform="rotate(-20)"/><path class="a-bean-line" d="M-6 -42 C10 -14 -16 14 6 42" transform="rotate(-20)"/></g>
+            <g transform="translate(250 300)"><text class="a-ing" y="78" text-anchor="middle">黒糖</text><rect class="a-sugar" x="-44" y="-36" width="88" height="72" rx="14" transform="rotate(8)"/><rect class="a-sugar2" x="-26" y="-20" width="30" height="24" rx="6" transform="rotate(8)"/></g>
+            <g transform="translate(400 170)"><text class="a-ing" y="92" text-anchor="middle">シークヮーサー</text><circle class="a-citrus" r="60"/><circle class="a-citrus-in" r="48"/><path class="a-citrus-seg" d="M0 -48 V48 M-48 0 H48 M-34 -34 L34 34 M34 -34 L-34 34"/></g>
+            <g transform="translate(520 320)"><text class="a-ing" y="78" text-anchor="middle">紅芋</text><path class="a-imo" d="M-70 10 C-60 -40 30 -50 70 -16 C90 4 60 44 0 46 C-50 48 -76 34 -70 10Z"/><path class="a-imo-cut" d="M44 -26 C64 -10 64 14 48 30 C70 20 80 -4 70 -16Z"/></g>
+          </svg>
+        </figure>
+        <div class="zig__txt" data-reveal="fade-right">
+          <p class="zig__no en">02</p>
+          <h3>一杯ごとに、<br>島の素材をひとつ。</h3>
+          <p>やんばる産の豆を使ったブレンド、黒糖のラテ、シークヮーサーのソーダ、紅芋のバスクチーズケーキ。沖縄で育ったものを、この海辺で味わえるように。</p>
+        </div>
+      </article>
+
+      <article class="zig">
+        <figure class="art" data-reveal="clip-left">
+          <svg viewBox="0 0 640 480" role="img" aria-label="イラスト：テラス席の上に置かれた予約席のプレート">
+            <rect class="a-sky" width="640" height="480"/>
+            <rect class="a-sea" y="270" width="640" height="210"/>
+            <path class="a-deck" d="M0 330 H640 V480 H0Z"/>
+            <rect class="a-table" x="150" y="300" width="340" height="30" rx="8"/>
+            <g transform="translate(320 250) rotate(-4)"><rect class="a-plate" x="-110" y="-56" width="220" height="104" rx="12"/><text class="a-plate-txt" x="0" y="-8" text-anchor="middle">予約席</text><text class="a-plate-en en" x="0" y="28" text-anchor="middle">SUNSET RESERVED</text></g>
+          </svg>
+        </figure>
+        <div class="zig__txt" data-reveal="fade-left">
+          <p class="zig__no en">03</p>
+          <h3>夕日の時間は予約制。<br>並ばずに、座るだけ。</h3>
+          <p>日の入り60分前からの90分間は、テラス席をWeb予約のお客さま専用に。せっかくの夕日を、行列の中で見送ることはありません。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== 今日の夕日（オリジナルのインタラクション） ========== -->
+  <section class="sec sunset" id="sunset">
+    <div class="container narrow">
+      <p class="sec__en en light" data-reveal="fade-up">Today's Sunset</p>
+      <h2 class="sec__ttl light" data-reveal="fade-up">あなたの旅の日の、<br class="sp">夕日の時間。</h2>
+      <div class="sunset__card" data-reveal="zoom-in">
+        <label class="sunset__date">旅行の日付を選ぶ<input type="date" data-sunset-date></label>
+        <div class="sunset__time">
+          <p class="sunset__label">日の入り（目安）</p>
+          <p class="sunset__big en" aria-live="polite"><b data-sunset-out>18:06</b></p>
+        </div>
+        <div class="sunset__bar" aria-hidden="true">
+          <span class="sunset__track"></span>
+          <span class="sunset__win" data-sunset-win></span>
+          <span class="sunset__dot m-pulse" data-sunset-dot></span>
+          <span class="sunset__tick en" style="left:0">11:00</span><span class="sunset__tick en" style="left:100%">20:00</span>
+        </div>
+        <p class="sunset__slot">サンセット予約枠 <b class="en" data-sunset-slot>17:06 – 18:36</b></p>
+        <p class="note">※沖縄本島 西海岸での計算値です。天候により夕日が見えない場合があります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== メニュー（Price） ========== -->
+  <section class="sec menu" id="menu">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">Menu</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">島の一杯と、ひと皿</h2>
+      <div class="menu__grid" data-stagger="100">
+        <article class="item">
+          <svg class="item__art" viewBox="0 0 160 160" role="img" aria-label="イラスト：やんばるブレンドのホットコーヒー"><circle class="i-bg i-bg--sea" cx="80" cy="80" r="80"/><circle class="i-saucer" cx="80" cy="84" r="50"/><circle class="i-cup" cx="80" cy="80" r="36"/><circle class="i-coffee" cx="80" cy="80" r="28"/><path class="i-handle" d="M114 72 h16 a8 8 0 0 1 0 16 h-16Z"/></svg>
+          <h3>やんばるブレンド</h3><p class="item__desc">北部・やんばる産の豆を軸に、深めに焙煎。</p><p class="item__price en">¥650</p>
+        </article>
+        <article class="item">
+          <svg class="item__art" viewBox="0 0 160 160" role="img" aria-label="イラスト：黒糖ラテ"><circle class="i-bg i-bg--sand" cx="80" cy="80" r="80"/><circle class="i-saucer" cx="80" cy="84" r="50"/><circle class="i-cup" cx="80" cy="80" r="36"/><circle class="i-latte" cx="80" cy="80" r="28"/><path class="i-art" d="M80 64 c-14 6 -14 24 0 30 c14 -6 14 -24 0 -30Z M80 66 v26"/><path class="i-handle" d="M114 72 h16 a8 8 0 0 1 0 16 h-16Z"/></svg>
+          <h3>黒糖ラテ</h3><p class="item__desc">県産黒糖のこっくりした甘さを、ミルクで。</p><p class="item__price en">¥700</p>
+        </article>
+        <article class="item">
+          <svg class="item__art" viewBox="0 0 160 160" role="img" aria-label="イラスト：シークヮーサーソーダ"><circle class="i-bg i-bg--sea" cx="80" cy="80" r="80"/><path class="i-glass" d="M52 36 h56 l-8 92 a6 6 0 0 1 -6 6 h-28 a6 6 0 0 1 -6 -6Z"/><path class="i-soda" d="M56 64 h48 l-6 62 h-36Z"/><circle class="i-bub" cx="72" cy="104" r="3"/><circle class="i-bub" cx="86" cy="90" r="2.5"/><circle class="i-bub" cx="78" cy="78" r="2"/><circle class="i-lime" cx="104" cy="44" r="16"/><circle class="i-lime-in" cx="104" cy="44" r="11"/></svg>
+          <h3>シークヮーサーソーダ</h3><p class="item__desc">きゅっと酸っぱい島の柑橘を、強めの炭酸で。</p><p class="item__price en">¥600</p>
+        </article>
+        <article class="item">
+          <svg class="item__art" viewBox="0 0 160 160" role="img" aria-label="イラスト：紅芋のバスクチーズケーキ"><circle class="i-bg i-bg--sand" cx="80" cy="80" r="80"/><ellipse class="i-plate" cx="80" cy="100" rx="58" ry="22"/><path class="i-cake" d="M40 96 L112 72 L120 94 L48 118Z"/><path class="i-cake-top" d="M40 96 L112 72 L104 62 L36 84Z"/></svg>
+          <h3>紅芋のバスクチーズケーキ</h3><p class="item__desc">表面は香ばしく、中は紅芋色のとろり食感。</p><p class="item__price en">¥680</p>
+        </article>
+      </div>
+
+      <div class="set" data-reveal="fade-up">
+        <div class="set__txt">
+          <p class="set__en en">Sunset Set — reservation only</p>
+          <h3>サンセットセット</h3>
+          <p>お好きなドリンク＋ケーキ＋夕日の90分。予約のお客さまだけのセットです。</p>
+        </div>
+        <p class="set__price en">¥1,200<small>／1名・税込</small></p>
+        <a class="btn btn--accent" href="#reserve" data-sfx="bubble">このセットで予約する<span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <p class="note center">表示価格はすべて税込です。予約なしでも店内席・空いているテラス席はご利用いただけます。</p>
+    </div>
+  </section>
+
+  <!-- ========== 流れ ========== -->
+  <section class="sec flow">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">How to Reserve</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">ご予約から当日まで</h2>
+      <svg class="flow__line" viewBox="0 0 1000 20" preserveAspectRatio="none" data-line-draw aria-hidden="true"><path d="M0 10 H1000"/></svg>
+      <ol class="steps steps--3" data-stagger="150">
+        <li><span class="en">Step 01</span><b>日付と人数を選ぶ</b>このページのフォームから30秒</li>
+        <li><span class="en">Step 02</span><b>確認メールが届く</b>当日の予約枠の時間をご案内</li>
+        <li><span class="en">Step 03</span><b>夕日の60分前にご来店</b>テラスの予約席へご案内します</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== アクセス ========== -->
+  <section class="sec access" id="access">
+    <div class="container access__grid">
+      <div>
+        <p class="sec__en en left" data-reveal="fade-up">Access</p>
+        <h2 class="sec__ttl left" data-reveal="fade-up">西海岸の、<br>道のおわりに。</h2>
+        <dl class="info" data-stagger="80">
+          <div><dt>場所</dt><dd>沖縄本島 西海岸のリゾートエリア<br><small>那覇空港から車で約60分</small></dd></div>
+          <div><dt>営業時間</dt><dd>11:00 〜 日没後1時間<br><small>不定休（営業日はご予約カレンダーでご確認ください）</small></dd></div>
+          <div><dt>お席</dt><dd>テラス12席（サンセット枠は予約制）／店内16席</dd></div>
+          <div><dt>駐車場</dt><dd>8台・無料</dd></div>
+        </dl>
+      </div>
+      <figure class="art art--map" data-reveal="zoom-in">
+        <svg viewBox="0 0 480 480" role="img" aria-label="イラスト：沖縄本島の西海岸に店の位置を示した簡易地図">
+          <rect class="m-sea" width="480" height="480"/>
+          <path class="m-land" d="M320 20 C350 40 360 80 340 110 C320 140 300 150 300 190 C300 230 270 250 250 280 C230 310 240 350 210 380 C190 400 170 430 150 460 L120 470 C130 430 150 400 170 370 C190 330 200 300 220 270 C240 240 250 210 250 170 C250 130 280 100 290 70 C300 40 300 30 320 20Z"/>
+          <g class="m-pin"><circle cx="240" cy="226" r="10"/><circle class="m-ring m-pulse" cx="240" cy="226" r="20"/></g>
+          <text class="m-txt" x="200" y="214" text-anchor="end">海鳴り珈琲</text>
+          <circle class="m-air" cx="148" cy="440" r="6"/><text class="m-txt m-txt--s" x="166" y="446">那覇空港</text>
+          <path class="m-route" d="M148 440 C180 400 200 360 214 320 C224 290 234 260 240 236"/>
+          <text class="m-txt m-txt--s m-txt--en en" x="40" y="360">East China Sea</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="sec faq" id="faq">
+    <div class="container narrow">
+      <p class="sec__en en" data-reveal="fade-up">FAQ</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">よくあるご質問</h2>
+      <div class="faq__list" data-stagger="80">
+        <details><summary data-sfx="tick">雨や曇りで、夕日が見えなかったら？</summary><p>当日15時までにご連絡いただければ、キャンセル料はかかりません。そのままご来店いただいた場合も、テラス席（屋根あり）でゆっくりお過ごしいただけます。</p></details>
+        <details><summary data-sfx="tick">予約なしでも入れますか？</summary><p>はい。店内席と、空いているテラス席は予約なしでご利用いただけます。サンセット枠の時間帯のテラス席のみ、予約優先です。</p></details>
+        <details><summary data-sfx="tick">何名まで予約できますか？</summary><p>Web予約は1〜4名さままでです。5名以上の場合はお電話でご相談ください。</p></details>
+        <details><summary data-sfx="tick">子ども連れでも大丈夫ですか？</summary><p>もちろんです。テラスは浜に面しているため、小さなお子さまからは目を離さないようお願いします。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 予約フォーム（CTA） ========== -->
+  <section class="sec cta" id="reserve">
+    <div class="cta__sky" aria-hidden="true"></div>
+    <canvas data-gfx="bokeh" class="cta__bg" aria-hidden="true"></canvas>
+    <div class="container narrow">
+      <p class="sec__en en light" data-reveal="fade-up">Reservation</p>
+      <h2 class="sec__ttl light" data-reveal="fade-up">今日の夕日を、<br class="sp">予約しておく。</h2>
+      <p class="center light" data-reveal="fade-up">サンセット枠のテラス席（日の入り60分前から90分間）</p>
+      <form class="form" data-reveal="fade-up" novalidate>
+        <div class="form__progress" aria-hidden="true"><span></span></div>
+        <div class="form__row">
+          <label>ご来店日<input name="date" type="date" required data-sunset-date></label>
+          <label>人数
+            <select name="people" required><option value="">選択</option><option>1名</option><option>2名</option><option>3名</option><option>4名</option></select>
+          </label>
+        </div>
+        <p class="form__slot" aria-live="polite">この日の予約枠：<b class="en" data-sunset-slot>17:06 – 18:36</b>（日の入り <span class="en" data-sunset-out>18:06</span>）</p>
+        <label>お名前<input name="name" required autocomplete="name" placeholder="例）比嘉 ゆい"></label>
+        <label>メールアドレス<input name="email" type="email" required autocomplete="email" placeholder="例）yui@example.com"></label>
+        <button class="btn btn--accent btn--xl m-shine" type="submit" data-magnetic>この日の夕日を予約する<span class="arrow" aria-hidden="true">→</span></button>
+        <p class="micro light">予約金なし・前日21時まで変更／キャンセル無料</p>
+      </form>
+      <div class="thanks" hidden>
+        <p class="thanks__check"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M14 27 l8 8 l16 -18"/></svg></p>
+        <h3>にふぇーでーびる！</h3>
+        <p>（ありがとうございます）<br>ご予約を受け付けました。確認メールをお送りしましたので、当日は夕日の60分前を目安にお越しください。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <svg class="minsa-rule" aria-hidden="true"><rect width="100%" height="100%" fill="url(#minsa)"/></svg>
+  <p class="ft__logo en">Uminari</p>
+  <p class="ft__ja">海鳴り珈琲 — 沖縄本島・西海岸</p>
+  <p><a href="#">プライバシーポリシー</a>｜<a href="#access">アクセス</a>｜<a href="#reserve">ご予約</a></p>
+  <small class="en">© 2026 Uminari Coffee</small>
+</footer>
+
+<a class="sticky-cta btn btn--accent" href="#reserve" data-sfx="bubble">サンセット席を予約する →</a>
+<button class="sfx-toggle" data-sfx-toggle type="button">🔊 SOUND ON</button>
+
+<script src="shared/js/sfx.js"></script>
+<script src="shared/js/motion.js" defer></script>
+<script src="shared/js/graphics.js" defer></script>
+<script src="main.js" defer></script>
+</body>
+</html>

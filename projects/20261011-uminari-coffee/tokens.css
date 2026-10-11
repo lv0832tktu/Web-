@@ -1,0 +1,17 @@
+/* デザイントークン — UMINARI COFFEE（海鳴り珈琲）
+ * ベース: LP-00620（ナチュラル・オーガニック／全面写真＋中央キャッチ）
+ * 配色はクライアント指定の「エメラルドの海・赤瓦のテラコッタ・サンゴ砂」に置き換え（BRIEF.md 1.5 参照）
+ *   本文 #173B3F / 背景 #F8F3EA = 11.0:1、ボタン白文字 / primary = 5.0:1、/ accent = 4.6:1
+ * 色を変えるときはここだけを編集。HTML/CSSに直接HEXを書かないこと。
+ */
+:root {
+  --c-bg: #F8F3EA;        /* サンゴ砂 */
+  --c-surface: #EFE4D2;   /* 砂浜の影 */
+  --c-text: #173B3F;      /* 深い海 */
+  --c-primary: #0E7C7B;   /* エメラルドの海 */
+  --c-accent: #C2523A;    /* 赤瓦・夕日 */
+  --c-on-primary: #FFFFFF;
+  --font-head: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  --font-en: "Cormorant Garamond", serif;
+}
