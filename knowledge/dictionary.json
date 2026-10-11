@@ -1,0 +1,989 @@
+{
+  "styles": [
+    {
+      "id": "minimal",
+      "name": "ミニマル・洗練",
+      "keywords": [
+        "シンプル",
+        "余白",
+        "上品",
+        "モノトーン",
+        "クリーン"
+      ],
+      "motions": [
+        "fade-up",
+        "clip-up",
+        "split-text",
+        "line-draw",
+        "parallax",
+        "mask-wipe"
+      ],
+      "sfx": [
+        "tick",
+        "soft-bell",
+        "page-turn"
+      ],
+      "graphics": [
+        "細い罫線",
+        "大きな余白",
+        "小さな英字キャプション",
+        "モノクロ写真",
+        "縦書きアクセント"
+      ],
+      "gfx": [
+        "rings",
+        null
+      ]
+    },
+    {
+      "id": "luxury",
+      "name": "ラグジュアリー・高級感",
+      "keywords": [
+        "高級",
+        "ゴールド",
+        "黒",
+        "エレガント",
+        "上質"
+      ],
+      "motions": [
+        "blur-in",
+        "clip-up",
+        "split-text",
+        "ken-burns",
+        "shine-sweep",
+        "mask-wipe",
+        "cursor-follow"
+      ],
+      "sfx": [
+        "soft-bell",
+        "chime",
+        "sparkle"
+      ],
+      "graphics": [
+        "金の細線フレーム",
+        "セリフ体の大文字英字",
+        "ゴールドの光沢グラデ",
+        "大判の陰影写真",
+        "ダイヤ型の装飾"
+      ],
+      "gfx": [
+        "bokeh",
+        "particles"
+      ]
+    },
+    {
+      "id": "natural",
+      "name": "ナチュラル・オーガニック",
+      "keywords": [
+        "自然",
+        "優しい",
+        "ベージュ",
+        "植物",
+        "手作り感"
+      ],
+      "motions": [
+        "fade-up",
+        "float",
+        "blob-morph",
+        "wave",
+        "parallax",
+        "line-draw"
+      ],
+      "sfx": [
+        "bubble",
+        "soft-bell",
+        "drop"
+      ],
+      "graphics": [
+        "手書き風の線画",
+        "葉っぱのシルエット",
+        "クラフト紙テクスチャ",
+        "有機的なブロブ形状",
+        "丸みのある角"
+      ],
+      "gfx": [
+        "waves",
+        "sakura"
+      ]
+    },
+    {
+      "id": "pop",
+      "name": "ポップ・カラフル",
+      "keywords": [
+        "元気",
+        "明るい",
+        "楽しい",
+        "ビビッド",
+        "若年層"
+      ],
+      "motions": [
+        "pop",
+        "bounce",
+        "wiggle",
+        "marquee",
+        "confetti",
+        "split-text",
+        "tilt-3d"
+      ],
+      "sfx": [
+        "pop",
+        "bubble",
+        "coin",
+        "confetti"
+      ],
+      "graphics": [
+        "太い縁取り文字",
+        "吹き出し",
+        "ステッカー風パーツ",
+        "ドット柄",
+        "斜めストライプ帯"
+      ],
+      "gfx": [
+        "particles",
+        "mesh"
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "クール・テック",
+      "keywords": [
+        "先進的",
+        "AI",
+        "SaaS",
+        "ダーク",
+        "グロー"
+      ],
+      "motions": [
+        "constellation",
+        "gradient-shift",
+        "typewriter",
+        "counter-up",
+        "glow-border",
+        "tilt-3d",
+        "scroll-progress"
+      ],
+      "sfx": [
+        "click",
+        "tick",
+        "notify",
+        "unlock"
+      ],
+      "graphics": [
+        "グロー（発光）",
+        "グリッド線背景",
+        "コード片",
+        "グラデーションの境界線",
+        "UIモック画面"
+      ],
+      "gfx": [
+        "constellation",
+        "mesh"
+      ]
+    },
+    {
+      "id": "wamodern",
+      "name": "和モダン",
+      "keywords": [
+        "和",
+        "伝統",
+        "旅館",
+        "和菓子",
+        "筆文字"
+      ],
+      "motions": [
+        "clip-up",
+        "vertical-text-reveal",
+        "ink-spread",
+        "sakura",
+        "parallax",
+        "blur-in"
+      ],
+      "sfx": [
+        "koto",
+        "soft-bell",
+        "page-turn"
+      ],
+      "graphics": [
+        "縦書き",
+        "和柄（青海波・麻の葉）",
+        "落款風の判子",
+        "余白と墨の滲み",
+        "障子・格子のグリッド"
+      ],
+      "gfx": [
+        "sakura",
+        "rings"
+      ]
+    },
+    {
+      "id": "retro",
+      "name": "レトロ・Y2K",
+      "keywords": [
+        "懐かしい",
+        "昭和レトロ",
+        "平成",
+        "Y2K",
+        "ノスタルジー"
+      ],
+      "motions": [
+        "glitch",
+        "marquee",
+        "grid3d",
+        "chrome-shine",
+        "bounce",
+        "typewriter"
+      ],
+      "sfx": [
+        "coin",
+        "level-up",
+        "glitch",
+        "jingle"
+      ],
+      "graphics": [
+        "クローム文字",
+        "ハーフトーン",
+        "ドット絵",
+        "昭和フォントの看板",
+        "ギザギザの吹き出し"
+      ],
+      "gfx": [
+        "grid3d",
+        "particles"
+      ]
+    },
+    {
+      "id": "editorial",
+      "name": "エディトリアル・雑誌風",
+      "keywords": [
+        "雑誌",
+        "おしゃれ",
+        "ファッション",
+        "タイポ",
+        "大胆"
+      ],
+      "motions": [
+        "split-text",
+        "clip-left",
+        "horizontal-scroll",
+        "image-hover-zoom",
+        "marquee",
+        "cursor-follow"
+      ],
+      "sfx": [
+        "page-turn",
+        "shutter",
+        "tick"
+      ],
+      "graphics": [
+        "超大型の英字見出し",
+        "写真と文字の重なり",
+        "段組み",
+        "ナンバリング（01/02/03）",
+        "縦の細いキャプション"
+      ],
+      "gfx": [
+        null
+      ]
+    },
+    {
+      "id": "cute",
+      "name": "かわいい・ガーリー",
+      "keywords": [
+        "かわいい",
+        "ピンク",
+        "女性向け",
+        "ふんわり",
+        "癒し"
+      ],
+      "motions": [
+        "float",
+        "pop",
+        "sparkle",
+        "blob-morph",
+        "bounce",
+        "heart-burst"
+      ],
+      "sfx": [
+        "sparkle",
+        "bubble",
+        "pop",
+        "soft-bell"
+      ],
+      "graphics": [
+        "リボン",
+        "キラキラ",
+        "ハート",
+        "丸い写真フレーム",
+        "手書きの吹き出し"
+      ],
+      "gfx": [
+        "bokeh",
+        "sakura"
+      ]
+    },
+    {
+      "id": "trust",
+      "name": "信頼・誠実（コーポレート）",
+      "keywords": [
+        "信頼",
+        "安心",
+        "企業",
+        "誠実",
+        "ブルー"
+      ],
+      "motions": [
+        "fade-up",
+        "counter-up",
+        "stagger",
+        "line-draw",
+        "parallax",
+        "scroll-progress"
+      ],
+      "sfx": [
+        "tick",
+        "success",
+        "notify"
+      ],
+      "graphics": [
+        "実績数字の大表示",
+        "人物写真（笑顔・正面）",
+        "アイコン付き3カラム",
+        "認証バッジ",
+        "斜めの背景帯"
+      ],
+      "gfx": [
+        "waves",
+        "rings"
+      ]
+    },
+    {
+      "id": "sporty",
+      "name": "エネルギッシュ・スポーティ",
+      "keywords": [
+        "力強い",
+        "情熱",
+        "スピード感",
+        "筋トレ",
+        "イエロー"
+      ],
+      "motions": [
+        "zoom-in",
+        "skew-reveal",
+        "marquee",
+        "counter-up",
+        "speed-lines",
+        "impact-shake"
+      ],
+      "sfx": [
+        "impact",
+        "whoosh",
+        "riser",
+        "swoosh"
+      ],
+      "graphics": [
+        "斜体の極太文字",
+        "集中線・スピード線",
+        "斜めカット写真",
+        "ナンバー（背番号風）",
+        "テープ帯"
+      ],
+      "gfx": [
+        "particles",
+        null
+      ]
+    },
+    {
+      "id": "cinematic",
+      "name": "ダーク・シネマティック",
+      "keywords": [
+        "映画",
+        "没入感",
+        "暗い",
+        "ドラマチック",
+        "映像"
+      ],
+      "motions": [
+        "ken-burns",
+        "letterbox-open",
+        "blur-in",
+        "split-text",
+        "grain",
+        "sticky-scrub"
+      ],
+      "sfx": [
+        "riser",
+        "impact",
+        "whoosh",
+        "heartbeat"
+      ],
+      "graphics": [
+        "シネマスコープの黒帯",
+        "フィルムグレイン",
+        "逆光写真",
+        "字幕風テキスト",
+        "ライトリーク"
+      ],
+      "gfx": [
+        "particles",
+        "bokeh"
+      ]
+    },
+    {
+      "id": "glass",
+      "name": "グラスモーフィズム",
+      "keywords": [
+        "透明感",
+        "すりガラス",
+        "グラデーション",
+        "近未来",
+        "アプリ"
+      ],
+      "motions": [
+        "mesh",
+        "tilt-3d",
+        "float",
+        "blur-in",
+        "gradient-shift",
+        "magnetic"
+      ],
+      "sfx": [
+        "bubble",
+        "swipe",
+        "toggle",
+        "notify"
+      ],
+      "graphics": [
+        "backdrop-filter: blur のカード",
+        "光る境界線",
+        "ぼかしたカラーオーブ",
+        "半透明レイヤーの重なり",
+        "3Dアイコン"
+      ],
+      "gfx": [
+        "mesh",
+        "bokeh"
+      ]
+    },
+    {
+      "id": "brutal",
+      "name": "ニューブルータリズム",
+      "keywords": [
+        "個性的",
+        "太線",
+        "原色",
+        "アート",
+        "尖った"
+      ],
+      "motions": [
+        "hard-shadow-press",
+        "marquee",
+        "wiggle",
+        "pop",
+        "cursor-follow",
+        "glitch"
+      ],
+      "sfx": [
+        "click",
+        "pop",
+        "coin",
+        "glitch"
+      ],
+      "graphics": [
+        "3px黒枠",
+        "ズレた影（ハードシャドウ）",
+        "ステッカー",
+        "等幅フォント",
+        "手書きの丸囲み"
+      ],
+      "gfx": [
+        null
+      ]
+    },
+    {
+      "id": "pastel",
+      "name": "パステル・ドリーミー",
+      "keywords": [
+        "ゆめかわ",
+        "パステル",
+        "淡い",
+        "透明感",
+        "ふわふわ"
+      ],
+      "motions": [
+        "mesh",
+        "float",
+        "blur-in",
+        "sparkle",
+        "gradient-shift",
+        "blob-morph"
+      ],
+      "sfx": [
+        "sparkle",
+        "soft-bell",
+        "bubble"
+      ],
+      "graphics": [
+        "オーロラグラデ",
+        "虹色ホログラム",
+        "ふわっとしたぼかし",
+        "星・月モチーフ",
+        "丸いフレーム"
+      ],
+      "gfx": [
+        "mesh",
+        "bokeh"
+      ]
+    },
+    {
+      "id": "neon",
+      "name": "ネオン・サイバー",
+      "keywords": [
+        "ゲーム",
+        "eスポーツ",
+        "ネオン",
+        "サイバーパンク",
+        "夜"
+      ],
+      "motions": [
+        "glitch",
+        "neon-flicker",
+        "grid3d",
+        "scanline",
+        "typewriter",
+        "tilt-3d"
+      ],
+      "sfx": [
+        "glitch",
+        "level-up",
+        "riser",
+        "unlock"
+      ],
+      "graphics": [
+        "ネオン管風の発光文字",
+        "スキャンライン",
+        "HUD風の枠",
+        "六角形パターン",
+        "RGBずれ"
+      ],
+      "gfx": [
+        "grid3d",
+        "constellation"
+      ]
+    },
+    {
+      "id": "handmade",
+      "name": "ハンドメイド・手書き",
+      "keywords": [
+        "手書き",
+        "あたたかい",
+        "イラスト",
+        "ほっこり",
+        "地域"
+      ],
+      "motions": [
+        "line-draw",
+        "wiggle",
+        "float",
+        "stamp-in",
+        "pop",
+        "bounce"
+      ],
+      "sfx": [
+        "pop",
+        "page-turn",
+        "bubble"
+      ],
+      "graphics": [
+        "手書きの矢印・下線",
+        "マスキングテープ",
+        "クレヨン質感",
+        "イラストアイコン",
+        "スタンプ"
+      ],
+      "gfx": [
+        null,
+        "sakura"
+      ]
+    },
+    {
+      "id": "nordic",
+      "name": "北欧・ライフスタイル",
+      "keywords": [
+        "北欧",
+        "暮らし",
+        "インテリア",
+        "くすみカラー",
+        "心地よい"
+      ],
+      "motions": [
+        "fade-up",
+        "image-hover-zoom",
+        "parallax",
+        "clip-up",
+        "stagger",
+        "float"
+      ],
+      "sfx": [
+        "soft-bell",
+        "tick",
+        "drop"
+      ],
+      "graphics": [
+        "くすみカラーの面",
+        "幾何学の小物",
+        "アーチ型の写真",
+        "小さな英字ラベル",
+        "リネン質感"
+      ],
+      "gfx": [
+        null,
+        "rings"
+      ]
+    },
+    {
+      "id": "geometric",
+      "name": "ジオメトリック・グラフィカル",
+      "keywords": [
+        "幾何学",
+        "バウハウス",
+        "グラフィック",
+        "図形",
+        "モダン"
+      ],
+      "motions": [
+        "shape-morph",
+        "rotate-in",
+        "stagger",
+        "spin",
+        "clip-circle",
+        "parallax"
+      ],
+      "sfx": [
+        "pop",
+        "click",
+        "tick"
+      ],
+      "graphics": [
+        "円・三角・四角の構成",
+        "グリッドシステム",
+        "原色の面分割",
+        "大きな数字",
+        "線と点のパターン"
+      ],
+      "gfx": [
+        null,
+        "rings"
+      ]
+    },
+    {
+      "id": "clay3d",
+      "name": "3D・クレイ",
+      "keywords": [
+        "3D",
+        "立体",
+        "クレイ",
+        "ぷにぷに",
+        "アイコン"
+      ],
+      "motions": [
+        "float",
+        "tilt-3d",
+        "squash-bounce",
+        "pop",
+        "parallax",
+        "magnetic"
+      ],
+      "sfx": [
+        "pop",
+        "bubble",
+        "toggle",
+        "success"
+      ],
+      "graphics": [
+        "インナーシャドウの立体ボタン",
+        "3Dイラスト",
+        "ソフトな影",
+        "ぷっくりアイコン",
+        "丸角の大きなカード"
+      ],
+      "gfx": [
+        "bokeh",
+        null
+      ]
+    }
+  ],
+  "motions": {
+    "fade-up": {
+      "impl": "data-reveal=\"fade-up\"",
+      "desc": "下から20〜40pxフェードイン。全ジャンルの基本"
+    },
+    "clip-up": {
+      "impl": "data-reveal=\"clip-up\"",
+      "desc": "下から幕が上がるように出現。写真・見出しに"
+    },
+    "clip-left": {
+      "impl": "data-reveal=\"clip-left\"",
+      "desc": "左から右へ切り抜き出現。エディトリアル向け"
+    },
+    "clip-circle": {
+      "impl": "data-reveal=\"clip-circle\"",
+      "desc": "円形に広がって出現"
+    },
+    "mask-wipe": {
+      "impl": "data-reveal=\"mask-wipe\"",
+      "desc": "色帯が通過して中身が現れる。高級感"
+    },
+    "split-text": {
+      "impl": "data-split=\"chars\" data-reveal",
+      "desc": "1文字ずつ下から出る見出し（キネティックタイポ）"
+    },
+    "blur-in": {
+      "impl": "data-reveal=\"blur-in\"",
+      "desc": "ぼかしから焦点が合う。上品・映画的"
+    },
+    "zoom-in": {
+      "impl": "data-reveal=\"zoom-in\"",
+      "desc": "縮小状態から拡大して出現"
+    },
+    "rotate-in": {
+      "impl": "data-reveal=\"rotate-in\"",
+      "desc": "少し傾いて出現。遊び心"
+    },
+    "pop": {
+      "impl": "data-reveal=\"pop\"",
+      "desc": "弾むように出現（バックイージング）"
+    },
+    "stagger": {
+      "impl": "data-stagger=\"80\"",
+      "desc": "カード等を順番に出す"
+    },
+    "parallax": {
+      "impl": "data-parallax=\"0.15\"",
+      "desc": "スクロール視差。奥行き表現"
+    },
+    "counter-up": {
+      "impl": "data-counter=\"1200\"",
+      "desc": "実績数字のカウントアップ"
+    },
+    "typewriter": {
+      "impl": "data-typewriter data-sfx-type",
+      "desc": "タイプ表示＋打鍵音"
+    },
+    "line-draw": {
+      "impl": "data-line-draw（SVG）",
+      "desc": "SVGの線が描かれていく"
+    },
+    "marquee": {
+      "impl": "data-marquee=\"40\"",
+      "desc": "無限に流れるテキスト帯"
+    },
+    "magnetic": {
+      "impl": "data-magnetic",
+      "desc": "ボタンがカーソルに吸い付く"
+    },
+    "tilt-3d": {
+      "impl": "data-tilt",
+      "desc": "カードが3Dに傾く＋光沢"
+    },
+    "cursor-follow": {
+      "impl": "<body data-cursor>",
+      "desc": "カスタムカーソル（PCのみ）"
+    },
+    "scroll-progress": {
+      "impl": "<div data-scroll-progress>",
+      "desc": "読了進捗バー"
+    },
+    "sticky-scrub": {
+      "impl": "section[data-pin] + CSS var(--p)",
+      "desc": "スクロールに合わせて固定画面の中身が変化"
+    },
+    "horizontal-scroll": {
+      "impl": "data-hscroll + data-hscroll-track",
+      "desc": "縦スクロールで横に流れるギャラリー"
+    },
+    "image-hover-zoom": {
+      "impl": "CSS: img{transition:transform .8s} a:hover img{transform:scale(1.06)}",
+      "desc": "画像ホバーでゆっくり拡大"
+    },
+    "ken-burns": {
+      "impl": "class=\"m-kenburns\"",
+      "desc": "写真がゆっくりズーム&パン"
+    },
+    "shine-sweep": {
+      "impl": "class=\"m-shine\"",
+      "desc": "光が斜めに走る（CTA・ゴールド）"
+    },
+    "chrome-shine": {
+      "impl": "class=\"m-shine\" + メタリックグラデ",
+      "desc": "クローム文字の反射"
+    },
+    "float": {
+      "impl": "class=\"m-float\"",
+      "desc": "ふわふわ浮遊ループ"
+    },
+    "bounce": {
+      "impl": "class=\"m-bounce\"",
+      "desc": "跳ねるループ（矢印・バッジ）"
+    },
+    "wiggle": {
+      "impl": "class=\"m-wiggle\"",
+      "desc": "定期的にぷるっと揺れて注目を集める"
+    },
+    "spin": {
+      "impl": "class=\"m-spin\"",
+      "desc": "回転ループ（円形テキストバッジ）"
+    },
+    "pulse": {
+      "impl": "class=\"m-pulse\"",
+      "desc": "CTAの波紋パルス"
+    },
+    "gradient-shift": {
+      "impl": "class=\"m-gradient-shift\"",
+      "desc": "グラデーションがゆっくり流れる"
+    },
+    "blob-morph": {
+      "impl": "class=\"m-blob\"",
+      "desc": "有機的な形が変形し続ける"
+    },
+    "glitch": {
+      "impl": "class=\"m-glitch\" data-text=\"...\"",
+      "desc": "RGBずれのグリッチ"
+    },
+    "grain": {
+      "impl": "class=\"m-grain\"（position:relative要素に）",
+      "desc": "フィルムノイズ"
+    },
+    "confetti": {
+      "impl": "Motion.confetti()",
+      "desc": "紙吹雪（送信完了・当選）"
+    },
+    "ripple": {
+      "impl": "data-ripple",
+      "desc": "クリック波紋（マテリアル）"
+    },
+    "mesh": {
+      "impl": "<canvas data-gfx=\"mesh\">",
+      "desc": "動くメッシュグラデーション背景"
+    },
+    "particles": {
+      "impl": "<canvas data-gfx=\"particles\">",
+      "desc": "漂う粒子"
+    },
+    "constellation": {
+      "impl": "<canvas data-gfx=\"constellation\">",
+      "desc": "線で繋がるネットワーク（AI/テック）"
+    },
+    "wave": {
+      "impl": "<canvas data-gfx=\"waves\">",
+      "desc": "重なる波"
+    },
+    "grid3d": {
+      "impl": "<canvas data-gfx=\"grid3d\">",
+      "desc": "シンセウェーブの3Dグリッド"
+    },
+    "sakura": {
+      "impl": "<canvas data-gfx=\"sakura\">",
+      "desc": "舞い散る花びら"
+    },
+    "sparkle": {
+      "impl": "class=\"m-float\" + ✦ 装飾 + SFX sparkle",
+      "desc": "キラキラ演出"
+    },
+    "heart-burst": {
+      "impl": "Motion.confetti({colors:[ピンク系]})",
+      "desc": "ハートが弾ける"
+    },
+    "glow-border": {
+      "impl": "conic-gradient の回転ボーダー",
+      "desc": "光が周回する枠線"
+    },
+    "skew-reveal": {
+      "impl": "transform: skewY(6deg) → 0",
+      "desc": "斜めから立ち上がる（スポーツ）"
+    },
+    "speed-lines": {
+      "impl": "repeating-linear-gradient の流れる線",
+      "desc": "スピード線"
+    },
+    "impact-shake": {
+      "impl": "@keyframes shake + SFX impact",
+      "desc": "着地の揺れ"
+    },
+    "letterbox-open": {
+      "impl": "上下の黒帯が開く clip-path",
+      "desc": "映画のオープニング"
+    },
+    "vertical-text-reveal": {
+      "impl": "writing-mode: vertical-rl + clip-up",
+      "desc": "縦書きが上から現れる"
+    },
+    "ink-spread": {
+      "impl": "clip-path circle + feTurbulence フィルタ",
+      "desc": "墨が滲むように出現"
+    },
+    "neon-flicker": {
+      "impl": "@keyframes flicker（opacity不規則）",
+      "desc": "ネオン管の点滅"
+    },
+    "scanline": {
+      "impl": "repeating-linear-gradient オーバーレイ",
+      "desc": "ブラウン管の走査線"
+    },
+    "hard-shadow-press": {
+      "impl": "box-shadow 6px 6px 0 → 0 + translate",
+      "desc": "押し込めるブルータルボタン"
+    },
+    "stamp-in": {
+      "impl": "scale(2)→1 + rotate + SFX pop",
+      "desc": "ハンコを押す演出"
+    },
+    "shape-morph": {
+      "impl": "border-radius / clip-path の遷移",
+      "desc": "図形が変形"
+    },
+    "squash-bounce": {
+      "impl": "scaleY .8→1.1→1",
+      "desc": "ぷにっと弾む（クレイ）"
+    }
+  },
+  "sfx": {
+    "click": "ボタン押下（硬め・テック）",
+    "tick": "ホバー・タブ切替（控えめ）",
+    "hover": "カードホバー",
+    "pop": "要素の出現・追加",
+    "bubble": "いいね・リアクション（柔らかい）",
+    "toggle": "スイッチON",
+    "toggle-off": "スイッチOFF",
+    "whoosh": "スライド遷移・画面切替",
+    "swoosh": "メニュー開閉",
+    "swipe": "カードスワイプ",
+    "success": "送信完了・購入完了",
+    "chime": "お知らせ・上品な完了",
+    "notify": "通知バッジ",
+    "error": "エラー・入力ミス",
+    "coin": "ポイント獲得・クーポン",
+    "sparkle": "キラキラ演出・当選",
+    "drop": "水滴・ナチュラル",
+    "typing": "タイプライター打鍵",
+    "impact": "ロゴ着地・ドン！",
+    "riser": "期待感の盛り上げ（OP）",
+    "glitch": "グリッチ演出",
+    "page-turn": "ページめくり・記事遷移",
+    "shutter": "写真・ギャラリー",
+    "confetti": "紙吹雪とセット",
+    "unlock": "ロック解除・プレミアム開放",
+    "level-up": "達成・ランクアップ",
+    "heartbeat": "緊張感・医療",
+    "soft-bell": "上品な合図（高級・和）",
+    "koto": "和の演出（琴風）",
+    "jingle": "ロゴ表示・ローディング完了"
+  },
+  "accessibility": [
+    "本文と背景のコントラスト比 4.5:1 以上（大見出しは 3:1 以上）",
+    "タップ領域は 44×44px 以上",
+    "prefers-reduced-motion で動きを停止（shared/css/motion.css で自動対応）",
+    "効果音には必ずON/OFFボタンを付け、初期状態は控えめな音量に",
+    "画像には意味のある alt、装飾画像は alt=\"\"",
+    "色だけで情報を伝えない（アイコン・テキストを併用）"
+  ]
+}

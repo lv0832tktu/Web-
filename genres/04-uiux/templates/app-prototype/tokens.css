@@ -1,0 +1,12 @@
+/* デザイントークン（tools/new-project.mjs がDBのレシピから自動生成して上書き） */
+:root {
+  --c-bg: #F3EEFF;
+  --c-surface: #FFFFFF;
+  --c-text: #28213A;
+  --c-primary: #7C5CFF;
+  --c-accent: #FF7A59;
+  --c-on-primary: #FFFFFF;
+  --font-head: "M PLUS Rounded 1c", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+  --font-en: "Poppins", sans-serif;
+}

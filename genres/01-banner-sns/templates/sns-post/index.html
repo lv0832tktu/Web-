@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SNS Post — Instagram / Stories / X</title>
+<!--
+  SNS投稿画像・動画テンプレート（カルーセル1枚目／ハウツー投稿／告知）
+  ・?size=1080x1080（正方形） / 1080x1350（縦4:5） / 1080x1920（ストーリーズ・リール） / 1600x900（X） / 1200x630（OGP）
+  ・?slide=2 でカルーセルの2枚目（リスト）を表示
+  ・書き出し: node tools/render.mjs <このファイル> --sizes 1080x1350 --png --mp4（効果音付き動画）
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;700&family=Unbounded:wght@600;800&display=swap">
+<link rel="stylesheet" href="../../../../shared/css/base.css">
+<link rel="stylesheet" href="../../../../shared/css/motion.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  html, body { margin: 0; background: #1b1b1b; }
+  body { min-height: 100vh; display: grid; place-items: center; overflow: hidden; }
+  body.export { display: block; background: transparent; min-height: 0; }
+  .ab { --w: 1080px; --h: 1080px; --u: calc(var(--w) / 1080); position: relative; width: var(--w); height: var(--h); overflow: hidden; isolation: isolate; background: var(--c-bg); color: var(--c-text); font-family: var(--font-head); transform-origin: center; flex: none; }
+  .ab > canvas { position: absolute; inset: 0; z-index: -2; }
+  .ab::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 40%, color-mix(in srgb, var(--c-bg) 70%, transparent)); }
+
+  .top { position: absolute; left: calc(72 * var(--u)); right: calc(72 * var(--u)); top: calc(64 * var(--u)); display: flex; justify-content: space-between; align-items: center; font: 800 calc(26 * var(--u)) var(--font-en); letter-spacing: .08em; }
+  .top .tag { padding: .45em 1em; border: calc(3 * var(--u)) solid currentColor; border-radius: 999px; }
+  .num-bg { position: absolute; right: calc(-40 * var(--u)); bottom: calc(-120 * var(--u)); font: 800 calc(620 * var(--u))/1 var(--font-en); color: var(--c-primary); opacity: .14; letter-spacing: -.06em; z-index: -1; }
+
+  .main { position: absolute; left: calc(72 * var(--u)); right: calc(72 * var(--u)); top: 50%; transform: translateY(-55%); }
+  .kicker { display: inline-block; font: 700 calc(34 * var(--u)) var(--font-body); padding: .2em .6em; background: var(--c-text); color: var(--c-bg); transform: rotate(-2deg); }
+  .title { margin-top: calc(28 * var(--u)); font-size: calc(112 * var(--u)); font-weight: 900; line-height: 1.18; letter-spacing: -.01em; }
+  .title .hl { background: linear-gradient(transparent 62%, var(--c-accent) 62%); padding: 0 .06em; }
+  .title .c { color: var(--c-primary); }
+  .lead { margin-top: calc(32 * var(--u)); font: 700 calc(36 * var(--u))/1.6 var(--font-body); opacity: .85; }
+
+  .sticker { position: absolute; right: calc(80 * var(--u)); top: calc(190 * var(--u)); width: calc(220 * var(--u)); aspect-ratio: 1; border-radius: 50%; background: var(--c-accent); color: var(--c-text); display: grid; place-items: center; text-align: center; font: 900 calc(28 * var(--u))/1.2 var(--font-head); transform: rotate(12deg); box-shadow: 0 calc(16 * var(--u)) calc(40 * var(--u)) rgb(0 0 0 / .18); }
+  .sticker svg { position: absolute; inset: 0; animation: m-spin 14s linear infinite; }
+  .sticker text { font: 700 7.5px var(--font-en); letter-spacing: 1.5px; fill: currentColor; }
+
+  .bottom { position: absolute; left: calc(72 * var(--u)); right: calc(72 * var(--u)); bottom: calc(64 * var(--u)); display: flex; justify-content: space-between; align-items: center; font: 700 calc(28 * var(--u)) var(--font-body); }
+  .swipe { display: inline-flex; align-items: center; gap: .6em; padding: .7em 1.3em; background: var(--c-primary); color: var(--c-on-primary); border-radius: 999px; }
+  .swipe i { font-style: normal; display: inline-block; animation: swipe 1.4s var(--ease-in-out) infinite; }
+  @keyframes swipe { 0%,100% { transform: translateX(0); } 50% { transform: translateX(.5em); } }
+  .account { display: flex; align-items: center; gap: .6em; }
+  .account::before { content: ""; width: 1.8em; aspect-ratio: 1; border-radius: 50%; background: conic-gradient(var(--c-primary), var(--c-accent), var(--c-primary)); }
+
+  /* 2枚目：リスト */
+  .list { display: none; position: absolute; left: calc(72 * var(--u)); right: calc(72 * var(--u)); top: calc(180 * var(--u)); counter-reset: n; }
+  .list h2 { font-size: calc(64 * var(--u)); margin-bottom: calc(40 * var(--u)); }
+  .list li { list-style: none; display: grid; grid-template-columns: calc(110 * var(--u)) 1fr; align-items: center; gap: calc(24 * var(--u)); padding: calc(26 * var(--u)) calc(30 * var(--u)); margin-bottom: calc(22 * var(--u)); background: var(--c-surface); border-radius: calc(28 * var(--u)); font: 700 calc(36 * var(--u))/1.45 var(--font-body); box-shadow: 0 calc(10 * var(--u)) 0 color-mix(in srgb, var(--c-text) 8%, transparent); }
+  .list li::before { counter-increment: n; content: "0" counter(n); font: 800 calc(64 * var(--u)) var(--font-en); color: var(--c-primary); }
+  .list li small { display: block; font-weight: 400; font-size: .72em; opacity: .7; }
+  .slide-2 .main, .slide-2 .sticker { display: none; }
+  .slide-2 .list { display: block; }
+
+  /* 縦長（ストーリーズ）：上下のUIセーフゾーン(250px)を避ける */
+  .is-story .top { top: calc(260 * var(--u)); }
+  .is-story .bottom { bottom: calc(280 * var(--u)); }
+  .is-story .title { font-size: calc(124 * var(--u)); }
+  .is-story .sticker { top: calc(380 * var(--u)); }
+  /* 横長（X/OGP） */
+  .is-land { --u: calc(var(--h) / 1000); }
+  .is-land .main { right: 38%; }
+  .is-land .title { font-size: calc(104 * var(--u)); }
+  .is-land .sticker { right: calc(140 * var(--u)); top: 50%; translate: 0 -50%; width: calc(320 * var(--u)); font-size: calc(46 * var(--u)); }
+
+  /* タイムライン（キネティック） */
+  .play .top        { animation: in-down .8s var(--ease-out) both; }
+  .play .kicker     { animation: in-pop .6s var(--ease-back) .3s both; }
+  .play .title .m-split__in { animation: in-char .9s var(--ease-out) both; animation-delay: calc(.5s + var(--i) * 40ms); }
+  .play .lead       { animation: in-up .8s var(--ease-out) 1.6s both; }
+  .play .sticker    { animation: in-stamp .7s var(--ease-back) 2.1s both; }
+  .play .bottom     { animation: in-up .8s var(--ease-out) 2.4s both; }
+  .play .num-bg     { animation: in-num 1.6s var(--ease-out) .2s both; }
+  .play .list li    { animation: in-left .7s var(--ease-out) both; }
+  .play .list li:nth-child(1) { animation-delay: .4s; } .play .list li:nth-child(2) { animation-delay: .7s; } .play .list li:nth-child(3) { animation-delay: 1s; } .play .list li:nth-child(4) { animation-delay: 1.3s; } .play .list li:nth-child(5) { animation-delay: 1.6s; }
+  .m-split { overflow: visible; }
+  @keyframes in-down { from { opacity: 0; transform: translateY(-30px); } }
+  @keyframes in-up { from { opacity: 0; transform: translateY(40px); } }
+  @keyframes in-pop { from { opacity: 0; transform: scale(.3) rotate(-10deg); } }
+  @keyframes in-char { from { opacity: 0; transform: translateY(.6em) rotate(8deg); filter: blur(6px); } }
+  @keyframes in-stamp { from { opacity: 0; transform: scale(2.2) rotate(-30deg); } }
+  @keyframes in-num { from { opacity: 0; transform: translateX(20%); } }
+  @keyframes in-left { from { opacity: 0; transform: translateX(-60px); } }
+</style>
+</head>
+<body>
+<script type="application/json" id="content">
+{
+  "tag": "SKIN CARE",
+  "page": "01 / 05",
+  "kicker": "保存必須",
+  "title": "<span class=\"hl\">乾燥肌</span>さんが<br>やめるべき<br><span class=\"c\">5つ</span>の習慣",
+  "lead": "美容皮膚科医が教える、今日からできる保湿の新常識。",
+  "sticker": "知らないと<br>損！",
+  "stickerRing": "SAVE THIS POST • SAVE THIS POST • ",
+  "bigNumber": "5",
+  "account": "@lumi_skin",
+  "swipe": "スワイプ",
+  "listTitle": "やめるべき習慣",
+  "list": [["熱いお湯で洗顔", "32〜34℃のぬるま湯がベスト"], ["ゴシゴシ拭く", "タオルは押し当てるだけ"], ["化粧水だけで終わる", "必ず乳液・クリームでフタ"], ["朝の洗顔料", "皮脂を取りすぎる原因に"], ["保湿は1日1回", "日中もミストで補給"]],
+  "duration": 6,
+  "sfxTimeline": [{ "t": 0.0, "sfx": "whoosh" }, { "t": 0.3, "sfx": "pop" }, { "t": 2.1, "sfx": "impact" }, { "t": 2.4, "sfx": "sparkle" }]
+}
+</script>
+
+<div class="ab" id="ab" data-artboard>
+  <canvas data-gfx="mesh"></canvas>
+  <div class="num-bg" aria-hidden="true"></div>
+  <div class="top"><span class="tag"></span><span class="page"></span></div>
+  <div class="main">
+    <span class="kicker"></span>
+    <h1 class="title"></h1>
+    <p class="lead"></p>
+  </div>
+  <div class="sticker">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="r" d="M50,50 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><text><textPath href="#r" class="ring"></textPath></text></svg>
+    <span class="st"></span>
+  </div>
+  <div class="list"><h2></h2><ol></ol></div>
+  <div class="bottom"><span class="account"></span><span class="swipe"><span class="sw"></span><i>→</i></span></div>
+</div>
+
+<script src="../../../../shared/js/sfx.js"></script>
+<script src="../../../../shared/js/graphics.js"></script>
+<script>
+(function () {
+  const C = JSON.parse(document.getElementById('content').textContent);
+  const q = new URLSearchParams(location.search);
+  const [w, h] = (q.get('size') || '1080x1350').split('x').map(Number);
+  const ab = document.getElementById('ab');
+  const $ = (s) => ab.querySelector(s);
+  ab.style.setProperty('--w', w + 'px'); ab.style.setProperty('--h', h + 'px');
+  if (h / w >= 1.6) ab.classList.add('is-story');
+  if (w / h >= 1.5) ab.classList.add('is-land');
+  if (q.get('slide') === '2') ab.classList.add('slide-2');
+  if (q.has('export')) document.body.classList.add('export');
+  else { const fit = () => { const s = Math.min((innerWidth - 40) / w, (innerHeight - 40) / h, 1); ab.style.transform = `scale(${s})`; ab.style.margin = `${(h * s - h) / 2}px ${(w * s - w) / 2}px`; }; fit(); addEventListener('resize', fit); }
+
+  // mesh 背景の色をトークンから
+  const cs = getComputedStyle(document.documentElement);
+  const v = (n) => cs.getPropertyValue(n).trim();
+  $('canvas').dataset.colors = [v('--c-surface'), v('--c-primary'), v('--c-accent'), v('--c-bg')].join(',');
+  $('canvas').dataset.bg = v('--c-bg');
+  $('canvas').style.opacity = .55;
+
+  $('.tag').textContent = C.tag; $('.page').textContent = C.page; $('.kicker').textContent = C.kicker;
+  $('.title').innerHTML = C.title; $('.lead').textContent = C.lead; $('.st').innerHTML = C.sticker; $('.ring').textContent = C.stickerRing;
+  $('.num-bg').textContent = C.bigNumber; $('.account').textContent = C.account; $('.sw').textContent = C.swipe;
+  $('.list h2').textContent = C.listTitle;
+  $('.list ol').innerHTML = C.list.map(([a, b]) => `<li><span>${a}<small>${b}</small></span></li>`).join('');
+
+  // 見出しを1文字ずつ（タグは保持）
+  let i = 0;
+  (function walk(n) { [...n.childNodes].forEach((c) => { if (c.nodeType === 3) { const f = document.createDocumentFragment(); [...c.textContent].forEach((ch) => { const o = document.createElement('span'); o.className = 'm-split'; const s = document.createElement('span'); s.className = 'm-split__in'; s.style.setProperty('--i', i++); s.textContent = ch; o.append(s); f.append(o); }); c.replaceWith(f); } else if (c.tagName !== 'BR') walk(c); }); })($('.title'));
+
+  const restart = () => { ab.classList.remove('play'); void ab.offsetWidth; ab.classList.add('play'); };
+  document.addEventListener('pointerdown', () => { restart(); SFX.playTimeline(C.sfxTimeline); });
+  window.__CREATIVE__ = { el: ab, duration: C.duration, sfx: C.sfxTimeline, restart };
+  restart();
+})();
+</script>
+</body>
+</html>
