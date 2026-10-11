@@ -1,0 +1,12 @@
+/* デザイントークン（tools/new-project.mjs が自動生成して上書き） */
+:root {
+  --c-bg: #FFFFFF;
+  --c-surface: #FFFFFF;
+  --c-text: #111111;
+  --c-primary: #E8202A;
+  --c-accent: #FFE600;
+  --c-on-primary: #FFFFFF;
+  --font-head: "Dela Gothic One", "Noto Sans JP", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+  --font-en: "Anton", sans-serif;
+}

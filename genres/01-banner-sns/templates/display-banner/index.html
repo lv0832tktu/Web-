@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Display Banner — アニメーションバナー</title>
+<!--
+  アニメーション対応ディスプレイバナー（1ファイルで全サイズ対応）
+  ・?size=300x250 / 336x280 / 728x90 / 320x50 / 320x100 / 300x600 / 160x600 / 970x250 / 1000x1000
+  ・文言は下の <script id="content"> を書き換えるだけ
+  ・PNG/GIF/MP4書き出し: node tools/render.mjs <このファイル> --sizes 300x250,728x90 --gif
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@600;800&display=swap">
+<link rel="stylesheet" href="../../../../shared/css/base.css">
+<link rel="stylesheet" href="../../../../shared/css/motion.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  html, body { margin: 0; background: #2a2a2a; }
+  body { display: grid; place-items: center; min-height: 100vh; }
+  body.export { background: transparent; display: block; min-height: 0; }
+
+  .bn { --w: 300px; --h: 250px; --u: calc(var(--h) / 250); position: relative; width: var(--w); height: var(--h); overflow: hidden; isolation: isolate;
+        background: radial-gradient(120% 120% at 100% 0%, color-mix(in srgb, var(--c-primary) 85%, #fff) 0%, var(--c-primary) 45%, color-mix(in srgb, var(--c-primary) 70%, #000) 100%);
+        color: var(--c-on-primary); font-family: var(--font-head); letter-spacing: .02em; line-height: 1.15; container-type: size; }
+  .bn canvas { position: absolute; inset: 0; z-index: -1; opacity: .55; mix-blend-mode: screen; }
+  .bn::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; border: 1px solid rgb(0 0 0 / .15); }
+
+  /* 装飾：大きな円と斜め帯 */
+  .deco-circle { position: absolute; width: 90cqh; aspect-ratio: 1; right: -18cqh; top: -20cqh; border-radius: 50%; background: var(--c-accent); opacity: .9; z-index: -1; }
+  .deco-band { position: absolute; left: -10%; right: -10%; bottom: -6cqh; height: 34cqh; background: color-mix(in srgb, var(--c-text) 92%, transparent); transform: rotate(-6deg); z-index: -1; }
+
+  .photo { position: absolute; right: 2cqw; bottom: 0; height: 78cqh; aspect-ratio: 3/4; z-index: 1; border-radius: 50% 50% 0 0 / 40% 40% 0 0; overflow: hidden;
+           background: linear-gradient(160deg, color-mix(in srgb, var(--c-surface) 90%, #fff), color-mix(in srgb, var(--c-accent) 40%, var(--c-surface))); box-shadow: 0 10px 30px rgb(0 0 0 / .25); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo .ph { position: absolute; inset: 0; display: grid; place-items: center; color: color-mix(in srgb, var(--c-text) 40%, transparent); font: 700 10px var(--font-en); }
+
+  .copy { position: absolute; left: 6cqw; top: 9cqh; width: 58cqw; z-index: 2; }
+  .eyebrow { display: inline-block; padding: .25em .7em; background: var(--c-text); color: var(--c-bg); font: 800 calc(11 * var(--u)) var(--font-en); letter-spacing: .12em; border-radius: 2px; }
+  .headline { margin-top: calc(8 * var(--u)); font-size: calc(25 * var(--u)); white-space: nowrap; line-height: 1.22; font-weight: 900; text-shadow: 0 2px 0 rgb(0 0 0 / .15);
+              -webkit-text-stroke: 0; paint-order: stroke fill; }
+  .headline em { font-style: normal; color: var(--c-accent); -webkit-text-stroke: calc(5 * var(--u)) var(--c-text); paint-order: stroke fill; display: inline-block; }
+  .sub { margin-top: calc(6 * var(--u)); font: 700 calc(12 * var(--u)) var(--font-body); opacity: .95; }
+
+  .badge { position: absolute; z-index: 3; right: 7cqw; top: 38cqh; width: calc(64 * var(--u)); aspect-ratio: 1; border-radius: 50%; color: var(--c-text); display: grid; place-items: center; text-align: center; font: 900 calc(10 * var(--u))/1.1 var(--font-body); box-shadow: 0 6px 16px rgb(0 0 0 / .25); }
+  .badge b { display: block; font: 800 calc(22 * var(--u))/1 var(--font-en); color: var(--c-accent); }
+  .badge::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #fff; z-index: 1; }
+  .badge > span { z-index: 2; }
+  .badge svg { position: absolute; inset: -16%; width: 132%; height: 132%; z-index: 0; }
+  .badge text { font: 700 9px var(--font-en); letter-spacing: 2.4px; fill: #fff; }
+
+  .cta { position: absolute; z-index: 4; left: 6cqw; bottom: 7cqh; display: inline-flex; align-items: center; gap: .5em; padding: .7em 1.3em; border-radius: 999px; background: var(--c-accent); color: var(--c-on-primary);
+         font: 900 calc(13 * var(--u)) var(--font-body); text-decoration: none; box-shadow: 0 calc(4 * var(--u)) 0 color-mix(in srgb, var(--c-accent) 55%, #000); white-space: nowrap; }
+  .cta::after { content: "→"; font-family: var(--font-en); }
+  .brand { position: absolute; z-index: 4; right: 3cqw; top: 3cqh; font: 800 calc(10 * var(--u)) var(--font-en); letter-spacing: .14em; opacity: .9; }
+  .note { position: absolute; z-index: 4; right: 3cqw; bottom: 2cqh; font: 400 calc(7 * var(--u)) var(--font-body); opacity: .8; color: #fff; }
+
+  /* ---------- サイズ別レイアウト ---------- */
+  .is-wide { --u: calc(var(--h) / 90); }
+  .is-wide .copy { left: 13cqw; top: 50%; transform: translateY(-50%); width: auto; display: flex; align-items: center; gap: 2cqw; }
+  .is-wide .headline { margin: 0; font-size: calc(22 * var(--u)); white-space: nowrap; }
+  .is-wide .eyebrow { display: none; }
+  .is-wide .sub, .is-wide .photo, .is-wide .deco-band { display: none; }
+  .is-wide .headline br { display: none; }
+  .is-wide .headline em { margin-left: .4em; }
+  .is-wide .eyebrow { writing-mode: horizontal-tb; }
+  .is-wide .badge { right: auto; left: 1.5cqw; top: 50%; translate: 0 -50%; width: 74cqh; }
+  .is-wide .badge svg { display: none; }
+  .is-wide .cta { left: auto; right: 3cqw; bottom: 50%; translate: 0 50%; }
+  .is-wide .deco-circle { width: 60cqw; right: -20cqw; top: -120cqh; }
+  .is-wide .note { display: none; }
+  .is-wide .brand { top: auto; bottom: 4cqh; right: 3cqw; display: none; }
+  .is-compact { --u: calc(var(--h) / 100); }
+  .is-compact .eyebrow, .is-compact .badge { display: none; }
+  .is-compact .copy { left: 5cqw; }
+  .is-compact .headline { font-size: calc(19 * var(--u)); }
+  .is-compact .headline br { display: inline; }
+  .is-compact .headline em { margin-left: 0; }
+  .is-compact .cta { font-size: calc(12 * var(--u)); padding: .55em 1em; }
+  .is-tiny .eyebrow, .is-tiny .badge { display: none; }
+  .is-tiny .copy { left: 4cqw; }
+  .is-tiny .headline { font-size: calc(17 * var(--u)); }
+  .is-tiny .headline br { display: none; }
+  .is-tiny .cta { font-size: calc(13 * var(--u)); padding: .45em .9em; }
+
+  .is-tall { --u: calc(var(--w) / 300); }
+  .is-tall .copy { top: 6cqh; width: 88cqw; }
+  .is-tall .headline { font-size: calc(36 * var(--u)); }
+  .is-tall .photo { height: 46cqh; right: 50%; translate: 50% 0; bottom: 14cqh; border-radius: 999px 999px 24px 24px; }
+  .is-tall .badge { left: auto; right: 4cqw; top: 38cqh; width: calc(80 * var(--u)); }
+  .is-tall .cta { left: 50%; translate: -50% 0; bottom: 4cqh; font-size: calc(16 * var(--u)); }
+  .is-tall .deco-band { height: 20cqh; }
+  .is-skinny { --u: calc(var(--w) / 175); }
+  .is-skinny .copy { left: 7cqw; }
+  .is-skinny .headline br { display: inline; }
+  .is-skinny .headline { font-size: calc(21 * var(--u)); white-space: nowrap; }
+  .is-skinny .photo { height: 38cqh; }
+  .is-skinny .cta { font-size: calc(13 * var(--u)); }
+
+  .is-billboard { --u: calc(var(--h) / 210); }
+  .is-billboard .copy { left: 5cqw; top: 12cqh; width: 55cqw; }
+  .is-billboard .photo { right: 10cqw; height: 92cqh; }
+  .is-billboard .badge { right: 33cqw; top: 40cqh; }
+  .is-billboard .deco-circle { width: 140cqh; right: -10cqh; top: -50cqh; }
+  .is-billboard .cta { left: 5cqw; }
+
+  /* ---------- アニメーション・タイムライン（3ビート構成） ---------- */
+  .play .deco-circle { animation: bn-scale 1s var(--ease-back) both; }
+  .play .deco-band   { animation: bn-band .8s var(--ease-out) .1s both; }
+  .play .photo       { animation: bn-rise .9s var(--ease-out) .25s both; }
+  .play .eyebrow     { animation: bn-fade .5s var(--ease-out) .5s both; }
+  .play .headline .m-split__in { animation: bn-char .7s var(--ease-out) both; animation-delay: calc(.65s + var(--i) * 45ms); }
+  .play .sub         { animation: bn-fade .6s var(--ease-out) 1.4s both; }
+  .play .badge       { animation: bn-stamp .6s var(--ease-back) 1.7s both; }
+  .play .badge svg   { animation: m-spin 10s linear infinite; }
+  .play .cta         { animation: bn-pop .6s var(--ease-back) 2.1s both, bn-pulse 1.6s var(--ease-out) 2.8s 3; }
+  .play .brand, .play .note { animation: bn-fade .6s ease 2.3s both; }
+  .m-split { overflow: visible; }
+
+  @keyframes bn-scale { from { transform: scale(0); } }
+  @keyframes bn-band  { from { transform: rotate(-6deg) translateX(-110%); } }
+  @keyframes bn-rise  { from { transform: translateY(40%); opacity: 0; } }
+  @keyframes bn-fade  { from { opacity: 0; transform: translateY(6px); } }
+  @keyframes bn-char  { from { opacity: 0; transform: translateY(60%) scale(.6) rotate(-10deg); } }
+  @keyframes bn-stamp { 0% { transform: scale(2.4) rotate(-20deg); opacity: 0; } 100% { transform: scale(1) rotate(-8deg); opacity: 1; } }
+  @keyframes bn-pop   { from { transform: scale(.4); opacity: 0; } }
+  @keyframes bn-pulse { 0% { box-shadow: 0 calc(4 * var(--u)) 0 color-mix(in srgb, var(--c-accent) 55%, #000), 0 0 0 0 color-mix(in srgb, var(--c-accent) 70%, transparent); } 100% { box-shadow: 0 calc(4 * var(--u)) 0 color-mix(in srgb, var(--c-accent) 55%, #000), 0 0 0 14px transparent; } }
+  .is-tall .play .cta, .is-tall.play .cta { translate: -50% 0; }
+  .badge { transform: rotate(-8deg); }
+</style>
+</head>
+<body>
+<script type="application/json" id="content">
+{
+  "brand": "LUMI BEAUTY",
+  "eyebrow": "SUMMER SALE",
+  "headline": "夏の美肌ケア<br><em>最大50%OFF</em>",
+  "sub": "人気スキンケア全品対象｜8/31まで",
+  "badgeTop": "期間限定",
+  "badgeBig": "50%",
+  "badgeRing": "LIMITED OFFER • LIMITED OFFER • ",
+  "cta": "今すぐチェック",
+  "note": "※一部対象外商品あり",
+  "image": "",
+  "loopSeconds": 6,
+  "sfxTimeline": [{ "t": 0.0, "sfx": "whoosh" }, { "t": 0.65, "sfx": "pop" }, { "t": 1.7, "sfx": "impact" }, { "t": 2.1, "sfx": "sparkle" }]
+}
+</script>
+
+<div class="bn" id="bn">
+  <canvas data-gfx="particles" data-colors="#ffffff,#ffe9a8"></canvas>
+  <div class="deco-circle"></div>
+  <div class="deco-band"></div>
+  <div class="photo"><div class="ph">PHOTO</div></div>
+  <div class="copy">
+    <span class="eyebrow"></span>
+    <h1 class="headline"></h1>
+    <p class="sub"></p>
+  </div>
+  <div class="badge">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ring" d="M50,50 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><circle cx="50" cy="50" r="50" style="fill:var(--c-text)"/><text><textPath href="#ring"></textPath></text></svg>
+    <span style="position:relative"><span class="badge-top"></span><b class="badge-big"></b></span>
+  </div>
+  <a class="cta" href="#"></a>
+  <span class="brand"></span>
+  <span class="note"></span>
+</div>
+
+<script src="../../../../shared/js/sfx.js"></script>
+<script src="../../../../shared/js/graphics.js"></script>
+<script>
+(function () {
+  const C = JSON.parse(document.getElementById('content').textContent);
+  const q = new URLSearchParams(location.search);
+  const [w, h] = (q.get('size') || '300x250').split('x').map(Number);
+  const bn = document.getElementById('bn');
+  bn.style.setProperty('--w', w + 'px'); bn.style.setProperty('--h', h + 'px');
+  const r = w / h;
+  if (r >= 3 && h < 200) bn.classList.add('is-wide');
+  if (r >= 3 && h >= 200) bn.classList.add('is-billboard');
+  if (r >= 3 && w < 500) bn.classList.add('is-compact');
+  if (h <= 60) bn.classList.add('is-tiny');
+  if (r <= 0.6) bn.classList.add('is-tall');
+  if (r <= 0.3) bn.classList.add('is-skinny');
+  if (q.has('export')) document.body.classList.add('export');
+
+  const $ = (s) => bn.querySelector(s);
+  $('.eyebrow').textContent = C.eyebrow;
+  $('.headline').innerHTML = C.headline;
+  $('.sub').textContent = C.sub;
+  $('.badge-top').textContent = C.badgeTop;
+  $('.badge-big').textContent = C.badgeBig;
+  $('textPath').textContent = C.badgeRing;
+  $('.cta').textContent = C.cta;
+  $('.brand').textContent = C.brand;
+  $('.note').textContent = C.note;
+  if (C.image) $('.photo').innerHTML = `<img src="${C.image}" alt="">`;
+
+  // 見出しを1文字ずつ分割（<br>と<em>は維持）
+  (function split(node) {
+    let i = 0;
+    (function walk(n) {
+      [...n.childNodes].forEach((c) => {
+        if (c.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          [...c.textContent].forEach((ch) => { const o = document.createElement('span'); o.className = 'm-split'; const s = document.createElement('span'); s.className = 'm-split__in'; s.style.setProperty('--i', i++); s.textContent = ch; o.appendChild(s); frag.appendChild(o); });
+          c.replaceWith(frag);
+        } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+      });
+    })(node);
+  })($('.headline'));
+
+  // ループ再生（GDN規定: 30秒以内。ここでは最大3ループで停止）
+  let loops = 0;
+  const play = () => {
+    bn.classList.remove('play'); void bn.offsetWidth; bn.classList.add('play');
+    if (window.__userGesture) SFX.playTimeline(C.sfxTimeline);
+    if (++loops < 3 && !q.has('export')) setTimeout(play, C.loopSeconds * 1000);
+  };
+  // 効果音はユーザー操作後のみ（自動再生ポリシー）。プレビュー時はクリックで音付き再生
+  document.addEventListener('pointerdown', () => { window.__userGesture = true; loops = 0; play(); }, { once: false });
+  window.__BANNER__ = { content: C, duration: C.loopSeconds, sfx: C.sfxTimeline, el: bn, restart: () => { bn.classList.remove('play'); void bn.offsetWidth; bn.classList.add('play'); } };
+  play();
+})();
+</script>
+</body>
+</html>

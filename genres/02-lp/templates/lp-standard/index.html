@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumi Fit｜オンラインパーソナルトレーニング — 3ヶ月で、なりたい私へ。</title>
+<meta name="description" content="自宅で受けられるオンラインパーソナルトレーニング。専属トレーナーが食事と運動を毎日サポート。初回体験無料。">
+<meta property="og:title" content="Lumi Fit｜オンラインパーソナルトレーニング">
+<meta property="og:image" content="ogp.png">
+<!--
+  LP標準テンプレート（PASONA構成 / 全セクション入り / モーション・効果音・インタラクション実装済み）
+  不要なセクションは <section> ごと削除。並び順は DB の "sections" に合わせて入れ替える。
+  色・フォントは tokens.css、文言はこのHTMLを直接編集。写真は .ph を <img> に置き換え。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="../../../../shared/css/base.css">
+<link rel="stylesheet" href="../../../../shared/css/motion.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div data-scroll-progress></div>
+
+<header class="hd">
+  <a class="hd__logo en" href="#">Lumi<b>Fit</b></a>
+  <nav class="hd__nav" aria-label="ページ内リンク">
+    <a href="#reason" data-sfx-hover="tick">選ばれる理由</a><a href="#voice" data-sfx-hover="tick">お客様の声</a><a href="#price" data-sfx-hover="tick">料金</a><a href="#faq" data-sfx-hover="tick">よくある質問</a>
+  </nav>
+  <a class="btn btn--accent hd__cta" href="#form" data-sfx="click">無料体験を予約</a>
+</header>
+
+<main>
+  <!-- ========== FV ========== -->
+  <section class="fv">
+    <canvas data-gfx="mesh" class="fv__bg"></canvas>
+    <div class="fv__inner container">
+      <div class="fv__copy">
+        <p class="fv__eyebrow" data-reveal="fade-up"><span class="pill">累計会員 12,000人突破</span></p>
+        <h1 class="fv__title">
+          <span class="line" data-split="chars">3ヶ月で、</span>
+          <span class="line" data-split="chars" style="--split-delay:300ms">なりたい<em>私</em>へ。</span>
+        </h1>
+        <p class="fv__lead" data-reveal="fade-up" data-delay="700">自宅で受けられる<strong>オンラインパーソナル</strong>。<br>専属トレーナーが、食事と運動を毎日サポートします。</p>
+        <div class="fv__cta" data-reveal="fade-up" data-delay="900">
+          <p class="balloon">＼ 今なら初月 <b>0円</b> ／</p>
+          <a class="btn btn--accent btn--xl m-shine" href="#form" data-magnetic data-sfx="pop">無料体験を予約する<span class="arrow">→</span></a>
+          <p class="micro">30秒で完了・しつこい勧誘は一切ありません</p>
+        </div>
+      </div>
+      <div class="fv__visual" data-reveal="zoom-in" data-delay="300">
+        <div class="phone m-float" data-tilt="8">
+          <div class="phone__screen">
+            <p class="ps__hello">Good morning, 美咲さん</p>
+            <div class="ps__ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg"/></svg><span><b data-counter="82" data-suffix="%">0</b>今日の目標</span></div>
+            <div class="ps__cards"><span>🔥 <b>412</b>kcal</span><span>🥗 PFC <b>◎</b></span></div>
+            <p class="ps__msg">トレーナー Yui：<br>昨日の夕食バランス完璧です！</p>
+          </div>
+        </div>
+        <div class="float-badge fb1 m-float" style="animation-delay:-1s">⭐ 継続率 <b>94%</b></div>
+        <div class="float-badge fb2 m-float" style="animation-delay:-2.4s">−5.2kg <small>/ 3ヶ月平均</small></div>
+        <svg class="rotate-text m-spin" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#c">FREE TRIAL • START TODAY • FREE TRIAL • START TODAY • </textPath></text></svg>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#problem" aria-label="下へスクロール"><span></span></a>
+  </section>
+
+  <!-- ========== メディア掲載（マーキー） ========== -->
+  <section class="logos" aria-label="メディア掲載実績">
+    <p class="logos__ttl">メディア掲載・提携実績</p>
+    <div data-marquee="50"><div class="logos__row"><span>FITNESS LIFE</span><span>Wellness Japan</span><span>BODY MAKE</span><span>日経ヘルス風</span><span>Tokyo Walker風</span><span>HEALTH PRESS</span><span>MOVE+</span></div></div>
+  </section>
+
+  <!-- ========== お悩み ========== -->
+  <section class="sec problem" id="problem">
+    <div class="container narrow">
+      <p class="sec__en en" data-reveal="fade-up">PROBLEM</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">こんなお悩み、<br class="sp">ありませんか？</h2>
+      <ul class="checks" data-stagger="90">
+        <li>ジムに通っても、いつも<b>3日坊主</b>で終わってしまう</li>
+        <li>自己流の食事制限で<b>リバウンド</b>を繰り返している</li>
+        <li>仕事と家事が忙しく、<b>ジムに行く時間がない</b></li>
+        <li>何から始めればいいのか<b>わからない</b></li>
+      </ul>
+      <p class="problem__answer" data-reveal="pop">それ、<em>あなたの意志が弱いから</em>ではありません。</p>
+    </div>
+  </section>
+
+  <!-- ========== 解決策 ========== -->
+  <section class="sec solution">
+    <div class="container solution__grid">
+      <figure class="ph ph--tall" data-reveal="clip-up" data-label="写真：トレーナーとオンラインで話す女性"></figure>
+      <div>
+        <p class="sec__en en" data-reveal="fade-up">SOLUTION</p>
+        <h2 class="sec__ttl left" data-reveal="fade-up">続かない原因は<br>「<span class="marker">ひとりで頑張る</span>」<br>こと。</h2>
+        <p data-reveal="fade-up">Lumi Fit は、専属トレーナーがあなたの毎日に伴走するオンラインパーソナル。<br>毎食の写真にアドバイス、週2回のオンラインレッスン、24時間のチャット相談で、<strong>やめられない仕組み</strong>をつくります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 選ばれる理由（ジグザグ） ========== -->
+  <section class="sec reason" id="reason">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">REASON</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">Lumi Fit が選ばれる<span class="num en">3</span>つの理由</h2>
+      <article class="zig" >
+        <figure class="ph" data-reveal="clip-left" data-label="写真：食事写真へのフィードバック画面"><span></span></figure>
+        <div class="zig__txt" data-reveal="fade-left">
+          <p class="zig__no en">01</p>
+          <h3>毎食の写真に、プロが<br>その日のうちに返信</h3>
+          <p>食事を撮って送るだけ。管理栄養士監修のトレーナーが、PFCバランスと「次の一食」の提案を返します。</p>
+        </div>
+      </article>
+      <article class="zig zig--rev">
+        <figure class="ph" data-reveal="clip-left" data-label="写真：自宅でのオンラインレッスン"><span></span></figure>
+        <div class="zig__txt" data-reveal="fade-right">
+          <p class="zig__no en">02</p>
+          <h3>器具なし・自宅で<br>週2回のマンツーマン</h3>
+          <p>1回30分、画面越しにフォームをチェック。マンションでも響かないメニューを組みます。</p>
+        </div>
+      </article>
+      <article class="zig">
+        <figure class="ph" data-reveal="clip-left" data-label="写真：チャットで相談する様子"><span></span></figure>
+        <div class="zig__txt" data-reveal="fade-left">
+          <p class="zig__no en">03</p>
+          <h3>24時間チャットで<br>「くじけそう」を支える</h3>
+          <p>食べすぎた日も、やる気が出ない日も。責めずに、次の一歩を一緒に考えます。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== 数字 ========== -->
+  <section class="numbers">
+    <div class="container numbers__grid" data-stagger="120">
+      <div><p class="n en"><span data-counter="12000">0</span><small>人</small></p><p>累計会員数</p></div>
+      <div><p class="n en"><span data-counter="94">0</span><small>%</small></p><p>3ヶ月継続率</p></div>
+      <div><p class="n en"><span data-counter="5.2" data-decimals="1">0</span><small>kg</small></p><p>平均減量（3ヶ月）</p></div>
+      <div><p class="n en"><span data-counter="4.8" data-decimals="1">0</span><small>/5</small></p><p>満足度</p></div>
+    </div>
+    <p class="container note">※2025年1月〜12月の当社会員データより。効果には個人差があります。</p>
+  </section>
+
+  <!-- ========== ビフォーアフター（スライダー） ========== -->
+  <section class="sec ba">
+    <div class="container narrow">
+      <p class="sec__en en" data-reveal="fade-up">BEFORE / AFTER</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">3ヶ月の変化</h2>
+      <div class="ba__slider" data-reveal="zoom-in" style="--pos:50%">
+        <div class="ph ba__after" data-label="AFTER（3ヶ月後）"></div>
+        <div class="ph ba__before" data-label="BEFORE"></div>
+        <input type="range" min="0" max="100" value="50" aria-label="ビフォーアフターの比較位置">
+        <span class="ba__handle" aria-hidden="true">⇆</span>
+      </div>
+      <p class="ba__caption">Mさん（34歳・会社員）体重 −6.4kg／ウエスト −9cm</p>
+    </div>
+  </section>
+
+  <!-- ========== お客様の声（横スクロール） ========== -->
+  <section class="sec voice" id="voice">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">VOICE</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">お客様の声</h2>
+    </div>
+    <div class="voice__track" data-stagger="100">
+      <figure class="vc"><blockquote>「食事を送るのが楽しみになりました。怒られないから続けられる。」</blockquote><figcaption><span class="av"></span>Aさん｜29歳・看護師<b>−4.8kg</b></figcaption></figure>
+      <figure class="vc"><blockquote>「子どもが寝た後の30分で完結。ジムに通えない私にぴったりでした。」</blockquote><figcaption><span class="av"></span>Kさん｜38歳・主婦<b>−6.1kg</b></figcaption></figure>
+      <figure class="vc"><blockquote>「数字が見えるのでモチベーションが落ちない。体脂肪率が初めて20%台に。」</blockquote><figcaption><span class="av"></span>Tさん｜42歳・営業職<b>−7.3kg</b></figcaption></figure>
+      <figure class="vc"><blockquote>「トレーナーさんのひと言に毎日救われました。人生で一番続いた習慣です。」</blockquote><figcaption><span class="av"></span>Sさん｜31歳・デザイナー<b>−3.9kg</b></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ========== 料金 ========== -->
+  <section class="sec price" id="price">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">PRICE</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">料金プラン</h2>
+      <div class="plans" data-stagger="120">
+        <div class="plan"><h3>ライト</h3><p class="plan__price en">¥9,800<small>/月</small></p><ul><li>食事アドバイス</li><li>チャット相談</li><li>—</li></ul><a class="btn btn--ghost" href="#form" data-sfx="click">このプランで始める</a></div>
+        <div class="plan plan--pop" data-tilt="6"><span class="plan__badge">一番人気</span><h3>スタンダード</h3><p class="plan__price en">¥19,800<small>/月</small></p><ul><li>食事アドバイス</li><li>チャット相談</li><li>オンラインレッスン 週2回</li></ul><a class="btn btn--accent m-shine" href="#form" data-sfx="pop">初月0円で始める</a></div>
+        <div class="plan"><h3>プレミアム</h3><p class="plan__price en">¥29,800<small>/月</small></p><ul><li>スタンダードの全て</li><li>レッスン 週3回</li><li>体組成計プレゼント</li></ul><a class="btn btn--ghost" href="#form" data-sfx="click">このプランで始める</a></div>
+      </div>
+      <p class="note center">表示価格は税込です。いつでも解約できます（違約金なし）。</p>
+    </div>
+  </section>
+
+  <!-- ========== 特典＋カウントダウン ========== -->
+  <section class="offer">
+    <div class="container offer__inner" data-reveal="zoom-in">
+      <p class="offer__en en">LIMITED OFFER</p>
+      <h2>今月末までのお申し込みで<br><em>初月0円</em>＋<em>オリジナル食事ガイド</em></h2>
+      <div class="countdown en" data-deadline="" aria-live="polite"><span><b class="d">00</b>日</span><span><b class="h">00</b>時間</span><span><b class="m">00</b>分</span><span><b class="s">00</b>秒</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 流れ ========== -->
+  <section class="sec flow">
+    <div class="container">
+      <p class="sec__en en" data-reveal="fade-up">FLOW</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">ご利用の流れ</h2>
+      <svg class="flow__line" viewBox="0 0 1000 20" preserveAspectRatio="none" data-line-draw aria-hidden="true"><path d="M0 10 H1000"/></svg>
+      <ol class="steps" data-stagger="150">
+        <li><span class="en">STEP 01</span><b>無料体験を予約</b>フォームから30秒</li>
+        <li><span class="en">STEP 02</span><b>オンラインカウンセリング</b>目標と生活をヒアリング</li>
+        <li><span class="en">STEP 03</span><b>プラン作成</b>あなた専用のメニュー</li>
+        <li><span class="en">STEP 04</span><b>スタート</b>毎日トレーナーが伴走</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="sec faq" id="faq">
+    <div class="container narrow">
+      <p class="sec__en en" data-reveal="fade-up">FAQ</p>
+      <h2 class="sec__ttl" data-reveal="fade-up">よくある質問</h2>
+      <div class="faq__list" data-stagger="80">
+        <details><summary data-sfx="tick">運動経験がなくても大丈夫ですか？</summary><p>はい。会員の7割が運動未経験からのスタートです。体力に合わせてメニューを調整します。</p></details>
+        <details><summary data-sfx="tick">解約に違約金はかかりますか？</summary><p>かかりません。マイページからいつでも解約できます。</p></details>
+        <details><summary data-sfx="tick">食事制限はきついですか？</summary><p>「抜く」のではなく「選び方」を変える方法です。外食やコンビニでも続けられます。</p></details>
+        <details><summary data-sfx="tick">レッスンの時間帯は選べますか？</summary><p>朝6時〜夜24時の間で、毎週自由に予約できます。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== フォーム（CTA） ========== -->
+  <section class="sec cta" id="form">
+    <canvas data-gfx="particles" class="cta__bg"></canvas>
+    <div class="container narrow">
+      <h2 class="sec__ttl light" data-reveal="fade-up">まずは、<br class="sp">無料体験から。</h2>
+      <p class="center light" data-reveal="fade-up">あなたの「なりたい」を聞かせてください。</p>
+      <form class="form" data-reveal="fade-up" novalidate>
+        <div class="form__progress"><span></span></div>
+        <label>お名前<input name="name" required autocomplete="name" placeholder="山田 花子"></label>
+        <label>メールアドレス<input name="email" type="email" required autocomplete="email" placeholder="hanako@example.com"></label>
+        <label>ご希望の目標
+          <select name="goal" required><option value="">選択してください</option><option>体重を落としたい</option><option>体型を整えたい</option><option>健康習慣をつけたい</option></select>
+        </label>
+        <button class="btn btn--accent btn--xl m-shine" type="submit" data-magnetic>無料体験を予約する<span class="arrow">→</span></button>
+        <p class="micro light">送信後、24時間以内にご連絡します。</p>
+      </form>
+      <div class="thanks" hidden><p class="thanks__check"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M14 27 l8 8 l16 -18"/></svg></p><h3>ご予約ありがとうございます！</h3><p>ご入力のメールアドレスに、体験の日程調整のご案内をお送りしました。</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <p class="ft__logo en">Lumi<b>Fit</b></p>
+  <p><a href="#">運営会社</a>｜<a href="#">特定商取引法に基づく表記</a>｜<a href="#">プライバシーポリシー</a></p>
+  <small class="en">© 2026 Lumi Fit Inc.</small>
+</footer>
+
+<a class="sticky-cta btn btn--accent" href="#form" data-sfx="pop">初月0円で無料体験 →</a>
+<button class="sfx-toggle" data-sfx-toggle type="button">🔊 SOUND ON</button>
+
+<script src="../../../../shared/js/sfx.js"></script>
+<script src="../../../../shared/js/motion.js" defer></script>
+<script src="../../../../shared/js/graphics.js" defer></script>
+<script src="main.js" defer></script>
+</body>
+</html>

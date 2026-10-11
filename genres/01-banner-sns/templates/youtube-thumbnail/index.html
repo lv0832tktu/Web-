@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouTube Thumbnail</title>
+<!--
+  YouTubeサムネイル（1280×720）— クリック率の高い定番構成
+  ① 顔（感情）を画面の1/3以上  ② 3〜8文字の極太コピー（袋文字）  ③ 強調色1色  ④ 右下（再生時間）に重要要素を置かない
+  ・人物写真は背景透過PNGを content.image に（切り抜き: Adobe Express / remove.bg 等）
+  ・?v=2 でレイアウト違い（左右反転＋斜め分割）
+  ・書き出し: node tools/render.mjs <このファイル> --png
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@700;900&family=Anton&display=swap">
+<link rel="stylesheet" href="../../../../shared/css/base.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  html, body { margin: 0; background: #111; }
+  body { min-height: 100vh; display: grid; place-items: center; overflow: hidden; }
+  body.export { display: block; min-height: 0; }
+  .th { position: relative; width: 1280px; height: 720px; overflow: hidden; isolation: isolate; flex: none; transform-origin: center; font-family: var(--font-head);
+        background: radial-gradient(70% 90% at 72% 45%, color-mix(in srgb, var(--c-primary) 75%, #fff) 0%, var(--c-primary) 40%, color-mix(in srgb, var(--c-primary) 35%, #000) 100%); }
+  /* 集中線 */
+  .rays { position: absolute; inset: -50%; z-index: -1; background: repeating-conic-gradient(from 0deg at 50% 50%, rgb(255 255 255 / .16) 0deg 4deg, transparent 4deg 12deg); mask: radial-gradient(circle at 50% 50%, transparent 12%, #000 55%); left: 22%; }
+  .halftone { position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(rgb(0 0 0 / .22) 22%, transparent 24%); background-size: 16px 16px; mask: linear-gradient(115deg, #000 0%, transparent 45%); }
+
+  .person { position: absolute; right: 40px; bottom: 0; width: 560px; height: 680px; display: grid; place-items: end center; }
+  .person img { height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 0 0 #fff) drop-shadow(8px 0 0 #fff) drop-shadow(-8px 0 0 #fff) drop-shadow(0 -8px 0 #fff) drop-shadow(0 20px 40px rgb(0 0 0 / .45)); }
+  .person .ph { width: 460px; height: 600px; border-radius: 230px 230px 40px 40px; background: linear-gradient(180deg, #ffe0cf, #f4b393); border: 10px solid #fff; display: grid; place-items: center; font: 900 40px var(--font-body); color: rgb(0 0 0 / .35); box-shadow: 0 20px 50px rgb(0 0 0 / .4); }
+
+  .copy { position: absolute; left: 56px; top: 70px; width: 720px; }
+  .label { display: inline-block; padding: 8px 22px; background: var(--c-accent); color: var(--c-text); font: 900 44px var(--font-body); transform: rotate(-4deg); box-shadow: 8px 8px 0 #000; }
+  .line { display: block; font-size: 128px; line-height: 1.08; letter-spacing: -.02em; color: #fff; white-space: nowrap; margin-top: 14px;
+          -webkit-text-stroke: 26px #000; paint-order: stroke fill; text-shadow: 0 12px 0 rgb(0 0 0 / .5); }
+  .line.big { font-size: 170px; color: var(--c-accent); }
+  .line em { font-style: normal; color: var(--c-accent); }
+  .arrow { position: absolute; left: 640px; top: 420px; width: 200px; height: 140px; color: var(--c-accent); filter: drop-shadow(6px 6px 0 #000); transform: rotate(-8deg); }
+
+  .burst { position: absolute; right: 40px; top: 30px; width: 230px; height: 230px; display: grid; place-items: center; color: var(--c-text); font: 900 52px/1 var(--font-body); text-align: center; transform: rotate(12deg); z-index: 3; }
+  .burst::before { content: ""; position: absolute; inset: 0; background: #fff; z-index: -1; filter: drop-shadow(6px 6px 0 #000);
+                   clip-path: polygon(50% 0%, 61% 18%, 82% 8%, 80% 30%, 100% 35%, 86% 52%, 100% 68%, 79% 72%, 82% 94%, 61% 84%, 50% 100%, 39% 84%, 18% 94%, 21% 72%, 0% 68%, 14% 52%, 0% 35%, 20% 30%, 18% 8%, 39% 18%); }
+  .burst b { color: var(--c-primary); font-size: 64px; display: block; }
+  .safe { position: absolute; right: 0; bottom: 0; width: 160px; height: 70px; outline: 2px dashed rgb(255 255 255 / .6); color: #fff; font: 700 14px var(--font-body); display: grid; place-items: center; }
+  .export .safe { display: none; }
+
+  /* v2: 反転＋斜め分割 */
+  .v2 .person { right: auto; left: 20px; }
+  .v2 .copy { left: auto; right: 50px; text-align: right; width: 760px; }
+  .v2 .halftone { mask: linear-gradient(245deg, #000 0%, transparent 45%); }
+  .v2 .burst { right: auto; left: 420px; top: 20px; }
+  .v2 .arrow { left: 470px; top: 450px; transform: scaleX(-1) rotate(-8deg); }
+  .v2::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--c-text); clip-path: polygon(0 0, 46% 0, 34% 100%, 0 100%); opacity: .9; }
+</style>
+</head>
+<body>
+<script type="application/json" id="content">
+{
+  "label": "検証してみた",
+  "lines": ["月5万円", "<em>AIだけ</em>で"],
+  "bigLine": "稼げる？",
+  "burstTop": "結果",
+  "burstBig": "衝撃",
+  "image": ""
+}
+</script>
+<div class="th" id="th" data-artboard>
+  <div class="rays"></div>
+  <div class="halftone"></div>
+  <div class="person"><div class="ph">人物切り抜き</div></div>
+  <div class="copy"><span class="label"></span></div>
+  <svg class="arrow" viewBox="0 0 200 140" aria-hidden="true"><path d="M10 110 C 70 120, 120 90, 150 40 L 128 34 L 190 4 L 182 72 L 166 54 C 132 112, 70 138, 10 130 Z" fill="currentColor" stroke="#000" stroke-width="8" stroke-linejoin="round"/></svg>
+  <div class="burst"><span><span class="bt"></span><b class="bb"></b></span></div>
+  <div class="safe">再生時間エリア</div>
+</div>
+<script>
+(function () {
+  const C = JSON.parse(document.getElementById('content').textContent);
+  const q = new URLSearchParams(location.search);
+  const th = document.getElementById('th');
+  if (q.get('v') === '2') th.classList.add('v2');
+  if (q.has('export')) document.body.classList.add('export');
+  else { const fit = () => { const s = Math.min((innerWidth - 40) / 1280, (innerHeight - 40) / 720, 1); th.style.transform = `scale(${s})`; th.style.margin = `${(720 * s - 720) / 2}px ${(1280 * s - 1280) / 2}px`; }; fit(); addEventListener('resize', fit); }
+  const copy = th.querySelector('.copy');
+  th.querySelector('.label').textContent = C.label;
+  C.lines.forEach((l) => copy.insertAdjacentHTML('beforeend', `<span class="line">${l}</span>`));
+  copy.insertAdjacentHTML('beforeend', `<span class="line big">${C.bigLine}</span>`);
+  th.querySelector('.bt').textContent = C.burstTop; th.querySelector('.bb').textContent = C.burstBig;
+  if (C.image) th.querySelector('.person').innerHTML = `<img src="${C.image}" alt="">`;
+  window.__CREATIVE__ = { el: th, duration: 1, sfx: [] };
+})();
+</script>
+</body>
+</html>

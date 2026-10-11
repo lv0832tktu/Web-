@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard — 管理画面UI</title>
+<!--
+  SaaS管理画面/ダッシュボード UI（動作するプロトタイプ）
+  情報設計: KPIカード → 推移グラフ → 内訳 → テーブル（上から「結論→根拠→詳細」）
+  機能: ⌘K/Ctrl+K コマンドパレット / 期間切替でグラフ再描画 / テーブルのソート・検索 / トースト / ダークモード / 折りたたみサイドバー
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../shared/css/base.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout" id="layout">
+  <aside class="side">
+    <div class="side__logo"><span class="mark"></span><b class="en">Orbit</b></div>
+    <nav class="side__nav">
+      <a class="on" href="#" data-sfx="tick"><i>▦</i><span>ダッシュボード</span></a>
+      <a href="#" data-sfx="tick"><i>◎</i><span>顧客</span></a>
+      <a href="#" data-sfx="tick"><i>⇅</i><span>商談</span><em>12</em></a>
+      <a href="#" data-sfx="tick"><i>▤</i><span>レポート</span></a>
+      <a href="#" data-sfx="tick"><i>⚙</i><span>設定</span></a>
+    </nav>
+    <button class="side__toggle" id="collapse" data-sfx="swoosh" aria-label="サイドバーを折りたたむ">⟨</button>
+  </aside>
+
+  <div class="main">
+    <header class="bar">
+      <button class="search" id="openCmd" data-sfx="tick"><span>検索・コマンド</span><kbd>⌘K</kbd></button>
+      <div class="bar__right">
+        <button class="icon-btn" id="bell" aria-label="通知" data-sfx="notify">🔔<i class="dot"></i></button>
+        <button class="icon-btn" id="theme" aria-label="ダークモード切替" data-sfx="toggle">🌙</button>
+        <span class="me"></span>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="head">
+        <div><p class="muted">2026年10月11日 土曜日</p><h1>おかえりなさい、田中さん</h1></div>
+        <div class="seg" id="range"><button data-r="7" data-sfx="tick">7日</button><button class="on" data-r="30" data-sfx="tick">30日</button><button data-r="90" data-sfx="tick">90日</button></div>
+      </div>
+
+      <section class="kpis">
+        <article class="kpi"><p class="muted">売上</p><p class="v en">¥<span data-k="0">0</span>万</p><p class="delta up">▲ 12.4%</p><svg class="spark" viewBox="0 0 100 30"><path/></svg></article>
+        <article class="kpi"><p class="muted">新規顧客</p><p class="v en"><span data-k="1">0</span></p><p class="delta up">▲ 8.1%</p><svg class="spark" viewBox="0 0 100 30"><path/></svg></article>
+        <article class="kpi"><p class="muted">成約率</p><p class="v en"><span data-k="2">0</span>%</p><p class="delta down">▼ 1.2%</p><svg class="spark" viewBox="0 0 100 30"><path/></svg></article>
+        <article class="kpi"><p class="muted">解約率</p><p class="v en"><span data-k="3">0</span>%</p><p class="delta up">▼ 0.4pt 改善</p><svg class="spark" viewBox="0 0 100 30"><path/></svg></article>
+      </section>
+
+      <section class="grid2">
+        <article class="panel">
+          <div class="panel__hd"><h2>売上推移</h2><span class="legend"><i class="l1"></i>今期 <i class="l2"></i>前期</span></div>
+          <div class="chart" id="chart"><svg viewBox="0 0 600 240" preserveAspectRatio="none"></svg><div class="tip" id="tip"></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel__hd"><h2>チャネル別</h2></div>
+          <div class="donut"><svg viewBox="0 0 120 120" id="donut"></svg><div class="donut__c"><b class="en">1,284</b><small>件</small></div></div>
+          <ul class="ch" id="channels"></ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel__hd"><h2>最近の商談</h2><input class="filter" id="filter" placeholder="絞り込み…" aria-label="商談を絞り込み"></div>
+        <div class="table-wrap">
+          <table class="tbl" id="tbl">
+            <thead><tr><th data-s="name">顧客名</th><th data-s="owner">担当</th><th data-s="stage">ステージ</th><th data-s="amount" class="r">金額</th><th data-s="date">更新日</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="cmd" id="cmd" hidden>
+  <div class="cmd__box" role="dialog" aria-modal="true" aria-label="コマンドパレット">
+    <input id="cmdInput" placeholder="何をしますか？（例：顧客、レポート、ダーク）" autocomplete="off">
+    <ul id="cmdList"></ul>
+    <p class="cmd__ft"><kbd>↑↓</kbd> 選択 <kbd>Enter</kbd> 実行 <kbd>Esc</kbd> 閉じる</p>
+  </div>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<button class="sfx-toggle" data-sfx-toggle type="button">🔊 SOUND ON</button>
+
+<script src="../../../../shared/js/sfx.js"></script>
+<script src="../../../../shared/js/motion.js" defer></script>
+<script src="dashboard.js" defer></script>
+</body>
+</html>

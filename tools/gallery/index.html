@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design Recipe Gallery — 40,000件のデザインレシピ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;600;800&display=swap">
+<style>
+  :root { --bg: #f4f3ef; --card: #fff; --text: #171717; --muted: #6b6b6b; --line: #e3e1db; --pri: #2f3cff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #111; --card: #1b1b1b; --text: #eee; --muted: #9a9a9a; --line: #2a2a2a; --pri: #8f97ff; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.6 "Noto Sans JP", sans-serif; }
+  header { position: sticky; top: 0; z-index: 10; padding: 16px 24px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); display: grid; gap: 12px; }
+  h1 { margin: 0; font: 800 20px Inter, sans-serif; letter-spacing: -.02em; }
+  h1 small { font: 400 13px "Noto Sans JP"; color: var(--muted); margin-left: 8px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .tabs button, select, input, .chk { min-height: 38px; border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 999px; padding: 0 14px; font: inherit; }
+  .tabs button.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+  input[type=search] { flex: 1; min-width: 220px; border-radius: 10px; }
+  .chk { display: inline-flex; align-items: center; gap: 6px; }
+  #count { color: var(--muted); font-size: 12px; margin-left: auto; }
+  main { padding: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .pv { position: relative; aspect-ratio: 16/10; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+  .pv .eb { font-size: 10px; letter-spacing: .2em; opacity: .7; }
+  .pv .hd { font-size: 22px; font-weight: 700; line-height: 1.3; max-width: 80%; }
+  .pv .bt { align-self: flex-start; padding: 6px 14px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+  .pv .blob { position: absolute; right: -30px; top: -30px; width: 150px; height: 150px; border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; opacity: .9; animation: blob 10s ease-in-out infinite; }
+  .pv .sf { position: absolute; right: 18px; bottom: 18px; width: 70px; height: 50px; border-radius: 10px; }
+  @keyframes blob { 50% { border-radius: 70% 30% 46% 54% / 30% 39% 61% 70%; transform: rotate(10deg); } }
+  .sw { display: flex; height: 8px; } .sw i { flex: 1; }
+  .bd { padding: 14px 16px 16px; display: grid; gap: 8px; flex: 1; }
+  .id { font: 600 11px Inter; color: var(--muted); display: flex; justify-content: space-between; }
+  .ttl { font-weight: 700; font-size: 13px; line-height: 1.5; }
+  .cc { font-size: 12px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .tags span, .tags button { font-size: 11px; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--text) 7%, transparent); border: 0; color: inherit; }
+  .tags button { cursor: pointer; background: color-mix(in srgb, var(--pri) 15%, transparent); color: var(--pri); }
+  .tags button::before { content: "♪ "; }
+  .act { display: flex; gap: 6px; margin-top: auto; }
+  .act button { flex: 1; min-height: 34px; border-radius: 8px; border: 1px solid var(--line); background: none; color: inherit; font: inherit; font-size: 12px; cursor: pointer; }
+  .act button:hover { border-color: var(--pri); color: var(--pri); }
+  #more { grid-column: 1 / -1; justify-self: center; min-height: 44px; padding: 0 28px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: inherit; font: inherit; cursor: pointer; }
+  dialog { width: min(760px, 94vw); max-height: 86vh; border: 0; border-radius: 16px; padding: 0; background: var(--card); color: var(--text); }
+  dialog pre { margin: 0; padding: 20px; font: 12px/1.6 ui-monospace, monospace; white-space: pre-wrap; overflow: auto; max-height: 76vh; }
+  dialog form { display: flex; justify-content: flex-end; padding: 10px; border-top: 1px solid var(--line); }
+  .toast { position: fixed; bottom: 20px; left: 50%; translate: -50% 0; padding: 10px 18px; border-radius: 10px; background: var(--text); color: var(--bg); opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .toast.on { opacity: 1; }
+  .err { grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Design Recipe Gallery<small>4ジャンル × 10,000件のデザインレシピ</small></h1>
+  <div class="row tabs" id="tabs">
+    <button data-g="banner-sns" class="on">バナー・SNS</button><button data-g="lp">LP</button><button data-g="website">Webサイト</button><button data-g="uiux">UI/UX</button>
+  </div>
+  <div class="row">
+    <input type="search" id="q" placeholder="キーワード（例：歯科 予約 ナチュラル）スペース区切りでAND検索">
+    <select id="style"><option value="">すべてのスタイル</option></select>
+    <select id="level"><option value="">すべての難易度</option><option>中級</option><option>上級</option><option>プロ</option></select>
+    <label class="chk"><input type="checkbox" id="motionOnly">動きあり</label>
+    <span id="count"></span>
+  </div>
+</header>
+<main id="grid"><p class="err">読み込み中…</p></main>
+<dialog id="dlg"><pre id="json"></pre><form method="dialog"><button>閉じる</button></form></dialog>
+<div class="toast" id="toast"></div>
+
+<script src="../../shared/js/sfx.js"></script>
+<script>
+const DIRS = { 'banner-sns': '01-banner-sns', lp: '02-lp', website: '03-website', uiux: '04-uiux' };
+const cache = {}; let genre = 'banner-sns', results = [], shown = 0;
+const $ = (s) => document.querySelector(s);
+const loadedFonts = new Set();
+function useFont(f) {
+  if (loadedFonts.has(f)) return; loadedFonts.add(f);
+  const l = document.createElement('link'); l.rel = 'stylesheet';
+  l.href = `https://fonts.googleapis.com/css2?family=${f.replace(/ /g, '+')}&display=swap&text=${encodeURIComponent('あなたの毎日にAaBb0123今すぐ見るCTA')}`;
+  document.head.appendChild(l);
+}
+async function load(g) {
+  if (cache[g]) return cache[g];
+  const recs = [];
+  for (let i = 1; i <= 10; i++) {
+    const res = await fetch(`../../genres/${DIRS[g]}/db/references/part-${String(i).padStart(2, '0')}.jsonl.gz`);
+    if (!res.ok) break;
+    const text = await new Response(res.body.pipeThrough(new DecompressionStream('gzip'))).text();
+    text.split('\n').forEach((l) => l.trim() && recs.push(JSON.parse(l)));
+    $('#count').textContent = `読み込み中… ${recs.length}件`;
+  }
+  return (cache[g] = recs);
+}
+function filter() {
+  const words = $('#q').value.trim().toLowerCase().split(/[\s　]+/).filter(Boolean);
+  const st = $('#style').value, lv = $('#level').value, mo = $('#motionOnly').checked;
+  results = cache[genre].filter((r) => {
+    if (st && r.style_id !== st) return false;
+    if (lv && !r.level.includes(lv)) return false;
+    if (mo && !(r.motion && r.motion.length)) return false;
+    if (!words.length) return true;
+    const s = JSON.stringify(r).toLowerCase();
+    return words.every((w) => s.includes(w));
+  });
+  shown = 0; $('#grid').textContent = ''; more();
+  $('#count').textContent = `${results.length.toLocaleString()}件 / ${cache[genre].length.toLocaleString()}件`;
+}
+function card(r) {
+  const p = r.palette; useFont(r.fonts.head);
+  const el = document.createElement('article'); el.className = 'card';
+  const head = r.copy?.headline || r.copy?.tagline || r.first_view?.copy_formula?.replace(/【|】/g, '') || r.app_type || r.title;
+  el.innerHTML = `<div class="pv"><span class="blob"></span><span class="eb"></span><span class="hd"></span><span class="bt"></span><span class="sf"></span></div>
+    <div class="sw">${[p.bg, p.surface, p.text, p.primary, p.accent].map((c) => `<i style="background:${c}" title="${c}"></i>`).join('')}</div>
+    <div class="bd"><p class="id"><span>${r.id}</span><span>${r.level}</span></p><p class="ttl"></p><p class="cc"></p><div class="tags"></div>
+    <div class="act"><button data-a="cmd">制作コマンドをコピー</button><button data-a="json">詳細</button></div></div>`;
+  const pv = el.querySelector('.pv');
+  Object.assign(pv.style, { background: p.bg, color: p.text, fontFamily: `"${r.fonts.head}", sans-serif` });
+  el.querySelector('.blob').style.background = `linear-gradient(135deg, ${p.primary}, ${p.accent})`;
+  el.querySelector('.sf').style.background = p.surface;
+  el.querySelector('.eb').textContent = (r.style || '').toUpperCase();
+  el.querySelector('.hd').textContent = head;
+  const bt = el.querySelector('.bt'); bt.textContent = r.copy?.cta || '詳しく見る'; Object.assign(bt.style, { background: p.accent, color: p.on_primary });
+  el.querySelector('.ttl').textContent = r.title;
+  el.querySelector('.cc').textContent = r.concept;
+  const tags = el.querySelector('.tags');
+  (r.motion || []).slice(0, 4).forEach((m) => { const s = document.createElement('span'); s.textContent = m; tags.appendChild(s); });
+  (r.sfx || []).forEach((m) => { const b = document.createElement('button'); b.textContent = m; b.onclick = () => SFX.play(m); tags.appendChild(b); });
+  el.querySelector('[data-a=cmd]').onclick = () => { navigator.clipboard?.writeText(`node tools/new-project.mjs --ref ${r.id} --name 案件名`); toast('コピーしました：' + r.id); SFX.play('tick'); };
+  el.querySelector('[data-a=json]').onclick = () => { $('#json').textContent = JSON.stringify(r, null, 2); $('#dlg').showModal(); };
+  return el;
+}
+function more() {
+  $('#more')?.remove();
+  const frag = document.createDocumentFragment();
+  results.slice(shown, shown + 60).forEach((r) => frag.appendChild(card(r)));
+  shown += 60; $('#grid').appendChild(frag);
+  if (shown < results.length) { const b = document.createElement('button'); b.id = 'more'; b.textContent = `さらに表示（残り ${(results.length - shown).toLocaleString()}件）`; b.onclick = more; $('#grid').appendChild(b); }
+}
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 1600); }
+async function setGenre(g) {
+  genre = g; document.querySelectorAll('#tabs button').forEach((b) => b.classList.toggle('on', b.dataset.g === g));
+  try { await load(g); } catch (e) { $('#grid').innerHTML = '<p class="err">DBを読み込めません。<br><code>npm run serve</code> で起動して http://localhost:5173/ を開いてください。</p>'; return; }
+  const styles = [...new Map(cache[g].map((r) => [r.style_id, r.style])).entries()];
+  $('#style').innerHTML = '<option value="">すべてのスタイル</option>' + styles.map(([id, n]) => `<option value="${id}">${n}</option>`).join('');
+  filter();
+}
+$('#tabs').onclick = (e) => { const b = e.target.closest('button'); if (b) setGenre(b.dataset.g); };
+let t; $('#q').oninput = () => { clearTimeout(t); t = setTimeout(filter, 200); };
+['#style', '#level', '#motionOnly'].forEach((s) => $(s).onchange = filter);
+setGenre('banner-sns');
+</script>
+</body>
+</html>

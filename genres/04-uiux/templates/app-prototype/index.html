@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Habit — アプリUIプロトタイプ</title>
+<!--
+  スマホアプリ UIプロトタイプ（クリックで動く・効果音付き）
+  画面: オンボーディング(3枚) → ホーム → 詳細 → 追加(ボトムシート) → 完了(祝福)
+  UXパターン: スケルトン / 楽観的UI / トースト / ボトムシート / ゲーミフィケーション / ダークモード
+  PCではiPhoneフレーム内に、スマホでは全画面で表示。?screen=home で特定画面から開始。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../../../../shared/css/base.css">
+<link rel="stylesheet" href="../../../../shared/css/motion.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage">
+  <aside class="notes">
+    <p class="notes__en">UI PROTOTYPE</p>
+    <h1>Habit<br><small>習慣化アプリ</small></h1>
+    <ul>
+      <li><b>タップ</b>で画面遷移・操作できます</li>
+      <li>効果音：右下のボタンでON/OFF</li>
+      <li>UXパターン：スケルトン / 楽観的UI / ボトムシート / トースト / 祝福演出</li>
+    </ul>
+    <div class="jump">
+      <button data-go="onboarding" data-sfx="tick">オンボーディング</button>
+      <button data-go="home" data-sfx="tick">ホーム</button>
+      <button data-go="detail" data-sfx="tick">詳細</button>
+      <button data-go="done" data-sfx="tick">完了</button>
+      <button id="themeBtn" data-sfx="toggle">🌙 ダークモード</button>
+    </div>
+  </aside>
+
+  <div class="device">
+    <div class="app" id="app" data-theme="light">
+      <div class="status"><span class="en">9:41</span><span class="island"></span><span class="en">●●● ▮</span></div>
+
+      <!-- オンボーディング -->
+      <section class="screen" data-screen="onboarding">
+        <div class="ob__slides" id="obSlides">
+          <div class="ob__slide"><div class="ob__art"><span class="blob m-blob"></span><span class="emoji m-float">🌱</span></div><h2>小さな習慣が、<br>大きな変化に。</h2><p>1日1分から。続けられる仕組みをつくります。</p></div>
+          <div class="ob__slide"><div class="ob__art"><span class="blob m-blob" style="animation-delay:-4s"></span><span class="emoji m-float">🔥</span></div><h2>連続記録で、<br>やる気をキープ。</h2><p>途切れそうな日は、そっとリマインド。</p></div>
+          <div class="ob__slide"><div class="ob__art"><span class="blob m-blob" style="animation-delay:-8s"></span><span class="emoji m-float">🏆</span></div><h2>達成を、<br>ちゃんと祝おう。</h2><p>バッジとレベルアップで成長を実感。</p></div>
+        </div>
+        <div class="ob__foot">
+          <div class="dots"><i class="on"></i><i></i><i></i></div>
+          <button class="ui-btn" id="obNext" data-ripple>次へ</button>
+          <button class="link" data-go="home" data-sfx="tick">スキップ</button>
+        </div>
+      </section>
+
+      <!-- ホーム -->
+      <section class="screen" data-screen="home">
+        <header class="top">
+          <div><p class="muted">10月11日（土）</p><h2>おはよう、美咲さん</h2></div>
+          <button class="avatar" aria-label="プロフィール" data-sfx="pop"></button>
+        </header>
+        <div class="summary card">
+          <div class="ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="bg"/><circle cx="50" cy="50" r="42" class="fg" id="ringFg"/></svg><span><b id="pct">0</b>%</span></div>
+          <div><p class="muted">今日の達成</p><p class="big"><b id="doneCount">0</b> / <span id="total">0</span></p><p class="streak">🔥 <b>12</b>日連続</p></div>
+        </div>
+        <div class="seg" role="tablist"><button class="on" data-sfx="tick">今日</button><button data-sfx="tick">週間</button><button data-sfx="tick">月間</button></div>
+        <ul class="habits" id="habits" aria-live="polite"></ul>
+        <button class="fab" id="fab" aria-label="習慣を追加" data-ripple>＋</button>
+        <nav class="tabbar"><button class="on">🏠<span>ホーム</span></button><button data-sfx="tick">📊<span>記録</span></button><button data-sfx="tick">🏅<span>バッジ</span></button><button data-sfx="tick">⚙️<span>設定</span></button></nav>
+      </section>
+
+      <!-- 詳細 -->
+      <section class="screen" data-screen="detail">
+        <header class="top"><button class="back" data-go="home" data-sfx="swipe" aria-label="戻る">←</button><h2 id="dTitle">読書 10分</h2><span></span></header>
+        <div class="card hero-card"><p class="muted">継続日数</p><p class="huge en" id="dDays">12</p><p class="muted">ベスト 21日</p></div>
+        <div class="card"><p class="muted">この30日</p><div class="heat" id="heat"></div></div>
+        <div class="card chart"><p class="muted">週ごとの達成率</p>
+          <svg viewBox="0 0 300 120" class="bars" id="bars"></svg>
+        </div>
+      </section>
+
+      <!-- 完了 -->
+      <section class="screen" data-screen="done">
+        <div class="done">
+          <svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M14 27 l8 8 l16 -18"/></svg>
+          <h2>今日の習慣、<br>ぜんぶ達成！</h2>
+          <p class="muted">12日連続。自己ベストまであと9日です。</p>
+          <div class="badge-get"><span class="m-float">🏅</span><b>LEVEL 5</b><small>継続マスター</small></div>
+          <button class="ui-btn" data-go="home" data-sfx="pop" data-ripple>ホームへ</button>
+        </div>
+      </section>
+
+      <!-- ボトムシート -->
+      <div class="sheet-bg" id="sheetBg"></div>
+      <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTtl">
+        <span class="grab"></span>
+        <h3 id="sheetTtl">新しい習慣</h3>
+        <label class="field">名前<input id="newName" placeholder="例：ストレッチ 5分" maxlength="20"></label>
+        <p class="err" id="err" hidden>名前を入力してください</p>
+        <p class="muted small">アイコン</p>
+        <div class="icons" id="icons"><button class="on">🧘</button><button>💧</button><button>📚</button><button>🏃</button><button>🥗</button><button>😴</button></div>
+        <button class="ui-btn" id="addBtn" data-ripple>追加する</button>
+      </div>
+
+      <div class="toast" id="toast" role="status"></div>
+    </div>
+  </div>
+</div>
+<button class="sfx-toggle" data-sfx-toggle type="button">🔊 SOUND ON</button>
+
+<script src="../../../../shared/js/sfx.js"></script>
+<script src="../../../../shared/js/motion.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
