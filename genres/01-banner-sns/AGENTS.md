@@ -1,5 +1,7 @@
 # バナー・サムネイル・SNS画像 — 制作指示書
 
+> 実在の高評価作品の研究ノート: `node tools/works.mjs --genre banner-sns`（詳細は `knowledge/reference-works/README.md`）。案件では `--work REF-...` で指示書に組み込める。
+
 DB: `db/references/`（10,000件 / ID `BNR-xxxxx`）。サイズ別・目的別・業種別に検索できます。
 
 ```bash

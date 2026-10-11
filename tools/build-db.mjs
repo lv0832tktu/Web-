@@ -18,6 +18,7 @@ import * as BNR from './taxonomy/banner.mjs';
 import * as LP from './taxonomy/lp.mjs';
 import * as WEB from './taxonomy/website.mjs';
 import * as UI from './taxonomy/uiux.mjs';
+import { WORKS, WORK_SOURCES_NOTE } from './taxonomy/works.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -311,6 +312,16 @@ for (const [key, G] of Object.entries(GENRES)) {
     seen.add(sig);
     recs.push(rec);
   }
+  // 参考作品（実在の受賞作など）を紐付け：同ジャンル×同スタイル優先 → 同ジャンル。詳細確認済み(confirmed)を優先
+  const pool = WORKS.filter((w) => w.genre === key);
+  const rank = (w) => (w.verified === 'confirmed' ? 0 : 1);
+  recs.forEach((r, i) => {
+    const same = pool.filter((w) => w.styles.includes(r.style_id)).sort((a, b) => rank(a) - rank(b));
+    const rest = pool.filter((w) => !same.includes(w) && w.verified === 'confirmed');
+    const picked = [...same.slice(0, 2)];
+    while (picked.length < 2 && rest.length) picked.push(rest[(i + picked.length) % rest.length]), rest.splice((i + picked.length - 1) % rest.length, 1);
+    r.reference_works = [...new Set(picked.map((w) => w.id))];
+  });
   // シャード書き出し（1ファイル1,000件）
   for (let s = 0; s < recs.length; s += SHARD) {
     const part = recs.slice(s, s + SHARD).map((r) => JSON.stringify(r)).join('\n') + '\n';
@@ -326,6 +337,27 @@ for (const [key, G] of Object.entries(GENRES)) {
   fs.writeFileSync(path.join(outDir, 'stats.json'), JSON.stringify(stats, null, 2) + '\n');
   console.log(`✔ ${key}: ${recs.length}件 → genres/${G.dir}/db/references/ (${Math.ceil(recs.length / SHARD)} files)`);
 }
+
+// 参考作品カタログ（JSON＋Markdown）
+const workDir = path.join(ROOT, 'knowledge', 'reference-works');
+fs.mkdirSync(workDir, { recursive: true });
+fs.writeFileSync(path.join(workDir, 'works.json'), JSON.stringify({ note: WORK_SOURCES_NOTE, count: WORKS.length, works: WORKS }, null, 2) + '\n');
+const GLABEL = { website: 'Webサイト・ホームページ', lp: 'LP（ランディングページ）', 'banner-sns': 'バナー・サムネイル・SNS画像', uiux: 'UI/UXデザイン' };
+const md = ['# 参考作品カタログ（実在の高評価作品の研究ノート）', '', `> ${WORK_SOURCES_NOTE}`, '> 作品の画像・コード・文章は収録していません。URL・受賞歴などの事実と、そこから学べる設計の考え方だけを記録しています。', '> **そのまま真似せず**、`apply`（案件への応用）に沿ってクライアント固有の要素に置き換えて使ってください。', '',
+  '使い方: `node tools/works.mjs --genre lp` で一覧、`node tools/works.mjs --id REF-LP-001` で詳細、`node tools/new-project.mjs ... --work REF-LP-001` で案件の指示書に組み込み。', '',
+  '| 記号 | 意味 |', '|---|---|', '| ✅ | 出典でデザインの特徴まで確認済み |', '| 🔎 | 受賞・存在のみ確認。デザインの詳細は実物を開いて研究が必要 |', ''];
+for (const g of ['website', 'lp', 'banner-sns', 'uiux']) {
+  md.push(`## ${GLABEL[g]}`, '');
+  for (const w of WORKS.filter((x) => x.genre === g)) {
+    md.push(`### ${w.verified === 'confirmed' ? '✅' : '🔎'} ${w.id} ${w.title}`, '', `- **制作**: ${w.by}`, `- **URL**: ${w.url}`, `- **評価**: ${w.recognition}`);
+    md.push('- **確認できた事実**:', ...w.facts.map((f) => `  - ${f}`));
+    md.push('- **学べる設計パターン**:', ...w.takeaways.map((f) => `  - ${f}`));
+    md.push(`- **キットで再現する部品**: テンプレート \`${w.kit.template}\` ／ 動き ${w.kit.motion.map((m) => `\`${m}\``).join(' ') || '—'} ／ 音 ${w.kit.sfx.map((m) => `\`${m}\``).join(' ') || '—'} ／ 背景 ${w.kit.gfx ? `\`${w.kit.gfx}\`` : '—'}`);
+    md.push(`- **案件への応用**: ${w.apply}`, `- **出典**: ${w.sources.map((u) => `<${u}>`).join(' ')}`, '');
+  }
+}
+fs.writeFileSync(path.join(workDir, 'README.md'), md.join('\n'));
+console.log(`✔ knowledge/reference-works/（${WORKS.length}作品）`);
 
 // 辞書（モーション・効果音・スタイル）も書き出してCodexが参照できるように
 const dict = { styles: STYLES.map(({ id, name, keywords, motions, sfx, graphics, gfx }) => ({ id, name, keywords, motions, sfx, graphics, gfx })), motions: MOTIONS, sfx: SFX, accessibility: ACCESSIBILITY };

@@ -885,6 +885,10 @@
       "impl": "<canvas data-gfx=\"sakura\">",
       "desc": "舞い散る花びら"
     },
+    "cursor-blobs": {
+      "impl": "<canvas data-gfx=\"cursor-blobs\">",
+      "desc": "カーソルに吸い寄せられる光のブロブ（ヒーロー写真の上に重ねる）"
+    },
     "sparkle": {
       "impl": "class=\"m-float\" + ✦ 装飾 + SFX sparkle",
       "desc": "キラキラ演出"

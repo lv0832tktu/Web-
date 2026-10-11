@@ -134,7 +134,21 @@ SVG: `GFX.svg.blob(seed)`（ランダムブロブ）、`GFX.svg.wave()`（波の
 コントラスト4.5:1 ／ タップ44px ／ alt必須 ／ 書体は和文2+欧文1 ／ 配色70:25:5 ／ 余白8の倍数 ／ ジャンプ率2.5倍以上 ／
 同時に動くもの2つまで ／ 効果音ON/OFF ／ ダミー文言・`.ph` を残さない ／ PC1440・SP375で横スクロールなし
 
-## 11. ナレッジ一覧
+## 11. 参考作品（実在の高評価作品 43件）→ [knowledge/reference-works/README.md](knowledge/reference-works/README.md)
+
+Awwwards Site of the Year 2025（Lando Norris）/ Developer SOTY 2025（Messenger）/ SOTY 2024（Igloo Inc）/ 2025年の Site of the Month 各月、
+日本の受賞作（Garden Eight「The Shift」ほか）、SaaS LP（Linear・Stripe・Vercel）、国内LP事例、MrBeastのサムネイル、HTML5バナー事例、
+Apple Design Awards 2025、Duolingo・Headspace・Airbnb・Stripe Dashboard など。画像やコードは収録せず「事実＋学べる設計パターン＋キットでの再現方法」を記録。
+
+| やりたいこと | コマンド |
+|---|---|
+| 一覧・検索 | `node tools/works.mjs --genre lp` ／ `node tools/works.mjs ダーク` ／ `--style luxury` |
+| 詳細 | `node tools/works.mjs --id REF-WEB-001` |
+| 案件に組み込む | `node tools/new-project.mjs --genre website --name xxx --work REF-WEB-001,REF-WEB-018` |
+
+各レシピにも `reference_works`（同ジャンル×同スタイルの作品）が紐付いていて、`new-project` が自動で BRIEF.md の「6.5 参考作品」に展開します。
+
+## 12. ナレッジ一覧
 
 [デザイン原則](knowledge/design-principles.md) ／ [配色](knowledge/color.md) ／ [日本語タイポ](knowledge/typography-jp.md) ／ [モーション](knowledge/motion-guide.md) ／
 [効果音](knowledge/sfx-guide.md) ／ [コピー](knowledge/copywriting.md) ／ [品質チェック](knowledge/quality-checklist.md) ／

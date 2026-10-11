@@ -1,5 +1,7 @@
 # LP（ランディングページ） — 制作指示書
 
+> 実在の高評価作品の研究ノート: `node tools/works.mjs --genre lp`（詳細は `knowledge/reference-works/README.md`）。案件では `--work REF-...` で指示書に組み込める。
+
 DB: `db/references/`（10,000件 / ID `LP-xxxxx`）。業種 × ゴール（予約/資料請求/購入/登録…）× 構成の型 × FVパターン × スタイル。
 
 ```bash

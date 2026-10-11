@@ -6,6 +6,7 @@
  *   node tools/new-project.mjs --ref LP-00381 --name sakura-dental
  *   node tools/new-project.mjs --genre banner-sns --template sns-post --name cafe-insta カフェ Instagram
  *   node tools/new-project.mjs --brief briefs/sakura-dental.md --genre lp --name sakura-dental
+ *   node tools/new-project.mjs --genre website --name athlete --work REF-WEB-001   # 参考作品を指定（カンマ区切り可）
  *
  * 生成されるもの（projects/<日付>-<name>/）:
  *   BRIEF.md         … 選ばれたレシピを「制作指示書」に展開（Codexはまずこれを読む）
@@ -17,6 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, GENRES, resolveGenre, search, byId, googleFontsUrl, tokensCss } from './lib/db.mjs';
 import { MOTIONS, SFX, INDUSTRIES, STYLES } from './taxonomy/common.mjs';
+import { WORKS } from './taxonomy/works.mjs';
 
 const argv = process.argv.slice(2);
 const opts = {}; const words = [];
@@ -62,6 +64,10 @@ if (opts.ref) {
 }
 
 const genre = primary.genre;
+// 参考作品：--work で指定（カンマ区切り可）＋レシピに紐付いた作品
+const workIds = [...new Set([...(opts.work ? opts.work.split(',') : []), ...(primary.reference_works || [])].map((x) => x.trim().toUpperCase()))];
+const works = workIds.map((id) => WORKS.find((w) => w.id === id)).filter(Boolean);
+if (opts.work) opts.work.split(',').forEach((id) => { if (!WORKS.find((w) => w.id === id.trim().toUpperCase())) console.warn('⚠ 参考作品が見つかりません: ' + id); });
 const G = GENRES[genre];
 let template = opts.template;
 if (!template) {
@@ -91,7 +97,7 @@ for (const f of fs.readdirSync(out)) {
   fs.writeFileSync(p, s);
 }
 fs.writeFileSync(path.join(out, 'tokens.css'), tokensCss(primary));
-fs.writeFileSync(path.join(out, 'references.json'), JSON.stringify({ primary, alternatives: alts }, null, 2) + '\n');
+fs.writeFileSync(path.join(out, 'references.json'), JSON.stringify({ primary, alternatives: alts, reference_works: works }, null, 2) + '\n');
 fs.writeFileSync(path.join(out, 'BRIEF.md'), brief(primary, alts, template, briefText));
 fs.mkdirSync(path.join(out, 'images'), { recursive: true });
 
@@ -99,6 +105,7 @@ console.log(`✔ 作成: ${path.relative(ROOT, out)}/`);
 console.log(`  採用レシピ: ${primary.id} ${primary.title}`);
 console.log(`  テンプレート: ${template} ／ 書体: ${primary.fonts.head} + ${primary.fonts.body} + ${primary.fonts.en}`);
 console.log(`  代替案: ${alts.map((a) => a.id).join(', ')}`);
+console.log(`  参考作品: ${works.map((w) => `${w.id} ${w.title}`).join(' ／ ') || 'なし'}`);
 console.log(`\n次: ${path.relative(ROOT, out)}/BRIEF.md を読み、テンプレートの文言・画像・構成をレシピに合わせて編集してください。`);
 
 // ---------------------------------------------------------------------------
@@ -159,6 +166,14 @@ function brief(r, alts, template, briefText) {
   if (r.sfx?.length) { L.push('', '| 効果音 | 使いどころ | 実装 |', '|---|---|---|'); r.sfx.forEach((s) => L.push(`| ${s} | ${SFX[s] || ''} | \`data-sfx="${s}"\` / \`SFX.play('${s}')\` |`)); L.push('', '効果音を使う場合は必ず `<button data-sfx-toggle>` で ON/OFF を付けること。'); }
   L.push('');
 
+  if (works.length) {
+    L.push('## 6.5 参考作品（実在の高評価作品から学ぶ）', '', '> 作品のデザイン・画像・文章をコピーしないこと。下の「学べる設計パターン」を、このクライアント固有の色・言葉・素材に置き換えて使う。', '');
+    works.forEach((w) => {
+      L.push(`### ${w.id} ${w.title}（${w.by}）`, '', `- URL: ${w.url}（制作前に実物を開いて観察する）`, `- 評価: ${w.recognition}`);
+      w.takeaways.forEach((t) => L.push(`- 学ぶ点: ${t}`));
+      L.push(`- この案件での使い方: ${w.apply}`, `- 再現に使う部品: 動き ${w.kit.motion.join(', ') || '—'} ／ 音 ${w.kit.sfx.join(', ') || '—'} ／ 背景 ${w.kit.gfx || '—'}`, '');
+    });
+  }
   L.push('## 7. オリジナリティを出す一手', '', `- ${r.originality}`, '- 参考レシピをそのまま使わず、クライアント固有の「言葉・色・形・数字」を最低3つ入れる。', '');
   L.push('## 8. 納品前チェック', '');
   [...(r.quality_check || []), ...(r.accessibility || [])].forEach((q) => L.push(`- [ ] ${q}`));
