@@ -280,7 +280,7 @@
 .ft a { text-decoration: none; display: inline-block; padding: .6em .2em; }
 
 /* 追従CTA（スマホ） */
-.sticky-cta { position: fixed; left: 12px; right: 12px; bottom: 64px; z-index: 90; transform: translateY(200%); transition: transform .5s var(--ease-back); }
+.sticky-cta { position: fixed; left: 12px; right: 12px; bottom: 64px; z-index: 90; transform: translateY(calc(100% + 120px)); transition: transform .5s var(--ease-back); }
 .sticky-cta.is-show { transform: none; }
 @media (min-width: 768px) { .sticky-cta { display: none; } }
 
