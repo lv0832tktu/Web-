@@ -7,7 +7,7 @@ UMINARI COFFEE（海鳴り珈琲）サンセットテラス席 予約LP — 納�
     style.css   … レイアウト・装飾
     main.js     … 日の入り計算／予約フォーム／追従ボタン
     shared/     … 共通ライブラリ（モーション・背景グラフィック・効果音）
-    images/ogp.png … SNSシェア用画像（1200×630）
+    images/ogp.jpg … SNSシェア用画像（1200×630）
   preview/      … 確認用のフルページ画像（PC 1440px／スマホ 390px）
 
 ■ 公開前に必ず設定すること
@@ -15,7 +15,7 @@ UMINARI COFFEE（海鳴り珈琲）サンセットテラス席 予約LP — 納�
      予約システム（例：Formspree・Googleフォーム・予約SaaSのAPI）への送信処理を追加してください。
      現状は送信せずに完了画面を表示するデモ動作です。
   2. 店名・営業時間・席数・駐車場・価格は想定値です。実際の情報に差し替えてください（index.html）。
-  3. og:image は相対パスです。公開URLが決まったら絶対URL（https://〜/images/ogp.png）に変更してください。
+  3. og:image は相対パスです。公開URLが決まったら絶対URL（https://〜/images/ogp.jpg）に変更してください。
   4. フッターの「プライバシーポリシー」のリンク先を設定してください。
 
 ■ 日の入り時刻について
@@ -24,11 +24,16 @@ UMINARI COFFEE（海鳴り珈琲）サンセットテラス席 予約LP — 納�
   予約枠は「日の入り60分前から90分間」。変更は main.js の renderSunset() の from / to。
   予約を受け付けるのは今日から90日先まで（main.js の maxDate で変更）。
 
-■ 画像の差し替え
-  現在のビジュアルはすべてオリジナルのSVGイラスト（index.html に直接記述）で、著作権上の制約はありません。
-  撮影写真に差し替える場合は、<figure class="art"> 内の <svg> を
-  <img src="images/xxx.webp" width="640" height="480" alt="（内容の説明）" loading="lazy"> に置き換えてください。
-  FVの写真は fetchpriority="high" を付けてください。
+■ 画像について
+  サイト内の写真風の画像（images/*.webp）は、外部の画像生成AIや素材サイトを使わず、
+  プログラム（WebGL2 のレイマーチングによる3DCG）で描画したオリジナルです。著作権上の制約はありません。
+  ・hero.webp / hero-sp.webp … ファーストビュー（PC用16:9／スマホ用縦長。<picture> で自動切替）
+  ・eaves / seats / ingredients / reserved … コンセプトと「3つのこと」
+  ・menu-*.webp … メニュー4品
+  ・ogp.jpg … SNSシェア用（1200×630）
+  描画の元データは制作フォルダ projects/20261011-uminari-coffee/render/（scene.frag）。
+  実店舗の撮影写真に差し替える場合は、同じファイル名・同じ縦横比の WebP で上書きすればOKです。
+  アクセスの地図は位置を正確に示すため、簡易イラストのままにしています（実際の地図リンクの追加を推奨）。
 
 ■ フォント（Google Fonts／SIL Open Font License・商用利用可）
   見出し：Shippori Mincho B1 ／ 本文：Zen Kaku Gothic New ／ 英字：Cormorant Garamond
