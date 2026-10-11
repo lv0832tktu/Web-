@@ -12,7 +12,8 @@
 1. 依頼内容（`briefs/<案件>.md`）
 2. 対象ジャンルの指示書 `genres/<ジャンル>/AGENTS.md`
 3. 案件フォルダの `projects/<日付>-<案件>/BRIEF.md`（作成済みの場合）
-4. 必要に応じて `knowledge/` のガイド
+4. `BRIEF.md` の「6.5 参考作品」に挙がった実在作品（`knowledge/reference-works/README.md`）。**URLを開いて実物を観察**し、学ぶ点だけを取り入れる
+5. 必要に応じて `knowledge/` のガイド
 
 | ジャンル | フォルダ | テンプレート |
 |---|---|---|
@@ -42,6 +43,8 @@ node tools/render.mjs projects/xxx/index.html --sizes 1080x1920 --mp4           
 
 ## 2. デザインのルール（品質の根拠）
 
+- **参考作品（`REF-*`）は研究対象であり、素材ではない。** 画像・コード・文章・ロゴを流用しない。配色や構成も「考え方」を借りて、
+  クライアントの象徴物・言葉・数字から作り直す（各作品の `apply` に手順がある）。
 - **DBのレシピは「設計図」であり、コピー元ではない。** 配色・書体・構成・モーションの組み合わせを参考に、
   クライアント固有の「言葉・色・形・数字」を最低3つ入れてオリジナル作品にする（`BRIEF.md` 7章）。
 - **色は `tokens.css` の CSS変数だけを使う**（`--c-bg / --c-surface / --c-text / --c-primary / --c-accent / --c-on-primary`）。HEXの直書き禁止。
@@ -72,6 +75,7 @@ REFERENCE.md         ← 早見表（コマンド・モーション・効果音�
 dist/web-design-kit.zip ← 他プロジェクトに入れる用のキット（npm run kit で再生成）
 knowledge/           ← デザイン理論・配色・書体・モーション・効果音・コピー・副業ワークフロー・参考サイト
   dictionary.json    ← スタイル/モーション/効果音の辞書（DBのフィールド名→実装方法）
+  reference-works/   ← 実在の高評価作品43件の研究ノート（works.json / README.md）
 genres/<ジャンル>/
   AGENTS.md          ← ジャンル別の指示書
   db/references/     ← デザインレシピ 10,000件（JSONL.gz × 10）

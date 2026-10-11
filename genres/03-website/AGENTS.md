@@ -1,5 +1,7 @@
 # Webサイト・ホームページ — 制作指示書
 
+> 実在の高評価作品の研究ノート: `node tools/works.mjs --genre website`（詳細は `knowledge/reference-works/README.md`）。案件では `--work REF-...` で指示書に組み込める。
+
 DB: `db/references/`（10,000件 / ID `WEB-xxxxx`）。業種 × サイト種別（コーポレート/店舗/採用/ブランド/クリニック/EC…）× ヘッダー × ヒーロー × グリッド × スタイル。
 
 ```bash

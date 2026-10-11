@@ -10,6 +10,7 @@
  *   <canvas data-gfx="sakura"></canvas>          花びら（和モダン/春）
  *   <canvas data-gfx="snow"></canvas>            雪（冬/クリスマス）
  *   <canvas data-gfx="rings"></canvas>           同心円波紋（ミニマル）
+ *   <canvas data-gfx="cursor-blobs"></canvas>    カーソルに吸い寄せられる光のブロブ（ヒーロー写真の上に）
  *
  * canvas は親要素いっぱいに自動リサイズ。画面外では描画を止めて省電力。
  * GFX.mount(canvas, type, opts) で手動起動も可能。GFX.svg.blob(seed) でランダムなブロブSVGパスを生成。
@@ -134,6 +135,24 @@
       return (t) => {
         g.clearRect(0, 0, w, h); g.fillStyle = hexA(o.colors[0], 0.9);
         ps.forEach((p) => { p.y += p.vy; p.x += Math.sin(t * 0.001 + p.sw) * 0.4; if (p.y > h) { p.y = -5; p.x = rand(0, w); } g.beginPath(); g.arc(p.x, p.y, p.r, 0, 7); g.fill(); });
+      };
+    },
+    // カーソルに反応して漂うブロブ（ヒーロー画像の上に重ねる。参考: REF-WEB-001）
+    'cursor-blobs'(g, w, h, o) {
+      const bs = Array.from({ length: o.count || 5 }, (_, i) => ({ x: rand(0, w), y: rand(0, h), vx: 0, vy: 0, r: Math.min(w, h) * rand(0.12, 0.22), c: o.colors[i % o.colors.length], ph: rand(0, 6) }));
+      return (t, m) => {
+        g.clearRect(0, 0, w, h);
+        g.globalCompositeOperation = 'lighter';
+        bs.forEach((b, i) => {
+          const tx = m ? m.x + Math.cos(t * 0.0006 + b.ph) * b.r * (1 + i * 0.3) : w / 2 + Math.cos(t * 0.0003 + b.ph) * w * 0.3;
+          const ty = m ? m.y + Math.sin(t * 0.0007 + b.ph) * b.r * (1 + i * 0.3) : h / 2 + Math.sin(t * 0.0004 + b.ph) * h * 0.3;
+          b.vx = (b.vx + (tx - b.x) * 0.004 * (1 + i * 0.25)) * 0.9; b.vy = (b.vy + (ty - b.y) * 0.004 * (1 + i * 0.25)) * 0.9;
+          b.x += b.vx; b.y += b.vy;
+          const gr = g.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+          gr.addColorStop(0, hexA(b.c, 0.75)); gr.addColorStop(0.6, hexA(b.c, 0.35)); gr.addColorStop(1, hexA(b.c, 0));
+          g.fillStyle = gr; g.beginPath(); g.arc(b.x, b.y, b.r, 0, 7); g.fill();
+        });
+        g.globalCompositeOperation = 'source-over';
       };
     },
     rings(g, w, h, o) {

@@ -11,6 +11,7 @@
     "render": "node tools/render.mjs",
     "serve": "node tools/serve.mjs",
     "check": "node tools/check.mjs",
+    "works": "node tools/works.mjs",
     "kit": "node tools/export-kit.mjs --zip"
   },
   "devDependencies": {

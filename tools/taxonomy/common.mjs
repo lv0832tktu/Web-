@@ -456,6 +456,7 @@ export const MOTIONS = {
   'wave': { impl: '<canvas data-gfx="waves">', desc: '重なる波' },
   'grid3d': { impl: '<canvas data-gfx="grid3d">', desc: 'シンセウェーブの3Dグリッド' },
   'sakura': { impl: '<canvas data-gfx="sakura">', desc: '舞い散る花びら' },
+  'cursor-blobs': { impl: '<canvas data-gfx="cursor-blobs">', desc: 'カーソルに吸い寄せられる光のブロブ（ヒーロー写真の上に重ねる）' },
   'sparkle': { impl: 'class="m-float" + ✦ 装飾 + SFX sparkle', desc: 'キラキラ演出' },
   'heart-burst': { impl: 'Motion.confetti({colors:[ピンク系]})', desc: 'ハートが弾ける' },
   'glow-border': { impl: 'conic-gradient の回転ボーダー', desc: '光が周回する枠線' },

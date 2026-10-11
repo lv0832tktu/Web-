@@ -1,5 +1,7 @@
 # UI/UXデザイン — 制作指示書
 
+> 実在の高評価作品の研究ノート: `node tools/works.mjs --genre uiux`（詳細は `knowledge/reference-works/README.md`）。案件では `--work REF-...` で指示書に組み込める。
+
 DB: `db/references/`（10,000件 / ID `UI-xxxxx`）。アプリ種別（16）× プラットフォーム（7）× UXパターン × UX法則 × スタイル。
 各レシピにペルソナ・画面一覧・使うコンポーネント・デザイントークン・成果物リストが入っています。
 
