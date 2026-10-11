@@ -12,6 +12,18 @@
 
 ---
 
+## 他のプロジェクトに入れて使う（キット化）
+
+| 方法 | 手順 |
+|---|---|
+| **zipで入れる** | [`dist/web-design-kit.zip`](dist/web-design-kit.zip) をダウンロード → プロジェクト内に解凍 → 同梱の `INSTALL.txt` の通り AGENTS.md に案内を追記 |
+| **コマンドで入れる** | `node tools/export-kit.mjs ../あなたのプロジェクト` → `web-design-kit/` フォルダが追加され、相手の AGENTS.md に参照案内が自動追記される |
+| **zipを作り直す** | `npm run kit`（DBやテンプレートを更新した後） |
+
+制作中の早見表は **[REFERENCE.md](REFERENCE.md)**（コマンド・テンプレート・モーション・効果音・サイズ・品質基準を1枚に集約）。
+
+---
+
 ## クイックスタート
 
 ```bash

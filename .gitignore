@@ -1,5 +1,5 @@
 node_modules/
-dist/
+dist/*
 .env
 .env.*
 !.env.example
@@ -7,3 +7,4 @@ dist/
 Thumbs.db
 # render.mjs の既定出力（必要なものは designs/ や delivery/ に移す）
 **/export/
+!dist/web-design-kit.zip

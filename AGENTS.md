@@ -8,6 +8,7 @@
 
 ## 0. 最初に読むもの
 
+1. 早見表 `REFERENCE.md`（使える部品・コマンドの一覧）
 1. 依頼内容（`briefs/<案件>.md`）
 2. 対象ジャンルの指示書 `genres/<ジャンル>/AGENTS.md`
 3. 案件フォルダの `projects/<日付>-<案件>/BRIEF.md`（作成済みの場合）
@@ -67,6 +68,8 @@ node tools/render.mjs projects/xxx/index.html --sizes 1080x1920 --mp4           
 
 ```
 AGENTS.md            ← このファイル
+REFERENCE.md         ← 早見表（コマンド・モーション・効果音・サイズ・品質基準）
+dist/web-design-kit.zip ← 他プロジェクトに入れる用のキット（npm run kit で再生成）
 knowledge/           ← デザイン理論・配色・書体・モーション・効果音・コピー・副業ワークフロー・参考サイト
   dictionary.json    ← スタイル/モーション/効果音の辞書（DBのフィールド名→実装方法）
 genres/<ジャンル>/

@@ -10,7 +10,8 @@
     "new": "node tools/new-project.mjs",
     "render": "node tools/render.mjs",
     "serve": "node tools/serve.mjs",
-    "check": "node tools/check.mjs"
+    "check": "node tools/check.mjs",
+    "kit": "node tools/export-kit.mjs --zip"
   },
   "devDependencies": {
     "playwright": "1.56.1"
