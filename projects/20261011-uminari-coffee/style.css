@@ -1,5 +1,6 @@
 /* UMINARI COFFEE LP — 色/フォントは tokens.css の変数のみを使用（lp-standard をベースに再設計） */
 :root {
+  --c-muted: color-mix(in srgb, var(--c-text) 78%, var(--c-bg)); /* 小さい文字も 4.5:1 以上に */
   --c-deep: color-mix(in srgb, var(--c-text) 78%, var(--c-primary));     /* 夕暮れの空の上端・深い海 */
   --c-sunset: color-mix(in srgb, var(--c-accent) 62%, var(--c-bg));      /* 水平線の夕焼け */
   --c-sun: color-mix(in srgb, var(--c-bg) 70%, var(--c-accent));         /* 太陽 */
@@ -17,35 +18,8 @@
 .btn--accent { color: var(--c-on-primary); }
 .micro { font-size: var(--fs-xs); margin-top: .8em; opacity: .9; }
 
-/* イラスト枠（写真支給後は <img> に差し替え可能） */
+/* 写真枠 */
 .art { margin: 0; border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--shadow-m); }
-.art svg { width: 100%; height: auto; }
-.art--tall svg { aspect-ratio: 3/4; }
-.a-sky { fill: var(--c-sunset); }
-.a-sun { fill: var(--c-sun); }
-.a-sea { fill: var(--c-primary); }
-.a-glint rect { fill: var(--c-sun); opacity: .7; }
-.a-sand { fill: var(--c-surface); }
-.a-surface { fill: var(--c-surface); }
-.a-roof { fill: var(--c-accent); }
-.a-roof2 { fill: color-mix(in srgb, var(--c-accent) 70%, var(--c-text)); }
-.a-post, .a-deck, .a-chair { fill: var(--c-deep); }
-.a-chair-row use { fill: var(--c-deep); }
-.a-ing { fill: var(--c-text); font: 500 17px var(--font-body); letter-spacing: .08em; }
-.a-label { fill: var(--c-text); font-size: 22px; font-style: italic; }
-.a-table { fill: color-mix(in srgb, var(--c-deep) 70%, var(--c-bg)); }
-.a-plate { fill: var(--c-bg); stroke: var(--c-accent); stroke-width: 4; }
-.a-plate-txt { fill: var(--c-text); font: 800 40px var(--font-head); }
-.a-plate-en { fill: var(--c-accent); font-size: 18px; font-weight: 600; letter-spacing: .14em; }
-.a-bean { fill: color-mix(in srgb, var(--c-accent) 35%, var(--c-text)); }
-.a-bean-line { fill: none; stroke: var(--c-surface); stroke-width: 4; stroke-linecap: round; }
-.a-sugar { fill: color-mix(in srgb, var(--c-accent) 45%, var(--c-text)); }
-.a-sugar2 { fill: color-mix(in srgb, var(--c-accent) 55%, var(--c-bg)); opacity: .6; }
-.a-citrus { fill: color-mix(in srgb, var(--c-primary) 75%, var(--c-bg)); }
-.a-citrus-in { fill: color-mix(in srgb, var(--c-primary) 25%, var(--c-bg)); }
-.a-citrus-seg { stroke: color-mix(in srgb, var(--c-primary) 75%, var(--c-bg)); stroke-width: 3; }
-.a-imo { fill: color-mix(in srgb, var(--c-accent) 55%, var(--c-text)); }
-.a-imo-cut { fill: color-mix(in srgb, var(--c-accent) 30%, var(--c-bg)); }
 .minsa-dot rect, .minsa-line { fill: var(--c-primary); }
 .minsa-bg { opacity: .6; }
 
@@ -73,31 +47,7 @@
 /* ========== FV ========== */
 .fv { --sea-h: clamp(220px, 34svh, 360px); position: relative; min-height: 100svh; display: grid; align-items: start; padding: clamp(120px, 18svh, 180px) 0 calc(var(--sea-h) + 40px); overflow: hidden; isolation: isolate; color: #fff; text-align: center; }
 .fv__scene { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
-.fv__sky { position: absolute; inset: -4%; background:
-    radial-gradient(60% 40% at 50% calc(100% - var(--sea-h)), color-mix(in srgb, var(--c-sun) 80%, transparent), transparent 70%),
-    linear-gradient(180deg, var(--c-deep) 0%, color-mix(in srgb, var(--c-deep) 40%, var(--c-primary)) 30%, color-mix(in srgb, var(--c-primary) 45%, var(--c-bg)) 52%, color-mix(in srgb, var(--c-bg) 55%, var(--c-sun)) 64%, var(--c-sunset) 78%, color-mix(in srgb, var(--c-accent) 80%, var(--c-sun)) 92%); }
-.fv__sun { position: absolute; left: 50%; bottom: calc(var(--sea-h) - 56px); width: 150px; aspect-ratio: 1; translate: -50% 0; border-radius: 50%;
-           background: radial-gradient(circle, var(--c-bg) 0 30%, var(--c-sun) 62%, color-mix(in srgb, var(--c-sun) 0%, transparent) 72%);
-           box-shadow: 0 0 120px 40px color-mix(in srgb, var(--c-sun) 45%, transparent); animation: sun-set 14s var(--ease-sea) both; }
 @keyframes sun-set { from { transform: translateY(-46px); } to { transform: none; } }
-.fv__sea { position: absolute; left: 0; right: 0; bottom: 0; height: var(--sea-h); }
-.fv__sea svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.st-sea1 { stop-color: color-mix(in srgb, var(--c-deep) 55%, var(--c-primary)); }
-.st-sea2 { stop-color: var(--c-primary); }
-.st-sea3 { stop-color: var(--c-reef); }
-.st-glow1 { stop-color: var(--c-sun); stop-opacity: .95; }
-.st-glow2 { stop-color: var(--c-sun); stop-opacity: .15; }
-.sun-road { filter: blur(.8px); opacity: .6; }
-.sun-road rect { animation: glint 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.sun-road rect:nth-child(2n) { animation-delay: -1.2s; }
-.sun-road rect:nth-child(3n) { animation-delay: -2.1s; }
-@keyframes glint { 50% { opacity: .35; transform: scaleX(.7); } }
-.fv__waves { position: absolute; inset: 0; width: 100%; height: 100%; }
-.fv__leaf { position: absolute; right: -2%; top: -2%; width: clamp(180px, 28vw, 420px); }
-.leaf { fill: var(--c-deep); opacity: .92; }
-.fv__deck { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: clamp(150px, 16.7vw, 240px); }
-.deck, .deck-rail, .deck-post rect, .deck-chair path { fill: var(--c-deep); }
-.deck-rail { opacity: .95; }
 
 .fv__inner { position: relative; display: grid; justify-items: center; }
 .pill { display: inline-flex; align-items: center; gap: .6em; padding: .45em 1.1em; border-radius: 999px; background: rgb(255 255 255 / .14); border: 1px solid rgb(255 255 255 / .3); backdrop-filter: blur(6px); font-size: var(--fs-s); font-weight: 500; letter-spacing: .12em; }
@@ -109,14 +59,13 @@
 .sunset-chip { display: inline-flex; align-items: baseline; gap: .5em; margin-bottom: var(--sp-2); padding: .3em 1.2em; border-radius: 999px; background: rgb(0 0 0 / .22); font-size: var(--fs-s); }
 .sunset-chip b { font-size: 1.9em; font-weight: 600; line-height: 1.1; }
 .sunset-chip small { font-size: .75em; opacity: .85; }
-.fv .micro { text-shadow: 0 1px 8px rgb(0 0 0 / .4); }
+.fv .micro { padding: .2em .9em; border-radius: 999px; background: rgb(0 0 0 / .32); }
 .scroll-cue { position: absolute; left: 50%; bottom: 20px; width: 24px; height: 40px; border: 2px solid rgb(255 255 255 / .7); border-radius: 20px; translate: -50% 0; z-index: 2; }
 .scroll-cue span { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: #fff; animation: cue 1.8s var(--ease-in-out) infinite; }
 @keyframes cue { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
 @media (max-width: 767px) {
   .fv { --sea-h: clamp(190px, 30svh, 260px); }
   .fv__title { font-size: clamp(2.2rem, 1rem + 6.4vw, 3rem); }
-  .fv__sun { width: 110px; bottom: calc(var(--sea-h) - 40px); }
   .btn--xl { padding-inline: 1.6em; font-size: var(--fs-m); }
 }
 
@@ -180,23 +129,15 @@
 .item h3 { font-size: var(--fs-l); }
 .item__desc { margin-top: .5em; font-size: var(--fs-s); color: var(--c-muted); line-height: 1.8; }
 .item__price { margin-top: auto; padding-top: .4em; font-size: 1.8rem; font-weight: 600; color: var(--c-primary); }
-.i-bg--sea { fill: color-mix(in srgb, var(--c-primary) 22%, var(--c-bg)); }
-.i-bg--sand { fill: color-mix(in srgb, var(--c-accent) 18%, var(--c-bg)); }
-.i-saucer, .i-plate { fill: var(--c-bg); }
-.i-cup { fill: #fff; }
-.i-handle { fill: #fff; }
-.i-coffee { fill: color-mix(in srgb, var(--c-accent) 30%, var(--c-text)); }
-.i-latte { fill: color-mix(in srgb, var(--c-accent) 45%, var(--c-surface)); }
-.i-art { fill: none; stroke: var(--c-bg); stroke-width: 3; stroke-linecap: round; }
-.i-glass { fill: rgb(255 255 255 / .7); }
-.i-soda { fill: color-mix(in srgb, var(--c-primary) 35%, var(--c-bg)); }
-.i-bub { fill: #fff; }
-.i-lime { fill: color-mix(in srgb, var(--c-primary) 75%, var(--c-bg)); }
-.i-lime-in { fill: color-mix(in srgb, var(--c-primary) 20%, var(--c-bg)); }
-.i-cake { fill: color-mix(in srgb, var(--c-accent) 40%, var(--c-text)); }
-.i-cake-top { fill: color-mix(in srgb, var(--c-accent) 55%, var(--c-text)); }
 @media (max-width: 1000px) { .menu__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .menu__grid { gap: var(--sp-2); } .item { display: flex; flex-direction: column; padding: var(--sp-3) var(--sp-2); } .item__art { width: 96px; } .item h3 { font-size: var(--fs-m); } }
+@media (max-width: 600px) {
+  .menu__grid { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .item { display: grid; grid-template-columns: 104px minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: var(--sp-2); align-items: start; padding: var(--sp-2); text-align: left; }
+  .item .item__art { grid-row: 1 / 4; width: 104px; margin: 0; }
+  .item h3 { font-size: var(--fs-m); }
+  .item__desc { margin-top: .2em; font-size: var(--fs-xs); }
+  .item__price { margin-top: 0; padding-top: .2em; font-size: 1.5rem; }
+}
 
 .set { margin-top: var(--sp-5); padding: var(--sp-5); border-radius: var(--radius-l); background: var(--c-bg); box-shadow: 0 0 0 2px var(--c-accent), var(--shadow-m); display: grid; grid-template-columns: 1fr auto auto; gap: var(--sp-4); align-items: center; }
 .set__en { font-style: italic; color: var(--c-accent); font-size: var(--fs-m); }
@@ -296,9 +237,18 @@
 .item__art { width: 100%; max-width: 220px; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); margin: 0 auto var(--sp-2); }
 @media (max-width: 767px) { .fv__photo { object-position: 50% 100%; } }
 
+/* スキップリンク・フォームの補助 */
+.skip { position: fixed; left: 12px; top: -80px; z-index: 1001; padding: .8em 1.2em; border-radius: var(--radius); background: var(--c-text); color: var(--c-bg); text-decoration: none; font-weight: 700; }
+.skip:focus { top: calc(12px + env(safe-area-inset-top, 0px)); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form__error { padding: .8em 1em; border-radius: var(--radius); background: var(--c-bg); color: var(--c-accent); font-weight: 700; font-size: var(--fs-s); text-align: left; }
+.form button[disabled] { opacity: .7; cursor: progress; }
+.form .micro a, .ft a { text-underline-offset: .2em; }
+.form .micro a { color: inherit; }
+
 /* 独自アニメーションの reduced-motion 対応 */
 @media (prefers-reduced-motion: reduce) {
-  .fv__sun, .sun-road rect, .m-pin .m-ring, .scroll-cue span { animation: none; }
+  .fv__photo, .m-kenburns, .m-float, .m-pulse, .m-shine::after, .m-pin .m-ring, .scroll-cue span { animation: none; }
   .sunset__win, .sunset__dot, .item { transition: none; }
 }
 

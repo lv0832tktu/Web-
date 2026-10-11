@@ -197,3 +197,15 @@
 - **LP-01421** カフェ・ベーカリー｜リード獲得（資料請求・問い合わせ）LP（ナチュラル・オーガニック・背景動画ループ＋オーバーレイ） — Linen（#A47551 / #7C9473）、Kiwi Maru
 
 別案で作り直す: `node tools/new-project.mjs --ref <ID> --name uminari-coffee-b`
+
+## 10. 完了確認（2026-10-11）
+
+- [x] 方向性（配色・書体・構成・モーション・効果音）を反映（1.5章）
+- [x] クライアント固有の要素4種（言葉・色・形・数字）。ダミー文言・`.ph` なし
+- [x] `check.mjs --browser` エラー0／警告0
+- [x] PC 1440・SP 375 で崩れなし（`render.mjs --fullpage`）
+- [x] 効果音ON/OFF・reduced-motion・キーボード操作（E2Eテスト16項目）
+- [x] Lighthouse モバイル 87〜98 / 100 / 100 / 100、PC 全項目100
+- [x] 予約フォームの送信（data-endpoint）・送信中/失敗表示・迷惑送信対策
+- [x] プライバシーポリシー・favicon・構造化データ・OGP
+- [x] `delivery/uminari-coffee/` に納品物と README.txt

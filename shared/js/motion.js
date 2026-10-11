@@ -33,7 +33,8 @@
   function split(el) {
     if (el.dataset.splitDone) return;
     const mode = el.dataset.split || 'chars';
-    el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+    // 読み上げ用の全文（span に aria-label は使えないため .sr-only で持たせる）
+    const label = el.textContent.replace(/\s+/g, ' ').trim();
     let i = 0;
     // <br> や <em> などのタグは残したまま、テキストだけを1文字（1単語）ずつ包む
     (function walk(node) {
@@ -58,6 +59,7 @@
         } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
       });
     })(el);
+    const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = label; el.appendChild(sr);
     el.dataset.splitDone = '1';
   }
 

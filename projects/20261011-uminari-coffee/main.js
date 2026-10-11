@@ -2,11 +2,6 @@
 SFX.bind();
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
-// ---------- FVの海：波のキャンバス（色は tokens.css から取得） ----------
-document.querySelectorAll('[data-sea-waves]').forEach((cv) => {
-  GFX.mount(cv, 'waves', { colors: [css('--c-primary'), css('--c-bg'), css('--c-text')].join(','), layers: 3 });
-});
-
 // ---------- 日の入り時刻（沖縄本島 西海岸 付近・NOAAの簡易式。誤差±数分の目安） ----------
 const LAT = 26.45, LNG = 127.8, TZ = 9;
 const OPEN = 11 * 60, CLOSE = 20 * 60; // タイムラインの表示範囲
@@ -28,6 +23,7 @@ function renderSunset(date) {
   const from = s - 60, to = s + 30; // サンセット予約枠：日の入り60分前から90分間
   document.querySelectorAll('[data-sunset-out]').forEach((el) => (el.textContent = hm(s)));
   document.querySelectorAll('[data-sunset-slot]').forEach((el) => (el.textContent = `${hm(from)} – ${hm(to)}`));
+  document.querySelectorAll('[data-sunset-slot-input]').forEach((el) => (el.value = `${iso(date)} ${hm(from)}-${hm(to)}（日の入り ${hm(s)}）`));
   document.querySelectorAll('[data-sunset-win]').forEach((el) => { el.style.setProperty('--win-l', pct(from) + '%'); el.style.setProperty('--win-w', pct(to) - pct(from) + '%'); });
   document.querySelectorAll('[data-sunset-dot]').forEach((el) => el.style.setProperty('--dot', pct(s) + '%'));
 }
@@ -67,7 +63,9 @@ if (sticky) {
 
 // ---------- 予約フォーム：進捗バー・インライン検証・完了演出 ----------
 document.querySelectorAll('.form').forEach((f) => {
-  const fields = [...f.querySelectorAll('input,select')];
+  const fields = [...f.querySelectorAll('input:not([type=hidden]):not([name=_gotcha]),select')];
+  const btn = f.querySelector('button[type=submit]');
+  const errBox = f.querySelector('.form__error');
   const bar = f.querySelector('.form__progress span');
   const progress = () => { bar.style.width = (fields.filter((x) => x.value && x.checkValidity()).length / fields.length) * 100 + '%'; };
   fields.forEach((x) => {
@@ -75,12 +73,27 @@ document.querySelectorAll('.form').forEach((f) => {
     x.addEventListener('change', progress);
     x.addEventListener('blur', () => { if (x.value) { const ok = x.checkValidity(); x.classList.toggle('is-error', !ok); x.setAttribute('aria-invalid', String(!ok)); } });
   });
-  f.addEventListener('submit', (e) => {
+  const fail = (msg) => { errBox.textContent = msg; errBox.hidden = false; SFX.play('error'); };
+  f.addEventListener('submit', async (e) => {
     e.preventDefault();
+    errBox.hidden = true;
     const bad = fields.filter((x) => !x.checkValidity());
     fields.forEach((x) => { x.classList.toggle('is-error', bad.includes(x)); x.setAttribute('aria-invalid', String(bad.includes(x))); });
-    if (bad.length) { SFX.play('error'); bad[0].focus(); return; }
-    // ここで予約管理サービスへ送信する（README.txt「フォームの接続」参照）
+    if (bad.length) { fail('未入力または形式が正しくない項目があります。赤枠の項目を確認してください。'); bad[0].focus(); return; }
+    // 送信先：<form data-endpoint="https://formspree.io/f/xxxx"> など（README.txt「フォームの接続」参照）。空ならデモ動作
+    const endpoint = f.dataset.endpoint;
+    if (endpoint) {
+      const label = btn.innerHTML;
+      btn.disabled = true; btn.textContent = '送信中…';
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(res.status);
+      } catch (err) {
+        btn.disabled = false; btn.innerHTML = label;
+        fail('送信できませんでした。通信環境を確認して、もう一度お試しください。');
+        return;
+      }
+    }
     f.hidden = true;
     const t = f.parentElement.querySelector('.thanks');
     t.hidden = false;
