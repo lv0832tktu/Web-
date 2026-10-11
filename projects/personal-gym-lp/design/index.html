@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>パーソナルジム 集客LP デザイン</title>
+<!--
+  デザインカンプ（コーディング納品物ではない）。
+  PC: --width 1440 / スマホ: --width 390 で書き出す。
+  [ ] で囲んだ文字・PHOTO と書かれた枠・「サンプル」表記のある内容は、クライアント情報が届くまでの仮のもの。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --white: #ffffff;
+    --ink: #1e2522;
+    --sub: #56615c;
+    --line: #dfe4e1;
+    --green: #2f6b5e;
+    --green-dk: #234f46;
+    --sage: #e4eee9;
+    --sand: #f2ece2;
+    --cta: #d8562a;
+    --cta-soft: #fbe7de;
+    --ph: #cfdcd6;
+    --ph-ink: #4b6159;
+    --jp-h: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --jp: "Noto Sans JP", sans-serif;
+    --en: "Outfit", "Noto Sans JP", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--jp); font-size: 15px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+  ul, ol { list-style: none; }
+  a { color: inherit; text-decoration: none; }
+  b, strong { font-weight: 700; }
+
+  .wrap { width: 100%; padding: 0 20px; margin: 0 auto; }
+  section { padding: 72px 0; }
+
+  /* 写真の仮枠（クライアント写真・生成画像に差し替え） */
+  .ph { position: relative; overflow: hidden; background: var(--ph); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+  .ph > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ph .ph-label { position: relative; padding: 0 16px; text-align: center; font-size: 12px; line-height: 1.6; color: var(--ph-ink); font-weight: 500; }
+  .ph .ph-label b { display: block; font-family: var(--en); font-size: 13px; letter-spacing: .16em; }
+  .ph:has(> img) .ph-label { display: none; }
+
+  /* 見出し */
+  .sec-head { margin-bottom: 36px; }
+  .eyebrow { display: block; font-family: var(--en); font-weight: 700; font-size: 13px; letter-spacing: .2em; color: var(--green); margin-bottom: 10px; }
+  .sec-title { font-family: var(--jp-h); font-weight: 900; font-size: 26px; line-height: 1.5; letter-spacing: .02em; }
+  .sec-lead { margin-top: 14px; color: var(--sub); }
+  .center { text-align: center; }
+
+  /* ボタン */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 60px; padding: 0 20px; border-radius: 999px; background: var(--cta); color: #fff; font-weight: 700; font-size: 16px; letter-spacing: .04em; }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-sub { display: block; margin-top: 10px; font-size: 12px; color: var(--sub); }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--sage); color: var(--green-dk); font-size: 12px; font-weight: 700; }
+  .note { font-size: 11px; color: var(--sub); }
+
+  /* ヘッダー */
+  .hdr { background: var(--white); border-bottom: 1px solid var(--line); }
+  .hdr .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--en); font-weight: 700; font-size: 15px; }
+  .logo-text { font-family: var(--en); font-weight: 700; font-size: 16px; letter-spacing: .08em; line-height: 1.1; }
+  .logo-text small { display: block; font-family: var(--jp); font-weight: 500; font-size: 10px; letter-spacing: .06em; color: var(--sub); }
+  .nav { display: none; }
+  .hdr-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--cta); color: #fff; font-size: 13px; font-weight: 700; }
+
+  /* FV */
+  .fv { padding: 0 0 56px; background: var(--white); }
+  .fv-inner { display: flex; flex-direction: column; }
+  .fv-photo { order: -1; height: 400px; border-radius: 0 0 32px 32px; }
+  .fv-body { position: relative; z-index: 1; margin-top: -64px; }
+  .fv-card { background: var(--white); border-radius: 24px 24px 0 0; padding: 28px 20px 0; }
+  .fv-kicker { display: inline-block; margin-bottom: 14px; padding: 4px 14px; border-radius: 999px; background: var(--sage); color: var(--green-dk); font-size: 13px; font-weight: 700; }
+  .fv-title { font-family: var(--jp-h); font-weight: 900; font-size: 36px; line-height: 1.42; letter-spacing: .02em; }
+  .fv-title em { font-style: normal; color: var(--green); }
+  .fv-lead { margin-top: 16px; color: var(--sub); font-size: 15px; }
+  .fv-points { display: flex; gap: 8px; margin: 22px 0 26px; }
+  .fv-points li { flex: 1; padding: 12px 6px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); text-align: center; font-size: 12px; font-weight: 700; line-height: 1.5; }
+  .fv-points li b { display: block; font-family: var(--en); font-size: 20px; color: var(--green); }
+  .fv .btn { width: 100%; }
+
+  /* 悩み */
+  .worry { background: var(--bg); }
+  .worry-list { display: grid; gap: 12px; }
+  .worry-list li { display: flex; align-items: center; gap: 14px; padding: 18px 20px; background: var(--white); border-radius: 16px; border: 1px solid var(--line); font-weight: 700; font-size: 15px; line-height: 1.6; }
+  .chk { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; }
+  .chk svg { width: 14px; height: 14px; }
+  .worry-bridge { margin-top: 40px; padding: 28px 24px; border-radius: 20px; background: var(--green); color: #fff; text-align: center; }
+  .worry-bridge p { font-family: var(--jp-h); font-weight: 900; font-size: 18px; line-height: 1.6; }
+  .worry-bridge span { display: block; margin-top: 10px; font-size: 14px; opacity: .9; font-family: var(--jp); font-weight: 400; }
+
+  /* コンセプト */
+  .concept { background: var(--white); }
+  .concept-grid { display: grid; gap: 28px; }
+  .concept-photo { height: 300px; }
+  .concept-copy { font-family: var(--jp-h); font-weight: 900; font-size: 30px; line-height: 1.5; }
+  .concept-copy em { font-style: normal; color: var(--green); }
+  .concept-text { margin-top: 18px; color: var(--sub); }
+  .concept-text p + p { margin-top: 12px; }
+
+  /* 選ばれる理由 */
+  .reason { background: var(--sand); }
+  .reason-list { display: grid; gap: 16px; }
+  .reason-card { background: var(--white); border-radius: 20px; padding: 26px 22px; }
+  .reason-num { font-family: var(--en); font-weight: 700; font-size: 34px; line-height: 1; color: var(--green); }
+  .reason-card h3 { margin-top: 12px; font-family: var(--jp-h); font-weight: 700; font-size: 19px; line-height: 1.5; }
+  .reason-card p { margin-top: 10px; color: var(--sub); font-size: 14px; }
+
+  /* トレーニング／食事 */
+  .support { background: var(--white); }
+  .support-list { display: grid; gap: 40px; }
+  .support-item .ph { height: 240px; }
+  .support-item h3 { margin-top: 20px; font-family: var(--jp-h); font-weight: 900; font-size: 22px; line-height: 1.5; }
+  .support-item h3 .tag { margin-right: 8px; vertical-align: 4px; }
+  .support-item > p { margin-top: 10px; color: var(--sub); }
+  .steps-mini { margin-top: 16px; display: grid; gap: 8px; }
+  .steps-mini li { display: flex; gap: 12px; align-items: center; padding: 12px 16px; border-radius: 12px; background: var(--bg); font-size: 14px; font-weight: 500; }
+  .steps-mini li b { font-family: var(--en); color: var(--green); font-size: 14px; }
+
+  /* トレーナー */
+  .trainer { background: var(--sage); }
+  .trainer-list { display: grid; gap: 20px; }
+  .trainer-card { background: var(--white); border-radius: 24px; overflow: hidden; }
+  .trainer-card .ph { height: 300px; border-radius: 0; }
+  .trainer-body { padding: 22px 22px 26px; }
+  .trainer-role { font-size: 12px; font-weight: 700; color: var(--green); }
+  .trainer-name { margin-top: 2px; font-family: var(--jp-h); font-weight: 900; font-size: 22px; }
+  .trainer-name small { margin-left: 8px; font-family: var(--en); font-size: 13px; font-weight: 500; color: var(--sub); letter-spacing: .08em; }
+  .trainer-msg { margin-top: 14px; padding: 16px 18px; border-radius: 14px; background: var(--bg); font-size: 14px; line-height: 1.8; }
+  .trainer-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* Before/After */
+  .ba { background: var(--white); }
+  .ba-list { display: grid; gap: 20px; }
+  .ba-card { border: 1px solid var(--line); border-radius: 20px; padding: 18px; background: var(--bg); }
+  .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ba-pair .ph { height: 180px; border-radius: 12px; }
+  .ba-pair .ph .ph-label b { font-size: 12px; }
+  .ba-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; font-size: 13px; color: var(--sub); }
+  .ba-meta strong { font-family: var(--jp-h); font-size: 17px; color: var(--ink); }
+  .ba-note { margin-top: 18px; text-align: center; }
+
+  /* 利用者の声 */
+  .voice { background: var(--bg); }
+  .voice-list { display: grid; gap: 16px; }
+  .voice-card { background: var(--white); border-radius: 20px; padding: 24px 22px; }
+  .voice-head { display: flex; align-items: center; gap: 14px; }
+  .voice-head .ph { width: 56px; height: 56px; border-radius: 50%; flex: none; }
+  .voice-head .ph .ph-label { font-size: 9px; padding: 0; }
+  .voice-who { font-size: 13px; color: var(--sub); line-height: 1.5; }
+  .voice-who b { display: block; font-size: 15px; color: var(--ink); }
+  .voice-card h3 { margin-top: 16px; font-family: var(--jp-h); font-weight: 700; font-size: 17px; line-height: 1.6; }
+  .voice-card p { margin-top: 8px; font-size: 14px; color: var(--sub); }
+  .sample { display: inline-block; margin-top: 14px; padding: 2px 10px; border-radius: 6px; background: var(--cta-soft); color: #9c3b17; font-size: 11px; font-weight: 700; }
+
+  /* 料金 */
+  .price { background: var(--white); }
+  .price-list { display: grid; gap: 16px; }
+  .plan { position: relative; border: 2px solid var(--line); border-radius: 22px; padding: 28px 22px 24px; background: var(--white); }
+  .plan.is-rec { border-color: var(--green); }
+  .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); padding: 3px 16px; border-radius: 999px; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .plan h3 { font-family: var(--jp-h); font-weight: 900; font-size: 19px; text-align: center; }
+  .plan-desc { margin-top: 4px; text-align: center; font-size: 13px; color: var(--sub); }
+  .plan-price { margin-top: 16px; text-align: center; font-family: var(--en); font-weight: 700; font-size: 38px; line-height: 1.2; }
+  .plan-price small { display: block; font-family: var(--jp); font-size: 13px; font-weight: 500; color: var(--sub); }
+  .plan ul { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; font-size: 14px; }
+  .plan li { display: flex; gap: 8px; align-items: center; }
+  .plan li svg { width: 14px; height: 14px; flex: none; }
+  .price-extra { margin-top: 24px; padding: 18px 20px; border-radius: 16px; background: var(--sage); font-size: 14px; text-align: center; }
+  .price-extra b { color: var(--green-dk); }
+
+  /* 流れ */
+  .flow { background: var(--sand); }
+  .flow-list { display: grid; gap: 14px; }
+  .flow-item { display: flex; gap: 16px; align-items: flex-start; background: var(--white); border-radius: 18px; padding: 20px; }
+  .flow-num { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--en); font-weight: 700; font-size: 17px; }
+  .flow-item h3 { font-family: var(--jp-h); font-weight: 700; font-size: 17px; line-height: 1.5; }
+  .flow-item p { margin-top: 4px; font-size: 13px; color: var(--sub); }
+  .flow-cta { margin-top: 36px; text-align: center; }
+  .flow-cta .btn { width: 100%; }
+
+  /* 店舗情報 */
+  .access { background: var(--white); }
+  .access-grid { display: grid; gap: 24px; }
+  .access-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .access-photos .ph { height: 140px; border-radius: 12px; }
+  .map { height: 220px; margin-top: 10px; border-radius: 12px; }
+  .info { border-top: 1px solid var(--line); }
+  .info div { display: grid; grid-template-columns: 88px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .info dt { font-weight: 700; }
+  .info dd { color: var(--sub); }
+
+  /* FAQ */
+  .faq { background: var(--bg); }
+  .faq-list { display: grid; gap: 12px; }
+  .faq-item { background: var(--white); border-radius: 16px; padding: 20px 20px; }
+  .faq-q, .faq-a { display: flex; gap: 12px; }
+  .faq-q { font-weight: 700; font-size: 15px; line-height: 1.6; }
+  .faq-a { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--sub); }
+  .qa { flex: none; width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--en); font-weight: 700; font-size: 14px; line-height: 1; }
+  .faq-q .qa { background: var(--green); color: #fff; }
+  .faq-a .qa { background: var(--cta-soft); color: var(--cta); }
+
+  /* 最終CTA */
+  .final { background: var(--green); color: #fff; padding: 0 0 64px; }
+  .final-photo { height: 240px; border-radius: 0; }
+  .final .ph { background: #4f857a; }
+  .final .ph .ph-label { color: #e7f0ec; }
+  .final-body { padding-top: 40px; text-align: center; }
+  .final-title { font-family: var(--jp-h); font-weight: 900; font-size: 27px; line-height: 1.5; }
+  .final-text { margin-top: 14px; font-size: 14px; color: #e3eeea; }
+  .final-perks { margin: 24px 0 26px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .final-perks li { padding: 6px 14px; border-radius: 999px; background: var(--green-dk); font-size: 13px; font-weight: 700; }
+  .final .btn { width: 100%; min-height: 64px; font-size: 18px; }
+  .final .btn-sub { color: #e3eeea; }
+
+  .ftr { background: var(--ink); color: #b8c2bd; padding: 28px 0; font-size: 12px; text-align: center; }
+  .ftr .note { color: #b8c2bd; display: block; margin-top: 6px; }
+
+  /* ===== PC ===== */
+  @media (min-width: 900px) {
+    body { font-size: 16px; }
+    .wrap { max-width: 1200px; padding: 0 40px; }
+    section { padding: 120px 0; }
+    .sec-head { margin-bottom: 56px; }
+    .sec-title { font-size: 40px; }
+    .eyebrow { font-size: 14px; }
+    .btn { min-height: 68px; padding: 0 44px; font-size: 19px; }
+
+    .hdr .wrap { max-width: none; padding: 0 48px; height: 84px; }
+    .logo-mark { width: 44px; height: 44px; font-size: 18px; }
+    .logo-text { font-size: 19px; }
+    .logo-text small { font-size: 11px; }
+    .nav { display: flex; gap: 32px; font-size: 14px; font-weight: 500; }
+    .hdr-right { display: flex; align-items: center; gap: 40px; }
+    .hdr-cta { min-height: 52px; padding: 0 28px; font-size: 15px; }
+
+    .fv { padding: 0; }
+    .fv-inner { display: grid; grid-template-columns: 1fr 700px; height: 760px; }
+    .fv-body { margin: 0; display: flex; align-items: center; padding: 0 56px 0 48px; }
+    .fv-card { padding: 0; border-radius: 0; background: none; max-width: none; }
+    .fv-photo { order: 0; height: 100%; border-radius: 0 0 0 64px; }
+    .fv-kicker { font-size: 14px; }
+    .fv-title { font-size: 54px; line-height: 1.38; }
+    .fv-lead { font-size: 16px; margin-top: 22px; }
+    .fv-points { margin: 30px 0 34px; gap: 12px; }
+    .fv-points li { padding: 14px 8px; font-size: 13px; }
+    .fv-points li b { font-size: 24px; }
+    .fv .btn { width: auto; }
+
+    .worry-list { grid-template-columns: 1fr 1fr; gap: 20px; max-width: 960px; margin: 0 auto; }
+    .worry-list li { padding: 26px 28px; font-size: 18px; }
+    .worry-bridge { max-width: 960px; margin: 56px auto 0; padding: 40px; }
+    .worry-bridge p { font-size: 28px; }
+    .worry-bridge span { font-size: 16px; }
+
+    .concept-grid { grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .concept-photo { height: 560px; border-radius: 24px; }
+    .concept-copy { font-size: 46px; }
+
+    .reason-list { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .reason-card { padding: 34px 26px; }
+    .reason-num { font-size: 42px; }
+
+    .support-list { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .support-item .ph { height: 360px; border-radius: 24px; }
+    .support-item h3 { font-size: 26px; margin-top: 28px; }
+
+    .trainer-list { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .trainer-card { display: grid; grid-template-columns: 240px 1fr; }
+    .trainer-card .ph { height: 100%; min-height: 380px; }
+    .trainer-body { padding: 32px 30px; }
+
+    .ba-list { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .ba-pair .ph { height: 240px; }
+
+    .voice-list { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .voice-card { padding: 32px 28px; }
+
+    .price-list { grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .plan { padding: 40px 30px 32px; }
+    .plan-price { font-size: 42px; }
+    .price-extra { max-width: 760px; margin: 40px auto 0; }
+
+    .flow-list { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .flow-item { flex-direction: column; align-items: center; text-align: center; padding: 32px 22px; }
+    .flow-item p { font-size: 14px; }
+    .flow-cta .btn { width: auto; }
+
+    .access-grid { grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
+    .access-photos .ph { height: 200px; }
+    .map { height: 280px; }
+    .info div { grid-template-columns: 120px 1fr; padding: 18px 0; font-size: 15px; }
+
+    .faq-list { max-width: 880px; margin: 0 auto; gap: 16px; }
+    .faq-item { padding: 26px 32px; }
+    .faq-q { font-size: 17px; }
+    .faq-a { font-size: 15px; }
+
+    .final { padding: 0; }
+    .final-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .final-photo { height: 100%; min-height: 560px; }
+    .final-body { padding: 96px 80px; text-align: left; }
+    .final-title { font-size: 40px; }
+    .final-text { font-size: 16px; }
+    .final-perks { justify-content: flex-start; }
+    .final .btn { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="hdr">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark">L</div>
+      <div class="logo-text">[GYM LOGO]<small>パーソナルジム [店舗名]</small></div>
+    </div>
+    <div class="hdr-right">
+      <nav class="nav"><a>コンセプト</a><a>選ばれる理由</a><a>トレーナー</a><a>料金</a><a>アクセス</a><a>よくある質問</a></nav>
+      <a class="hdr-cta">無料体験を予約</a>
+    </div>
+  </div>
+</header>
+
+<!-- FV -->
+<section class="fv">
+  <div class="fv-inner">
+    <div class="fv-body">
+      <div class="wrap fv-card">
+        <span class="fv-kicker">何度も挫折してきた方へ</span>
+        <h1 class="fv-title">今度こそ、<br><em>続けられる</em>自分に。</h1>
+        <p class="fv-lead">専属トレーナーが、トレーニングも食事も<br>あなたのペースに合わせて伴走します。<br>運動がはじめての方も、手ぶらで気軽に。</p>
+        <ul class="fv-points">
+          <li><b>1on1</b>完全個室で<br>マンツーマン</li>
+          <li><b>MEAL</b>無理のない<br>食事サポート</li>
+          <li><b>FREE</b>ウェア・タオル<br>レンタル無料</li>
+        </ul>
+        <a class="btn">無料体験・カウンセリングを予約<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="btn-sub">所要約60分　｜　しつこい勧誘はありません</span>
+      </div>
+    </div>
+    <div class="ph fv-photo"><span class="ph-label"><b>PHOTO</b>トレーナーが笑顔でお客様をサポートする様子<br>（自然光・清潔感のある店内）</span></div>
+  </div>
+</section>
+
+<!-- 悩み -->
+<section class="worry">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">WORRIES</span>
+      <h2 class="sec-title">こんなお悩み、<br>ありませんか？</h2>
+    </div>
+    <ul class="worry-list">
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>痩せたいのに、何度も挫折している</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>一人でジムに通っても、続かない</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>自己流で頑張っても、結果が出ない</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>何から始めればいいか、分からない</li>
+    </ul>
+    <div class="worry-bridge">
+      <p>続かなかったのは、<br>あなたの意志が弱いから<br>ではありません。</p>
+      <span>やり方と、一緒に走る人がいなかっただけ。</span>
+    </div>
+  </div>
+</section>
+
+<!-- コンセプト -->
+<section class="concept">
+  <div class="wrap concept-grid">
+    <div class="ph concept-photo"><span class="ph-label"><b>PHOTO</b>トレーニング後に笑顔で会話する<br>トレーナーとお客様</span></div>
+    <div>
+      <span class="eyebrow">CONCEPT</span>
+      <h2 class="concept-copy">がんばる、より、<br><em>続けられる</em>を。</h2>
+      <div class="concept-text">
+        <p>私たちが大切にしているのは、短期間で無理をすることではなく、あなたの生活の中に「続けられる習慣」をつくることです。</p>
+        <p>体力や生活リズムに合わせてメニューを組み、できたことを一緒に喜ぶ。そんな積み重ねが、身体だけでなく毎日の気分まで変えていきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="reason">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">REASONS</span>
+      <h2 class="sec-title">はじめての方に<br>選ばれる4つの理由</h2>
+    </div>
+    <div class="reason-list">
+      <div class="reason-card"><div class="reason-num">01</div><h3>あなた専用の<br>オーダーメイド計画</h3><p>姿勢・体力・生活リズムをチェックし、無理なく続けられる内容から始めます。</p></div>
+      <div class="reason-card"><div class="reason-num">02</div><h3>我慢しすぎない<br>食事サポート</h3><p>食事の写真を送るだけ。外食やコンビニでも選び方をアドバイスします。</p></div>
+      <div class="reason-card"><div class="reason-num">03</div><h3>人目を気にしない<br>完全個室</h3><p>トレーニング中は貸し切り。初心者の方も周りを気にせず取り組めます。</p></div>
+      <div class="reason-card"><div class="reason-num">04</div><h3>通うたびに<br>相談できる関係</h3><p>体調や気持ちの変化も遠慮なく。毎回の会話から計画を調整します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- トレーニング／食事サポート -->
+<section class="support">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">SUPPORT</span>
+      <h2 class="sec-title">トレーニングと食事、<br>両方から身体を変える</h2>
+    </div>
+    <div class="support-list">
+      <div class="support-item">
+        <div class="ph"><span class="ph-label"><b>PHOTO</b>フォームを丁寧に指導する<br>トレーニング風景</span></div>
+        <h3><span class="tag">TRAINING</span>正しいフォームを、ていねいに</h3>
+        <p>マシンの使い方から一つずつ。ケガをしにくく、効果の出やすい動き方を身につけます。</p>
+        <ol class="steps-mini">
+          <li><b>01</b>姿勢・体力チェック</li>
+          <li><b>02</b>目標に合わせたメニュー作成</li>
+          <li><b>03</b>毎回の振り返りと調整</li>
+        </ol>
+      </div>
+      <div class="support-item">
+        <div class="ph"><span class="ph-label"><b>PHOTO</b>彩りのよいバランスのとれた食事<br>（手元・テーブル）</span></div>
+        <h3><span class="tag">MEAL</span>食べながら整える食事サポート</h3>
+        <p>極端な制限はしません。今の食生活をもとに、続けられる「ちょうどいい」を一緒に見つけます。</p>
+        <ol class="steps-mini">
+          <li><b>01</b>食事の写真をLINEで送るだけ</li>
+          <li><b>02</b>トレーナーからアドバイスが届く</li>
+          <li><b>03</b>外食・コンビニの選び方もフォロー</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- トレーナー紹介 -->
+<section class="trainer">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">TRAINER</span>
+      <h2 class="sec-title">あなたに寄り添う<br>トレーナー紹介</h2>
+    </div>
+    <div class="trainer-list">
+      <div class="trainer-card">
+        <div class="ph"><span class="ph-label"><b>PHOTO</b>トレーナー①<br>上半身・笑顔</span></div>
+        <div class="trainer-body">
+          <div class="trainer-role">店長／ヘッドトレーナー</div>
+          <div class="trainer-name">[トレーナー名]<small>[NAME]</small></div>
+          <p class="trainer-msg">「運動が苦手」「続いたことがない」という方こそ大歓迎です。小さな「できた」を一緒に積み重ねていきましょう。</p>
+          <div class="trainer-tags"><span class="tag">[保有資格]</span><span class="tag">[指導歴]</span><span class="tag">[得意分野]</span></div>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="ph"><span class="ph-label"><b>PHOTO</b>トレーナー②<br>上半身・笑顔</span></div>
+        <div class="trainer-body">
+          <div class="trainer-role">トレーナー／食事サポート担当</div>
+          <div class="trainer-name">[トレーナー名]<small>[NAME]</small></div>
+          <p class="trainer-msg">食事は我慢より「選び方」。忙しい毎日でも続けられる方法を、あなたの生活に合わせて提案します。</p>
+          <div class="trainer-tags"><span class="tag">[保有資格]</span><span class="tag">[指導歴]</span><span class="tag">[得意分野]</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Before / After -->
+<section class="ba">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">BEFORE / AFTER</span>
+      <h2 class="sec-title">身体が変わると、<br>毎日が変わる</h2>
+    </div>
+    <div class="ba-list">
+      <div class="ba-card">
+        <div class="ba-pair">
+          <div class="ph"><span class="ph-label"><b>BEFORE</b>ご本人の許可を<br>得た写真</span></div>
+          <div class="ph"><span class="ph-label"><b>AFTER</b>ご本人の許可を<br>得た写真</span></div>
+        </div>
+        <div class="ba-meta"><strong>[年代・性別]</strong><span>期間 [○ヶ月]</span><span>体重 [○kg → ○kg]</span></div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-pair">
+          <div class="ph"><span class="ph-label"><b>BEFORE</b>ご本人の許可を<br>得た写真</span></div>
+          <div class="ph"><span class="ph-label"><b>AFTER</b>ご本人の許可を<br>得た写真</span></div>
+        </div>
+        <div class="ba-meta"><strong>[年代・性別]</strong><span>期間 [○ヶ月]</span><span>体重 [○kg → ○kg]</span></div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-pair">
+          <div class="ph"><span class="ph-label"><b>BEFORE</b>ご本人の許可を<br>得た写真</span></div>
+          <div class="ph"><span class="ph-label"><b>AFTER</b>ご本人の許可を<br>得た写真</span></div>
+        </div>
+        <div class="ba-meta"><strong>[年代・性別]</strong><span>期間 [○ヶ月]</span><span>体重 [○kg → ○kg]</span></div>
+      </div>
+    </div>
+    <p class="note ba-note">※効果には個人差があります。掲載の写真・数値はご本人の許可を得たものです。</p>
+  </div>
+</section>
+
+<!-- 利用者の声 -->
+<section class="voice">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">VOICE</span>
+      <h2 class="sec-title">通っている方の声</h2>
+    </div>
+    <div class="voice-list">
+      <div class="voice-card">
+        <div class="voice-head"><div class="ph"><span class="ph-label">PHOTO</span></div><div class="voice-who"><b>[お名前／イニシャル]</b>[年代・性別]・[ご職業]</div></div>
+        <h3>[見出し例：はじめて運動が「楽しい」と思えました]</h3>
+        <p>[ここに実際のお客様の声が入ります。続けられた理由、通ってみての変化、トレーナーの印象など。]</p>
+        <span class="sample">サンプル：実際の声に差し替え</span>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head"><div class="ph"><span class="ph-label">PHOTO</span></div><div class="voice-who"><b>[お名前／イニシャル]</b>[年代・性別]・[ご職業]</div></div>
+        <h3>[見出し例：食事を我慢しなくても変わりました]</h3>
+        <p>[ここに実際のお客様の声が入ります。食事サポートの感想、生活の変化など。]</p>
+        <span class="sample">サンプル：実際の声に差し替え</span>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head"><div class="ph"><span class="ph-label">PHOTO</span></div><div class="voice-who"><b>[お名前／イニシャル]</b>[年代・性別]・[ご職業]</div></div>
+        <h3>[見出し例：何でも相談できるのが心強い]</h3>
+        <p>[ここに実際のお客様の声が入ります。相談しやすさ、通いやすさなど。]</p>
+        <span class="sample">サンプル：実際の声に差し替え</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="price">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">PRICE</span>
+      <h2 class="sec-title">料金プラン</h2>
+      <p class="sec-lead">目的と通うペースに合わせて選べます。</p>
+    </div>
+    <div class="price-list">
+      <div class="plan">
+        <h3>[ライトプラン]</h3>
+        <p class="plan-desc">[月4回・まずは習慣づくりから]</p>
+        <div class="plan-price">¥[00,000]<small>／月（税込）</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[1回50分のトレーニング]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[食事アドバイス]</li>
+        </ul>
+      </div>
+      <div class="plan is-rec">
+        <span class="plan-badge">はじめての方におすすめ</span>
+        <h3>[スタンダードプラン]</h3>
+        <p class="plan-desc">[月8回・しっかり変わりたい方に]</p>
+        <div class="plan-price">¥[00,000]<small>／月（税込）</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[1回50分のトレーニング]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[毎日の食事サポート]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[体組成の定期測定]</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>[集中プラン]</h3>
+        <p class="plan-desc">[○ヶ月・期間を決めて取り組む]</p>
+        <div class="plan-price">¥[000,000]<small>／[期間]（税込）</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[週2回のトレーニング]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[毎日の食事サポート]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>[終了後のフォロー]</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-extra">入会金 <b>¥[00,000]</b>　｜　無料体験・カウンセリング <b>¥0</b></p>
+  </div>
+</section>
+
+<!-- 無料体験までの流れ -->
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">FLOW</span>
+      <h2 class="sec-title">無料体験までの流れ</h2>
+      <p class="sec-lead">体験後、その場で入会を決める必要はありません。</p>
+    </div>
+    <ol class="flow-list">
+      <li class="flow-item"><span class="flow-num">01</span><div><h3>Webで予約</h3><p>ご希望の日時を選ぶだけ。24時間受付しています。</p></div></li>
+      <li class="flow-item"><span class="flow-num">02</span><div><h3>カウンセリング</h3><p>お悩みや目標、生活リズムをゆっくりお聞きします。</p></div></li>
+      <li class="flow-item"><span class="flow-num">03</span><div><h3>体験トレーニング</h3><p>あなたに合ったメニューを実際に体験できます。</p></div></li>
+      <li class="flow-item"><span class="flow-num">04</span><div><h3>ご入会（ご希望の方）</h3><p>持ち帰って検討いただいても大丈夫です。</p></div></li>
+    </ol>
+    <div class="flow-cta">
+      <a class="btn">無料体験・カウンセリングを予約<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <span class="btn-sub">手ぶらでOK　｜　ウェア・シューズ・タオル無料貸出</span>
+    </div>
+  </div>
+</section>
+
+<!-- 店舗情報 -->
+<section class="access">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">ACCESS</span>
+      <h2 class="sec-title">店舗情報・アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div>
+        <div class="access-photos">
+          <div class="ph"><span class="ph-label"><b>PHOTO</b>店舗外観</span></div>
+          <div class="ph"><span class="ph-label"><b>PHOTO</b>トレーニングルーム</span></div>
+        </div>
+        <div class="ph map"><span class="ph-label"><b>MAP</b>Googleマップ埋め込み</span></div>
+      </div>
+      <dl class="info">
+        <div><dt>店舗名</dt><dd>[パーソナルジム 店舗名]</dd></div>
+        <div><dt>住所</dt><dd>[〒000-0000 ○○県○○市○○ 0-0-0 ○○ビル0F]</dd></div>
+        <div><dt>アクセス</dt><dd>[○○駅 ○○口より徒歩○分]</dd></div>
+        <div><dt>営業時間</dt><dd>[0:00〜00:00（最終受付 00:00）]</dd></div>
+        <div><dt>定休日</dt><dd>[○曜日]</dd></div>
+        <div><dt>設備</dt><dd>[完全個室・シャワー・パウダールーム・アメニティ]</dd></div>
+        <div><dt>駐車場</dt><dd>[あり／なし（近隣コインパーキング）]</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="sec-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><p class="faq-q"><span class="qa">Q</span>運動経験がなく、体力にも自信がありません。</p><p class="faq-a"><span class="qa">A</span>ご安心ください。はじめての方がほとんどです。体力に合わせて、無理のない内容から始めます。</p></div>
+      <div class="faq-item"><p class="faq-q"><span class="qa">Q</span>無料体験の後、勧誘されませんか？</p><p class="faq-a"><span class="qa">A</span>しつこい勧誘はいたしません。プランのご説明後、持ち帰ってゆっくりご検討ください。</p></div>
+      <div class="faq-item"><p class="faq-q"><span class="qa">Q</span>持ち物は何が必要ですか？</p><p class="faq-a"><span class="qa">A</span>[ウェア・シューズ・タオルは無料でお貸しします。水分補給用の飲み物だけお持ちください。]</p></div>
+      <div class="faq-item"><p class="faq-q"><span class="qa">Q</span>食事制限はきびしいですか？</p><p class="faq-a"><span class="qa">A</span>極端な制限は行いません。今の食生活をもとに、続けられる範囲で一緒に整えていきます。</p></div>
+      <div class="faq-item"><p class="faq-q"><span class="qa">Q</span>予約の変更・キャンセルはできますか？</p><p class="faq-a"><span class="qa">A</span>[前日○時までのご連絡で、無料で変更できます。]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 最終CTA -->
+<section class="final">
+  <div class="final-inner">
+    <div class="ph final-photo"><span class="ph-label"><b>PHOTO</b>トレーニングを終えて晴れやかな表情のお客様<br>（身体が変わった先の生活をイメージ）</span></div>
+    <div class="final-body">
+      <div class="wrap">
+        <span class="eyebrow" style="color:#bfe0d5">FREE TRIAL</span>
+        <h2 class="final-title">身体が変わると、<br>毎日が少し軽くなる。</h2>
+        <p class="final-text">まずは、今のお悩みを聞かせてください。<br>あなたに合った続け方を、一緒に考えます。</p>
+        <ul class="final-perks"><li>体験料 ¥0</li><li>所要約60分</li><li>手ぶらでOK</li><li>勧誘なし</li></ul>
+        <a class="btn">無料体験・カウンセリングを予約<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="btn-sub">24時間Web受付　｜　お電話 [000-0000-0000]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  © [GYM NAME] All Rights Reserved.
+  <span class="note">※本デザインの [ ] 内・写真・お客様の声・料金はすべて仮のものです。</span>
+</footer>
+
+</body>
+</html>
