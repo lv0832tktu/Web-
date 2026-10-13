@@ -12,7 +12,12 @@
     "serve": "node tools/serve.mjs",
     "check": "node tools/check.mjs",
     "works": "node tools/works.mjs",
-    "kit": "node tools/export-kit.mjs --zip"
+    "kit": "node tools/export-kit.mjs --zip",
+    "production:new": "node scripts/new-project.mjs",
+    "production:assets": "node scripts/check-assets.mjs",
+    "test:production": "node --test tests/*.test.mjs",
+    "build:production": "npm run build --prefix production/template",
+    "test:production:e2e": "npm run test:e2e --prefix production/template"
   },
   "devDependencies": {
     "playwright": "1.56.1"

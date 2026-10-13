@@ -36,3 +36,17 @@ React・Vite・Tailwind・GSAP・Playwright の標準的なローカル使用は
 
 ## 未自動化
 画像の著作権判断、デザイン独自性、画面の美的品質、Stitch公式APIの接続可否は自動判定できません。各案件で手動レビューが必要です。
+
+## 指定構成の追加フロー
+
+新規推奨: `node scripts/new-project.mjs --name yohaku --template landing-page --brief briefs/yohaku.md`。既存CLIは従来どおり利用可能。新CLIはprojects/client-projectsへ生成し、旧案件を移動しない。
+
+- 原文request.md、抽出requirements.json、BRIEF.md、DESIGN-SPEC.md、assets.json、REVIEW.md、納品チェック、READMEを作成。
+- 明示ラベル: ブランド名・目的・ターゲット・納品形式・独自性・制約。自由文はAI担当が読み取り、抽出漏れを補う。自動生成だけで完成した要件・デザインとはしない。
+- `node scripts/import-stitch.mjs <案件> <資料フォルダ>`で取込、元バイト・容量・SHA256を保存。Stitch未接続でも利用可能。
+- 素材台帳の各項目: path（public/assetsからのパス）、type、source、creator、rights、modification、alt、width、height、review（approved/pending）。`node scripts/check-assets.mjs <案件>`で検査。承認済みでも権利判断の証拠を保存。
+- GSAP部品はsrc/components/Motion.jsx。ScrollReveal / AnimatedText / PageTransitionを再利用。routeKey変更を接続し、ルート変更時のフォーカスは呼出側で管理。
+- creative-3dはScene.jsxとOptionalScene.jsxのみ追加。必要になってからthreeと@react-three/fiberを導入、操作前はロードしない。
+- Node.js 22.12以上。lockfileをコミットし、案件はnpm ciで導入。
+
+GitHub Actionsは基盤と生成した3種の案件をビルド・検査。実案件を追加したら、同じコマンドを案件の納品前にも実行する。美観・権利・外部リンクの状態は人による確認を含む。
