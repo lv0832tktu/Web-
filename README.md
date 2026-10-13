@@ -129,6 +129,6 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-案件文の明示ラベルから要件を抽出し、不明項目は仮設定。AI担当が原文と照合しDESIGN-SPEC.mdを完成させる。案件別画像・図・ロゴはassets.jsonで管理。Stitch資料は手動取込CLIで取り込む。3Dは必要案件だけ手動導入・操作後に遅延ロード。追加の有料APIは標準では不要。
+案件文の明示ラベルから要件を抽出し、不明項目は仮設定。AI担当が原文と照合しDESIGN-SPEC.mdを完成させる。案件別画像・図・ロゴはassets.jsonで管理。Stitch資料は手動取込CLIで取り込む。React・Vite・Tailwind CSS・GSAP・Three.js・React Three Fiberを標準採用。3D部品は全React案件に同梱し、必要な画面で操作後に遅延ロード。追加の有料APIは標準では不要。
 
 自動テスト: `npm run test:production`。テンプレート検査: `npm ci --prefix production/template` → `npm run build:production` → `npm run test:production:e2e`。

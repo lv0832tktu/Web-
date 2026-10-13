@@ -43,12 +43,16 @@ test('秘密情報を含むStitch資料は書込前に拒否', () => {
     assert.ok(!fs.existsSync(path.join(dir,'stitch/import')));
   } finally { fs.rmSync(dir,{recursive:true,force:true}); fs.rmSync(input,{recursive:true,force:true}); }
 });
-test('3Dテンプレートも初期依存にThreeを含めない', () => {
-  const name = `three-test-${process.pid}`;
-  const dir = path.join(ROOT,'projects/client-projects',name);
-  try {
-    createProject({ name, template:'creative-3d' });
-    const p = JSON.parse(fs.readFileSync(path.join(dir,'package.json')));
-    assert.ok(!p.dependencies.three); assert.ok(fs.existsSync(path.join(dir,'src/Scene.jsx')));
-  } finally { fs.rmSync(dir,{recursive:true,force:true}); }
+test('全ReactテンプレートにThree/R3F依存と3D部品を標準搭載', () => {
+  for (const template of ['corporate', 'landing-page', 'creative-3d']) {
+    const name = `three-test-${template}-${process.pid}`;
+    const dir = path.join(ROOT,'projects/client-projects',name);
+    try {
+      createProject({ name, template });
+      const p = JSON.parse(fs.readFileSync(path.join(dir,'package.json')));
+      assert.ok(p.dependencies.three); assert.ok(p.dependencies['@react-three/fiber']);
+      assert.ok(fs.existsSync(path.join(dir,'src/Scene.jsx')));
+      assert.ok(fs.existsSync(path.join(dir,'src/OptionalScene.jsx')));
+    } finally { fs.rmSync(dir,{recursive:true,force:true}); }
+  }
 });

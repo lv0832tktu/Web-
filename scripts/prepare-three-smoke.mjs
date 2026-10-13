@@ -1,4 +1,4 @@
-// CI専用の新規案件に任意3Dを配置。既存案件は変更しない。
+// CI専用の新規案件に標準3D部品を配置。既存案件は変更しない。
 import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT } from './lib/production.mjs';

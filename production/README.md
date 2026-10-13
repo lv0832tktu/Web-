@@ -24,7 +24,7 @@ npm run test:e2e
 2. 参考作品は分析のみ。ブランドの固有要素3点、独自コピー、情報設計を決める。架空実績は掲載しない。
 3. Stitchの出力は `stitch/` に手動取り込み。HTML / CSS / 画像 / デザイントークンからReactコンポーネントへ再構成し、ライセンスを確認。未検証のAPI連携に依存しない。
 4. `public/assets/` の写真・図・ロゴは `ASSETS.md` に出典・作成者・利用権利・加工可否・altを記録。
-5. GSAPは必要なセクションだけで使用。`prefers-reduced-motion` に従う。Three.jsは依存にも本番バンドルにもデフォルトでは含めない。
+5. GSAPは必要なセクションだけで使用。`prefers-reduced-motion` に従う。Three.jsとReact Three Fiberを標準依存として全React案件に導入。3D描画は必要な画面で分割ロード。
 6. PC/タブレット/SPでPlaywright検査、目視レビュー、画像権利確認、納品チェックを行う。
 
 ## 13担当の役割マッピング（存在する定義を優先）
@@ -32,7 +32,7 @@ orchestrator / requirements / design-research / creative-director / ui-ux / copy
 役割の詳細は `production/AGENT-ROLES.md`。将来既存のエージェント定義が見つかったら、それを置換せず参照する。
 
 ## 課金と公開
-React・Vite・Tailwind・GSAP・Playwright の標準的なローカル使用は追加の有料APIを必須としません。外部画像サービス、クラウドホスティング、Stitch等のサービス提供条件・利用枠は個別に確認。デプロイ・課金・削除は承認後に実行。
+React・Vite・Tailwind・GSAP・Three.js・React Three Fiber・Playwright の標準的なローカル使用は追加の有料APIを必須としません。外部画像サービス、クラウドホスティング、Stitch等のサービス提供条件・利用枠は個別に確認。デプロイ・課金・削除は承認後に実行。
 
 ## 未自動化
 画像の著作権判断、デザイン独自性、画面の美的品質、Stitch公式APIの接続可否は自動判定できません。各案件で手動レビューが必要です。
@@ -46,7 +46,7 @@ React・Vite・Tailwind・GSAP・Playwright の標準的なローカル使用は
 - `node scripts/import-stitch.mjs <案件> <資料フォルダ>`で取込、元バイト・容量・SHA256を保存。Stitch未接続でも利用可能。
 - 素材台帳の各項目: path（public/assetsからのパス）、type、source、creator、rights、modification、alt、width、height、review（approved/pending）。`node scripts/check-assets.mjs <案件>`で検査。承認済みでも権利判断の証拠を保存。
 - GSAP部品はsrc/components/Motion.jsx。ScrollReveal / AnimatedText / PageTransitionを再利用。routeKey変更を接続し、ルート変更時のフォーカスは呼出側で管理。
-- creative-3dはScene.jsxとOptionalScene.jsxのみ追加。必要になってからthreeと@react-three/fiberを導入、操作前はロードしない。
+- corporate / landing-page / creative-3dの全案件にThree.js・React Three Fiberの依存とScene.jsx・OptionalScene.jsxを標準搭載。操作前は3Dシーンをロードしない。
 - Node.js 22.12以上。lockfileをコミットし、案件はnpm ciで導入。
 
 GitHub Actionsは基盤と生成した3種の案件をビルド・検査。実案件を追加したら、同じコマンドを案件の納品前にも実行する。美観・権利・外部リンクの状態は人による確認を含む。

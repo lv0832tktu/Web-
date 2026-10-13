@@ -47,6 +47,6 @@ fs.writeFileSync(path.join(destination, 'DELIVERY-CHECKLIST.md'),
 fs.writeFileSync(path.join(destination, 'README.md'),
   '# ' + name + '\n\nこの案件は production/template から生成されました。\n\n' +
   '## 実行\n\n```sh\nnpm install\nnpm run dev\nnpm run build\nnpx playwright install chromium\nnpm run test:e2e\n```\n\n' +
-  '## 導入方針\nGSAPは標準。Three.jsは必要な案件でのみ追加してください。Stitchからの手動取り込みは stitch/ を利用。\n\n' +
+  '## 導入方針\nReact/Vite/Tailwind CSS/GSAP/Three.js/React Three Fiberは標準。3D部品はsrc/に同梱済み。必要な画面で遅延ロードしてください。Stitchからの手動取り込みは stitch/ を利用。\n\n' +
   '## 依存・素材・未完成項目\n- 依存パッケージ：package.json を参照\n- 素材の権利情報：ASSETS.md を参照\n- 未完成：案件固有のデザイン、原稿、実データ、画像差し替え\n');
 console.log('作成: ' + path.relative(root, destination));

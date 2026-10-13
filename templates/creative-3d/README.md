@@ -1,11 +1,9 @@
-# 任意3D
+# 標準3D部品の利用
 
 node scripts/new-project.mjs --name sample --template creative-3d
 
-案件に必要な場合のみnpm install three @react-three/fiber。OptionalSceneを画面に配置。静的な代替は3D未導入・WebGL非対応・読込失敗・reduced-motionで表示。ユーザーの操作前に3Dをダウンロードしない。
+Three.js・React Three Fiberはcorporate / landing-page / creative-3dの全React案件に標準導入済み。src/OptionalScene.jsxを必要な画面へ配置する。3D追加インストールは不要。静的な代替はWebGL非対応・読込失敗・reduced-motionで表示。操作前に3Dシーンをダウンロードしない。
 
-## 3D追加後の検査
+OptionalScene配置後、three.spec.jsを案件tests/へコピーし、npm run test:e2e。操作前canvas不在・操作後描画・軽減設定での解除を3端末で検査。WebGL非対応時の静的代替も別途確認。
 
-OptionalSceneをmain.jsxへ配置後、three.spec.jsを案件tests/へコピーし、npm run test:e2eを実行。操作前のcanvas不在・操作後の描画・軽減設定での解除を3端末で検査。WebGL非対応時は静的代替を別途確認。
-
-3Dチャンクは通常JSとは分離されるが重くなりやすい。検証ではgzip約248KB。低性能端末の計測と、モデル・描画負荷の調整が案件ごとに必要。
+Scene.jsx・OptionalScene.jsxの実装本体はproduction/template/src/で管理。3Dチャンクの容量・低性能端末の描画負荷は案件ごとに確認する。

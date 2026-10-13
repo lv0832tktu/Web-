@@ -1,5 +1,7 @@
 # 構築結果・検証記録
 
+追記: Three.js・React Three Fiberの標準化については[STANDARD-STACK-REPORT.md](STANDARD-STACK-REPORT.md)を参照。以下の検証は初回構築時の記録。
+
 確認日: 2026-10-13。基点: feature/ai-web-production-v2-20261013（39d735f）。mainへのマージ・サイト公開・課金は未実行。
 
 ## 追加・変更
@@ -71,7 +73,7 @@
 - corporate/landing-pageは共通のReact開始点＋異なる制作手順。完成した案件別の企業サイトやLPではない。
 - ブランド独自性・画像違和感・権利はレビュー基準と台帳を使う目視確認。自動で保証しない。
 - テストはChromiumの3画面幅。Safari/Firefox、スクリーンリーダー、実スマートフォンの性能、外部リンクのHTTP状態は未検証。
-- Three/R3Fは必要案件のみ導入。3D警告の解消・容量や描画負荷の最適化は案件依存。
+- 初回構築時点ではThree/R3Fは必要案件のみ導入（標準化追記を参照）。3D警告の解消・容量や描画負荷の最適化は案件依存。
 - GitHub Actions設定を追加。リモート実行結果はPRのChecksで確認すること。
 
 ## 追加費用

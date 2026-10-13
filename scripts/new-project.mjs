@@ -22,11 +22,7 @@ export function createProject({ name, brief, template = 'landing-page' }) {
   write(path.join(destination, 'REVIEW.md'), '# レビュー記録\n\nproduction/REVIEW-RUBRIC.mdを参照。各指摘に画面・根拠・修正・再確認を記録。\n');
   write(path.join(destination, 'DELIVERY-CHECKLIST.md'), '# 納品チェック\n\n' + ['仮設定を依頼主と確認','ブランド固有の要素とコピーを検証','素材の出典・権利・alt・寸法を記録','Stitch資料と実装を目視比較','npm run build','npm run test:e2e（PC・タブレット・スマホ）','キーボード・reduced-motion・リンク・画像・コンソール検査','画像・フォント・JSの容量確認','REVIEW.mdの指摘解消','READMEに利用方法・未実装・追加費用を記載','公開・課金・削除は事前承認'].map(s => '- [ ] ' + s).join('\n') + '\n');
   write(path.join(destination, 'README.md'), `# ${name}\n\n案件固有デザイン・コピー・画像は制作待ち。仮設定はBRIEF.mdを参照。\n\n\`npm ci\` → \`npm run dev\` → \`npm run build\` → \`npx playwright install chromium\` → \`npm run test:e2e\`\n\nStitch資料はルートから \`node scripts/import-stitch.mjs projects/client-projects/${name} <資料フォルダ>\`。素材はassets.jsonで管理し、\`node scripts/check-assets.mjs projects/client-projects/${name}\`で検査。\n\n追加費用: 標準APIなし。外部フォーム・ホスティング・有料素材は別途承認。\n`);
-  if (template === 'creative-3d') {
-    fs.cpSync(path.join(ROOT, 'templates/creative-3d/Scene.jsx'), path.join(destination, 'src/Scene.jsx'));
-    fs.cpSync(path.join(ROOT, 'templates/creative-3d/OptionalScene.jsx'), path.join(destination, 'src/OptionalScene.jsx'));
-    write(path.join(destination, 'THREE-SETUP.md'), '3Dが案件に必要と判断した後、npm install three @react-three/fiber を実行し、OptionalSceneを必要な画面のみで利用。初期状態では依存もロードもありません。\n');
-  }
+  write(path.join(destination, 'THREE-SETUP.md'), 'Three.jsとReact Three Fiberは標準依存として導入済み。src/OptionalScene.jsxを必要な画面へ配置。3Dシーンはユーザーの操作後に遅延ロードし、reduced-motionとWebGL非対応時は静的代替を表示。追加インストールは不要。\n');
   return destination;
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

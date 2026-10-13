@@ -11,7 +11,7 @@
 | copy-seo | BRIEF、競合 | 見出し、CTA、meta、事実確認 |
 | visual-assets | コンセプト、素材 | アセット台帳、画像仕様、出典・権利 |
 | motion-designer | UI、コンセプト | GSAP適用箇所、モーション設定、軽減動作 |
-| frontend | UI、画像、モーション | React/Vite/Tailwind実装、分割ロード |
+| frontend | UI、画像、モーション | React/Vite/Tailwind/GSAP/Three.js/React Three Fiber実装、分割ロード |
 | responsive | 実装 | モバイル・タブレット・PC表示検証 |
 | quality-assurance | 実装 | Playwright、ビルド、コンソール、キーボード |
 | design-review | スクリーンショット | 画一性、違和感、読みやすさの修正指摘 |

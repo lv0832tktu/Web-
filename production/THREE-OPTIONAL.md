@@ -1,10 +1,9 @@
-# Three.js・React Three Fiberのオプション導入
+# Three.js・React Three Fiberの標準搭載
 
-標準案件はGSAP/CSSのみを使用。立体商品、インタラクティブな空間等、3Dの情報価値がある場合にのみ導入します。
+React・Vite・Tailwind CSS・GSAP・Three.js・React Three Fiberを標準技術とする。ファイル名は既存リンクとの互換性のため維持。
 
-```sh
-cd projects/<案件名>
-npm install three @react-three/fiber @react-three/drei
-```
+Three.jsとReact Three Fiberはproduction/template/package.jsonとlockfileに含まれ、npm ciで全React案件へ導入される。追加のAPIキーや有料APIは不要。
 
-3Dシーンは `React.lazy(() => import('./components/Scene3D.jsx'))` で分割し、`Suspense` と静止画フォールバックを用意。端末負荷・操作・非表示時の停止・reduced-motionを検証します。GPU非対応時にも主要導線が利用できることを必須とします。
+src/OptionalScene.jsxを必要な画面へ配置。Scene.jsxは操作後に遅延ロード。静止画代替、WebGL非対応、読込エラー、reduced-motionにも対応する。初期画面のJavaScriptに3Dシーンを混ぜず、モデル・描画負荷を案件ごとに検証する。
+
+@react-three/dreiは必要な案件で追加する補助ライブラリ。標準依存ではない。

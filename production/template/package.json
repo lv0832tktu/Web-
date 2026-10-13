@@ -10,11 +10,13 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@react-three/fiber": "^9.8.1",
     "@tailwindcss/vite": "^4.1.0",
     "gsap": "^3.14.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.0"
+    "tailwindcss": "^4.1.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

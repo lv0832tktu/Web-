@@ -74,7 +74,7 @@ jobs:
         working-directory: projects/client-projects/ci-project
       - run: npm run test:e2e
         working-directory: projects/client-projects/ci-project
-  optional-three:
+  three-smoke:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -83,7 +83,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/prepare-three-smoke.mjs
-      - run: npm ci && npm install --no-audit --no-fund three @react-three/fiber
+      - run: npm ci
         working-directory: projects/client-projects/ci-three-smoke
       - run: npm run build
         working-directory: projects/client-projects/ci-three-smoke
