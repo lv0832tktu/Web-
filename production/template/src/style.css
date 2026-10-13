@@ -1,0 +1,21 @@
+@import "tailwindcss";
+:root { font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; color: #202b29; background: #f5f3ec; font-synthesis: none; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid #145c5b; outline-offset: 4px; }
+.skip-link { position: absolute; transform: translateY(-200%); z-index: 10; background: white; padding: 12px; }
+.skip-link:focus { transform: translateY(0); }
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 24px clamp(20px, 6vw, 96px); }
+.site-header a { text-decoration: none; }
+.hero { min-height: 75svh; padding: clamp(80px, 12vw, 170px) clamp(20px, 10vw, 160px); max-width: 1200px; }
+.eyebrow { font-size: 12px; letter-spacing: .22em; font-weight: 700; }
+h1 { font-size: clamp(2.6rem, 7vw, 6.25rem); line-height: 1.2; letter-spacing: -.04em; text-wrap: balance; margin: .35em 0; }
+p { line-height: 1.8; max-width: 62ch; }
+.cta { display: inline-flex; gap: 24px; padding: 15px 22px; margin-top: 24px; background: #145c5b; color: white; text-decoration: none; min-height: 48px; align-items: center; }
+.concept { padding: 120px clamp(20px, 10vw, 160px); background: #e5e8dd; }
+.concept h2 { font-size: clamp(1.75rem, 4vw, 3.5rem); line-height: 1.3; }
+footer { padding: 32px clamp(20px, 6vw, 96px); font-size: 12px; }
+@media (max-width: 600px) { .site-header { padding: 20px; } .hero { min-height: 65svh; padding-top: 100px; } .concept { padding-block: 80px; } }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
