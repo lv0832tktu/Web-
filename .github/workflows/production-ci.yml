@@ -1,0 +1,32 @@
+name: Web Production Template CI
+on:
+  push:
+    paths:
+      - 'production/**'
+      - '.github/workflows/production-ci.yml'
+  pull_request:
+    paths:
+      - 'production/**'
+      - '.github/workflows/production-ci.yml'
+permissions:
+  contents: read
+jobs:
+  starter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: production/template
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Browser tests
+        run: npm run test:e2e
