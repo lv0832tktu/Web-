@@ -1,0 +1,93 @@
+name: Web Production Template CI
+on:
+  push:
+    paths:
+      - 'production/**'
+      - 'agents/**'
+      - 'design-system/**'
+      - 'references/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'projects/client-projects/**'
+      - 'package.json'
+      - '.github/workflows/production-ci.yml'
+  pull_request:
+    paths:
+      - 'production/**'
+      - 'agents/**'
+      - 'design-system/**'
+      - 'references/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'projects/client-projects/**'
+      - 'package.json'
+      - '.github/workflows/production-ci.yml'
+permissions:
+  contents: read
+jobs:
+  starter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: production/template
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Production workflow tests
+        working-directory: .
+        run: node --test tests/*.test.mjs
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Browser tests
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: production-test-results
+          path: production/template/test-results/
+  generated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        template: [corporate, landing-page, creative-3d]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/new-project.mjs --name ci-project --template ${{ matrix.template }}
+      - run: npm ci
+        working-directory: projects/client-projects/ci-project
+      - run: npm run build
+        working-directory: projects/client-projects/ci-project
+      - run: npx playwright install --with-deps chromium
+        working-directory: projects/client-projects/ci-project
+      - run: npm run test:e2e
+        working-directory: projects/client-projects/ci-project
+  three-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/prepare-three-smoke.mjs
+      - run: npm ci
+        working-directory: projects/client-projects/ci-three-smoke
+      - run: npm run build
+        working-directory: projects/client-projects/ci-three-smoke
+      - run: npx playwright install --with-deps chromium
+        working-directory: projects/client-projects/ci-three-smoke
+      - run: npm run test:e2e -- tests/three.spec.js
+        working-directory: projects/client-projects/ci-three-smoke

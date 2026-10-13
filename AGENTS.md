@@ -115,3 +115,7 @@ DBを拡張したいときは `tools/taxonomy/*.mjs` を編集して `npm run bu
 - [ ] PC(1440)とSP(375)で崩れがない（`render.mjs --fullpage` の画像で確認）
 - [ ] 効果音のON/OFF、reduced-motion、キーボード操作が機能する
 - [ ] `delivery/<案件>/` に納品物と `README.txt`（使い方・フォント・素材ライセンス）がある
+
+## 7. React制作基盤と13担当
+
+既存の静的HTML手順に加え、React案件は `scripts/new-project.mjs` と [production/README.md](production/README.md) を使用。担当の入力・成果物・完了基準は `agents/` の13ファイルと既存 `production/AGENT-ROLES.md`。案件資料は `projects/client-projects/<slug>/` に保存。デザイン規則は `design-system/`、目視レビューは `production/REVIEW-RUBRIC.md` を参照。標準技術はReact/Vite/Tailwind CSS/GSAP/Three.js/React Three Fiber。全React案件に標準依存と3D部品を搭載し、3D描画は必要な画面で遅延ロードする。APIキーをフロントエンドやGitへ含めない。公開・課金・既存ファイル削除は事前承認。

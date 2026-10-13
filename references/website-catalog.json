@@ -1,0 +1,162 @@
+{
+  "source": "knowledge/reference-works/works.json",
+  "note": "既存研究ノートの索引。権利・現在の内容・評価は案件ごとに再確認。画像・コードを収録しない。",
+  "entries": [
+    {
+      "id": "REF-WEB-001",
+      "title": "Lando Norris 公式サイト",
+      "url": "https://landonorris.com/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-002",
+      "title": "Messenger",
+      "url": "https://messenger.abeto.co/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-003",
+      "title": "Igloo Inc",
+      "url": "https://www.igloo.inc/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-004",
+      "title": "Dropbox Brand（ブランドガイドラインサイト）",
+      "url": "https://brand.dropbox.com/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-005",
+      "title": "Immersive Garden 公式サイト",
+      "url": "https://immersive-g.com/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-006",
+      "title": "Cartier Watches & Wonders 2025",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-007",
+      "title": "Montfort",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-008",
+      "title": "Siena Film Foundation",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-009",
+      "title": "Navigate",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-010",
+      "title": "Tracing Art",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-011",
+      "title": "Anime.js 公式サイト",
+      "url": "https://animejs.com/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-012",
+      "title": "Terminal Industries",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-013",
+      "title": "Ponpon Mania",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-014",
+      "title": "MindMarket",
+      "url": "https://www.awwwards.com/websites/sites_of_the_month/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-015",
+      "title": "The Shift",
+      "url": "https://garden-eight.com/cases/the-shift/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-016",
+      "title": "SOIL",
+      "url": "https://www.awwwards.com/websites/Japan/?page=3",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-017",
+      "title": "Layrid",
+      "url": "https://www.awwwards.com/websites/Japan/?page=3",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-WEB-018",
+      "title": "Apple 製品ページ（AirPods Pro / iPhone）",
+      "url": "https://www.apple.com/jp/airpods-pro/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-001",
+      "title": "Linear（ランディングページ）",
+      "url": "https://linear.app/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-002",
+      "title": "Stripe（トップページ）",
+      "url": "https://stripe.com/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-003",
+      "title": "Vercel（トップページ）",
+      "url": "https://vercel.com/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-004",
+      "title": "美容・健康食品・サプリの「悩み解決型」LP群",
+      "url": "https://rdlp.jp/lp-archive/search?sa=%E3%82%B5%E3%83%97%E3%83%AA",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-005",
+      "title": "医療脱毛LP（FVで「医療×実績」）",
+      "url": "https://break-marketing-program.jp/blog/2025/06/06/landing-page-example/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-006",
+      "title": "営業DX支援のBtoB LP（動画FV）",
+      "url": "https://conversion-labo.jp/report/lp_design/12973/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-007",
+      "title": "冷蔵車レンタルLP（強み×対象者を明示）",
+      "url": "https://mk-design.jp.net/2025/07/08/lp-firstview-design/",
+      "rights": "reference-only; asset-reuse-not-granted"
+    },
+    {
+      "id": "REF-LP-008",
+      "title": "教育ローンLP（利用シーンのFVで申込116%）",
+      "url": "https://kaizenplatform.com/contents/first-view",
+      "rights": "reference-only; asset-reuse-not-granted"
+    }
+  ]
+}

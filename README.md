@@ -112,3 +112,23 @@ delivery/        納品物
 ## 動作環境
 
 Node.js 18+ ／ （書き出し）Playwright・ffmpeg ／ テンプレート自体は依存なしの HTML/CSS/JS（どのサーバーにも置けます）
+
+## React制作基盤（13担当）
+
+[調査と実装差分](production/STRUCTURE-PLAN.md) ／ [制作操作](production/README.md) ／ [レビュー基準](production/REVIEW-RUBRIC.md)
+
+指定構成: agents/（13担当）、design-system/（文字・配置・色・動き）、references/（既存参考ノートの索引）、templates/（corporate / landing-page / creative-3d）、projects/client-projects/、scripts/、tests/。
+
+```sh
+node scripts/new-project.mjs --name yohaku --template landing-page --brief briefs/yohaku.md
+cd projects/client-projects/yohaku
+npm ci
+npm run dev
+npm run build
+npx playwright install chromium
+npm run test:e2e
+```
+
+案件文の明示ラベルから要件を抽出し、不明項目は仮設定。AI担当が原文と照合しDESIGN-SPEC.mdを完成させる。案件別画像・図・ロゴはassets.jsonで管理。Stitch資料は手動取込CLIで取り込む。React・Vite・Tailwind CSS・GSAP・Three.js・React Three Fiberを標準採用。3D部品は全React案件に同梱し、必要な画面で操作後に遅延ロード。追加の有料APIは標準では不要。
+
+自動テスト: `npm run test:production`。テンプレート検査: `npm ci --prefix production/template` → `npm run build:production` → `npm run test:production:e2e`。

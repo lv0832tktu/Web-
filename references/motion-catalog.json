@@ -1,0 +1,29 @@
+{
+  "source": "knowledge/motion-guide.md",
+  "entries": [
+    {
+      "id": "scroll-reveal",
+      "implementation": "production/template/src/components/Motion.jsx#ScrollReveal",
+      "purpose": "節の登場を伝える",
+      "reducedMotion": "即時表示"
+    },
+    {
+      "id": "animated-text",
+      "implementation": "production/template/src/components/Motion.jsx#AnimatedText",
+      "purpose": "ブランドの主題を提示",
+      "reducedMotion": "文字を分割演出せず表示"
+    },
+    {
+      "id": "page-transition",
+      "implementation": "production/template/src/components/Motion.jsx#PageTransition",
+      "purpose": "ルート変更の連続性",
+      "reducedMotion": "即時表示"
+    },
+    {
+      "id": "optional-3d",
+      "implementation": "templates/creative-3d/OptionalScene.jsx",
+      "purpose": "立体形状を示す",
+      "reducedMotion": "静的代替、遅延ロード停止"
+    }
+  ]
+}
