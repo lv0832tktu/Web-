@@ -1,0 +1,16 @@
+{
+  "name": "export-formats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HTMLで制作した作品を Figma（SVG）・Illustrator（AI/SVG）・Photoshop（レイヤー付きPSD）・PDF・PNG に書き出す",
+  "scripts": {
+    "export": "node export.mjs",
+    "test": "node test/run.mjs"
+  },
+  "dependencies": {
+    "ag-psd": "31.0.3",
+    "playwright": "1.56.1",
+    "pngjs": "7.0.0"
+  }
+}
